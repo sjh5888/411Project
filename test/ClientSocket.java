@@ -32,9 +32,9 @@ public class ClientSocket {
              System.exit(1);
          }
      } //ClientSocket
-    public void start() {
+    public void start(int cc) {
          try {
-             requestService(socket);  
+             requestService(socket, cc);  
              socket.close();
              System.out.println("CLIENT: connection closed");
              
@@ -43,15 +43,17 @@ public class ClientSocket {
          }
          
      } // run()
-protected void requestService(Socket socket) throws IOException {         
+protected void requestService(Socket socket, int cc) throws IOException {         
         String servStr = readFromSocket(socket);          // Check for "Hello"
         System.out.println("SERVER: " + servStr);         // Report the server's response
         if (servStr.substring(0,5).equals("Hello")) {
             //System.out.println("CLIENT: type a line or 'goodbye' to quit"); // Prompt the user
             String userStr = "";
             do {
-                userStr = readFromSocket(socket);                   // Get input from socket
+                //userStr = readFromSocket(socket);                   // Get input from socket
+                userStr = String.valueOf(cc);
                 writeToSocket(socket, userStr + "\n");          // Send it to server
+                writeToSocket(socket, "goodbye");
                 servStr = readFromSocket(socket);               // Read the server's response
                 System.out.println("SERVER: " + servStr);       // Report the server's response
             } while (!userStr.toLowerCase().equals("goodbye")); // Until user says 'goodbye'
@@ -80,10 +82,10 @@ protected void requestService(Socket socket) throws IOException {
         for (int k = 0; k < str.length() ; k++)
             oStream.write(str.charAt(k));
     } // writeToSocket()
-public static void main (String args[]) {
-        ClientSocket client = new ClientSocket("localhost", 10001);
-        client.start();
-    } // main()
+//public static void main (String args[]) {
+  //      ClientSocket client = new ClientSocket("localhost", 10001);
+    //    client.start();
+    //} // main()
     
 }
 
