@@ -54,8 +54,9 @@ protected void requestService(Socket socket, int cc) throws IOException {
                 userStr = String.valueOf(cc);
                 writeToSocket(socket, userStr + "\n");          // Send it to server
                 writeToSocket(socket, "goodbye");
-                servStr = readFromSocket(socket);               // Read the server's response
-                System.out.println("SERVER: " + servStr);       // Report the server's response
+                servStr = readFromSocket(socket);               // Read the server's 
+                test1 t1 = new test1();        
+                t1.returnStatement("Return: " + servStr);       // Report the server's response
             } while (!userStr.toLowerCase().equals("goodbye")); // Until user says 'goodbye'
         }
         

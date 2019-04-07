@@ -17,7 +17,7 @@ public class QueryLogic {
             query = startQuery;
         }
         else {
-            query = startQuery + " WHERE ID='" + query + "';";
+            query = startQuery + " WHERE ID='" + query + "'";
         }
         return query;
     }

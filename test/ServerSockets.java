@@ -42,7 +42,7 @@ public class ServerSockets {
     
     public void start() {
         try {
-            System.out.println("Echo server at echoserver "
+            System.out.println("Server Socket at ServerSocket "
                                + InetAddress.getLocalHost() + " waiting for connections ");
             while(true) {
                 socket = port.accept();
@@ -67,21 +67,29 @@ public class ServerSockets {
         String str="";
         //QueryClass qc = new QueryClass();
         try {
-            writeToSocket(socket, "Hello. You are connected to " + socket.getLocalPort() + "\n"); //change to display port number 11001
+            writeToSocket(socket, "Hello. You are connected to ServerSockets" + socket.getLocalPort() + "\n"); //change to display port number 11001
             do {     
                 str = readFromSocket(socket);
+                Test2 t2 = new Test2();
+                t2.getCardNum(socket, str);
                 if (str.toLowerCase().equals("goodbye"))
                     writeToSocket(socket, "Goodbye\n");
                 else
-                    //qc.changeQuery(str);
-                    writeToSocket( socket, str + "'\n");
+                    writeToSocket(socket, str + "\n");
             }  while (!str.toLowerCase().equals("goodbye"));
         } catch (IOException e) {
             e.printStackTrace();
         }
     } // provideServer() 
 
-
+    public void returnCC(String cc) {
+        try {
+            writeToSocket(socket, cc);
+        }
+        catch (Exception e) {
+            e.printStackTrace(System.out);
+        }
+    }
 
     protected String readFromSocket(Socket sock) throws IOException {
         iStream = sock.getInputStream();
