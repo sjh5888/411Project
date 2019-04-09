@@ -4,13 +4,7 @@
     Author     : gkemp
 --%>
 
-            <div id ="indexRightColumn">
-                <div id="welcomeText">
-                    <p>words</p>
-                </div>
-            </div>
-            
-            <div id ="indexLeftColumn">
+            <div id ="indexCenterColumn">
                 <div class ="categoryImage">
                     <a href="#">
                         <span class ="categoryText">Category1</span>
