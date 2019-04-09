@@ -1,6 +1,5 @@
 <%-- 
     Document   : Checkout
-    Created on : Apr 8, 2019, 8:14:00 PM
     Author     : gkemp
 --%>
 
