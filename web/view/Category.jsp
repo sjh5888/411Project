@@ -1,5 +1,5 @@
 <%-- 
-    Document   : Categories
+    Document   : Category
     Author     : gkemp
 --%>
 
