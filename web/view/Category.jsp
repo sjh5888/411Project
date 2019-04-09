@@ -2,6 +2,9 @@
     Document   : Category
     Author     : gkemp
 --%>
+<head>
+<link rel="stylesheet" type="text/css" href="styles/main.css">
+</head>
 
             <div id ="indexCenterColumn">
                 <div class ="categoryImage">
