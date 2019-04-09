@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ProductServlet extends HttpServlet {
 
-   
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -30,7 +29,7 @@ public class ProductServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+
         doPost(request, response); //change later most likely
     }
 
@@ -45,20 +44,34 @@ public class ProductServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+
         String action = request.getParameter("action");
-        
+
         // perform action and set URL to appropriate page
         String url = "/index.jsp";
-        
+
         if (action.equals("continue")) { //continue button on index page
             url = "/categories.jsp";
-        }
-        else if (action.equals("products")) { //selected product category
+            QueryLogic cat = new QueryLogic();
+            String query = cat.query("categories"); //categories table
+            runQuery(query, true); //true for pull
+            //retrieve categories from Db - call access db and query logic
+            //call query, call db, create bean, add attributes to the session obj (or request obj)
+        } else if (action.equals("products")) { //selected product category
             url = "/products.jsp";
-        }
-        else if (action.equals("select")) { //selected product
-            url = "/product.jsp";
+            QueryLogic all = new QueryLogic();
+            String query = all.query("all"); //products table
+            runQuery(query, true); //true for pull
+
+            /*
+            id = String.valueOf(description.hashCode());
+            id = id.substring(0, 7);
+             */
+              
+        } else if (action.equals("select")) { //selected product
+            url = "/product.jsp"; //create array of product beans 
+            //goal is to get data from the structure returned from accessDB...
+            //then that shit has to be stored in a bean and passed in the session object.
         }
 
         // forward to the view
