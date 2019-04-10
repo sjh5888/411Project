@@ -49,7 +49,7 @@ public class CheckoutServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String action = request.getParameter("action");
-        String url = "/index.jsp";
+        String url = "/index.html";
 
         if (action.equals("addToCart")) { //continue button on index page
             String itemID = request.getParameter("itemID");
@@ -59,13 +59,27 @@ public class CheckoutServlet extends HttpServlet {
             c.setPath("/");                     // allow entire app to access it
             response.addCookie(c);
             
-        } else if (action.equals("viewCart")) { //continue button on index page
-            url = "/cart.jsp";
-        } else if (action.equals("checkout")) { //continue button on index page
-            url = "/confirm.jsp";
+        } else if (action.equals("viewCart")) { 
+            url = "/ShoppingCart.jsp";
+        } 
+        else if (action.equals("checkout")) { 
+            url = "/Checkout.jsp";
+            
         }
-        else if (action.equals("confirm")) { //continue button on index page
-            url = "/thanks.jsp";
+        else if (action.equals("confirm")) { 
+            
+            
+            long cardNumber = (long) request.getAttribute("cardNumber");
+            ProcessCC pcc = new ProcessCC();
+            
+            if (pcc.process(cardNumber)){
+                url = "/thanks.jsp";
+            }
+            else{
+                url = "/Checkout.jsp";
+                boolean error = true;
+                request.setAttribute("error",error); //to alert user that the card was declined
+            }
         }
         
         // forward to the view

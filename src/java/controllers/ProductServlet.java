@@ -5,8 +5,14 @@
  */
 package controllers;
 
+import static data.AccessDb.runQuery;
+import data.QueryLogic;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -48,30 +54,45 @@ public class ProductServlet extends HttpServlet {
         String action = request.getParameter("action");
 
         // perform action and set URL to appropriate page
-        String url = "/index.jsp";
+        String url = "/index.html";
+        String description = "";
+        String descriptionHash = "";
+        Product[] products; //array of java beans
+        Product product;
 
         if (action.equals("continue")) { //continue button on index page
-            url = "/categories.jsp";
+            url = "/Category.jsp";
             QueryLogic cat = new QueryLogic();
             String query = cat.query("categories"); //categories table
-            runQuery(query, true); //true for pull
-            //retrieve categories from Db - call access db and query logic
-            //call query, call db, create bean, add attributes to the session obj (or request obj)
-        } else if (action.equals("products")) { //selected product category
-            url = "/products.jsp";
-            QueryLogic all = new QueryLogic();
-            String query = all.query("all"); //products table
-            runQuery(query, true); //true for pull
 
-            /*
-            id = String.valueOf(description.hashCode());
-            id = id.substring(0, 7);
-             */
-              
+            try {
+                description = runQuery(query, true); //true for pull
+                descriptionHash = String.valueOf(description.hashCode());
+                descriptionHash = "C" + descriptionHash; //this is the description ID that will be stored in the Db.
+                //retrieve categories from Db - call access db and query logic
+                //call query, call db, create bean, add attributes to the session obj (or request obj)
+            } catch (SQLException ex) {
+                ex.getMessage();
+            }
+        } else if (action.equals("products")) { //selected product category
+            url = "/Products.jsp";
+            QueryLogic all = new QueryLogic();
+            String query = all.query(descriptionHash);
+            products = runQuery(query, true); // this should return an array of product beans I believe.
+            request.setAttribute("products", products); //products should be accessible to the view using the "products" attribute
+
         } else if (action.equals("select")) { //selected product
-            url = "/product.jsp"; //create array of product beans 
-            //goal is to get data from the structure returned from accessDB...
-            //then that shit has to be stored in a bean and passed in the session object.
+            url = "/IndProducts.jsp"; //create array of product beans 
+            String prodID = String.valueOf(request.getAttribute("productID")); //will get the selected ID from the URL maybe lmao. 
+            QueryLogic one = new QueryLogic();
+            String query = one.query(prodID);
+            try {
+                product = runQuery(query, true); //stored in a bean.
+                request.setAttribute("product", product); //java bean for individual product is stored in the request obj.
+
+            } catch (SQLException ex) {
+                ex.getMessage();
+            }
         }
 
         // forward to the view
