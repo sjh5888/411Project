@@ -70,7 +70,7 @@ public class ProductServlet extends HttpServlet {
                 descriptionHash = String.valueOf(description.hashCode());
                 descriptionHash = "C" + descriptionHash; //this is the description ID that will be stored in the Db.
                 //retrieve categories from Db - call access db and query logic
-                //call query, call db, create bean, add attributes to the session obj (or request obj)
+                
             } catch (SQLException ex) {
                 ex.getMessage();
             }
