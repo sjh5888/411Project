@@ -66,7 +66,7 @@ public class ProductServlet extends HttpServlet {
             String query = cat.query("categories"); //categories table
 
             try {
-                description = runQuery(query, true); //true for pull
+                description = showDescript(query, true); //true for pull
                 descriptionHash = String.valueOf(description.hashCode());
                 descriptionHash = "C" + descriptionHash; //this is the description ID that will be stored in the Db.
                 //retrieve categories from Db - call access db and query logic

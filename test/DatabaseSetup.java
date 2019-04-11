@@ -31,17 +31,22 @@ public class DatabaseSetup
             InputStream in = null;
             ResourceBundle newResources;
 
-            in = ClassLoader.getSystemResourceAsStream("db.properties");
+            //in = ClassLoader.getSystemResourceAsStream("db.properties");
 
-            resources = new PropertyResourceBundle(in);
+            //resources = new PropertyResourceBundle(in);
 
-            in.close();
+            //in.close();
 
-            className = resources.getString("jdbc.driver");
-            url = resources.getString("jdbc.url");
+            //className = resources.getString("jdbc.driver");
+            //url = resources.getString("jdbc.url");
+            //System.out.println(className);
+            //user = resources.getString("jdbc.user");
+            //password = resources.getString("jdbc.password");
+            className = "org.apache.derby.jdbc.ClientDriver";
+            url = "jdbc:derby://localhost:1527/Categories";
             System.out.println(className);
-            user = resources.getString("jdbc.user");
-            password = resources.getString("jdbc.password");
+            user = "app";
+            password = "app";
         } // end try
         
         catch (Exception exp)
@@ -68,7 +73,7 @@ public class DatabaseSetup
             Statement stmt = con.createStatement();
             
             String tmpString;
-            
+            /*
             tmpString = ("CREATE TABLE Products" + 
                          "(ProductID int, " +
                          "Name varchar(255), " +
@@ -81,6 +86,15 @@ public class DatabaseSetup
                          "Size varchar(255), " +
                          "ImageLocation varchar(255), " +
                          "primary key (ProductID))"); 
+            
+                        stmt.execute(tmpString);
+
+            */
+            tmpString = ("CREATE TABLE Categories" + 
+                         "(CategoryID int, " +
+                         "Description varchar(500), " +
+                         "primary key (CategoryID))"); 
+            
             
             stmt.execute(tmpString);
             
