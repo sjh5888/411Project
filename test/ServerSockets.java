@@ -82,15 +82,7 @@ public class ServerSockets {
         }
     } // provideServer() 
 
-    public void returnCC(String cc) {
-        try {
-            writeToSocket(socket, cc);
-        }
-        catch (Exception e) {
-            e.printStackTrace(System.out);
-        }
-    }
-
+    
     protected String readFromSocket(Socket sock) throws IOException {
         iStream = sock.getInputStream();
         String str="";
