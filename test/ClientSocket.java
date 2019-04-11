@@ -13,7 +13,7 @@ import java.io.*;
 
 public class ClientSocket {
     protected static Socket socket;
-    private static int newPort = 11000;
+    //private static int newPort = 11000;
     protected InputStream iStream;            // Instance variables
     protected OutputStream oStream;
     
@@ -32,7 +32,7 @@ public class ClientSocket {
              System.exit(1);
          }
      } //ClientSocket
-    public void start(int cc) {
+    public void start(String cc) {
          try {
              requestService(socket, cc);  
              socket.close();
@@ -43,7 +43,7 @@ public class ClientSocket {
          }
          
      } // run()
-protected void requestService(Socket socket, int cc) throws IOException {         
+protected void requestService(Socket socket, String cc) throws IOException {         
         String servStr = readFromSocket(socket);          // Check for "Hello"
         System.out.println("SERVER: " + servStr);         // Report the server's response
         if (servStr.substring(0,5).equals("Hello")) {
