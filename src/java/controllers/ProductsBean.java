@@ -24,25 +24,90 @@ public class ProductsBean {
  public ProductsBean(){
      
  }
-    public void setProductId(long pId){
-        productId = pId;
+
+    public void setProductId(long productId) {
+        this.productId = productId;
     }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCategoryId(long categoryId) {
+        this.categoryId = categoryId;
+    }
+ 
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setInventory(int inventory) {
+        this.inventory = inventory;
+    }
+
+    public void setShippingLocation(String shippingLocation) {
+        this.shippingLocation = shippingLocation;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public void setImageLocation(String imageLocation) {
+        this.imageLocation = imageLocation;
+    }
+     
+
     
-     public void setName(String n){
-        name = n;
-    }
-     
-     public void setCategoryId(long cId){
-         categoryId = cId;
-     }
-     
-    // publoc void setPrice(p)
+    
+    
     
     public long getProductId(){
         return productId;
     }
-    
+
+    public String getName() {
+        return name;
+    }
+
+    public long getCategoryId() {
+        return categoryId;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getInventory() {
+        return inventory;
+    }
+
+    public String getShippingLocation() {
+        return shippingLocation;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public String getImageLocation() {
+        return imageLocation;
+    }
    
-    
-    
 }
