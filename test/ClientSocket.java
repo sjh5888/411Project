@@ -13,7 +13,6 @@ import java.io.*;
 
 public class ClientSocket {
     protected static Socket socket;
-    //private static int newPort = 11000;
     protected InputStream iStream;            // Instance variables
     protected OutputStream oStream;
     
@@ -21,8 +20,6 @@ public class ClientSocket {
         try {
              socket = new Socket(url, port);
              System.out.println(port);
-             //newPort = Integer.parseInt(readFromSocket(socket));
-             //socket = new Socket(url, newPort);
              System.out.println("CLIENT: connected to " + url + ":" + port);
              System.out.println("CLIENT: port number " + socket.getLocalPort());
              //newPort = newPort + 1;

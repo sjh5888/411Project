@@ -71,7 +71,7 @@ public class ServerSockets {
             do {     
                 str = readFromSocket(socket);
                 ProcessCC pc = new ProcessCC();
-                pc.process(ls); // socket, ls
+                pc.process(str); // socket, ls
                 if (str.toLowerCase().equals("goodbye"))
                     writeToSocket(socket, "Goodbye\n");
                 else
