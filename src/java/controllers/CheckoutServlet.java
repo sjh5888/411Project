@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class CheckoutServlet extends HttpServlet {
 
-    private String cart ="";
+    private String cart = "";
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -58,30 +58,29 @@ public class CheckoutServlet extends HttpServlet {
             c.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
             c.setPath("/");                     // allow entire app to access it
             response.addCookie(c);
-            
-        } else if (action.equals("viewCart")) { 
+
+        } else if (action.equals("viewCart")) {
             url = "/ShoppingCart.jsp";
-        } 
-        else if (action.equals("checkout")) { 
+        } else if (action.equals("checkout")) {
             url = "/Checkout.jsp";
-            
-        }
-        else if (action.equals("confirm")) { 
-            
-            
+
+        } else if (action.equals("confirm")) {
+
+            ClientSocket cs = new ClientSocket("localhost", 10001);
+
             long cardNumber = (long) request.getAttribute("cardNumber");
-            ProcessCC pcc = new ProcessCC();
-            
-            if (pcc.process(cardNumber)){
+
+            String result = cs.start(cardNumber);
+
+            if (result.equals("true")) {
                 url = "/thanks.jsp";
-            }
-            else{
+            } else {
                 url = "/Checkout.jsp";
                 boolean error = true;
-                request.setAttribute("error",error); //to alert user that the card was declined
+                request.setAttribute("error", error); //to alert user that the card was declined
             }
         }
-        
+
         // forward to the view
         getServletContext()
                 .getRequestDispatcher(url)

@@ -55,10 +55,10 @@ public class ProductServlet extends HttpServlet {
 
         // perform action and set URL to appropriate page
         String url = "/index.html";
-        String description = "";
+        String[] description;
         String descriptionHash = "";
-        Product[] products; //array of java beans
-        Product product;
+        ProductsBean[] products; //array of java beans
+        ProductsBean product;
 
         if (action.equals("continue")) { //continue button on index page
             url = "/Category.jsp";
@@ -66,19 +66,21 @@ public class ProductServlet extends HttpServlet {
             String query = cat.query("categories"); //categories table
 
             try {
-                description = showDescript(query, true); //true for pull
-                descriptionHash = String.valueOf(description.hashCode());
-                descriptionHash = "C" + descriptionHash; //this is the description ID that will be stored in the Db.
-                //retrieve categories from Db - call access db and query logic
-                
+                description = runQuery(query, true); //true for pull
+                request.setAttribute("descriptions",description);
+                                
             } catch (SQLException ex) {
                 ex.getMessage();
             }
         } else if (action.equals("products")) { //selected product category
             url = "/Products.jsp";
             QueryLogic all = new QueryLogic();
+            String descr = (String) request.getAttribute("description");
+            descriptionHash = String.valueOf(descr.hashCode());
+            descriptionHash = "C" + descriptionHash; //this is the description ID that will be stored in the Db.
+                //retrieve categories from Db - call access db and query logic
             String query = all.query(descriptionHash);
-            products = runQuery(query, true); // this should return an array of product beans I believe.
+            products = arrayProductQuery(query, true); // this should return an array of product beans I believe.
             request.setAttribute("products", products); //products should be accessible to the view using the "products" attribute
 
         } else if (action.equals("select")) { //selected product
@@ -87,7 +89,7 @@ public class ProductServlet extends HttpServlet {
             QueryLogic one = new QueryLogic();
             String query = one.query(prodID);
             try {
-                product = runQuery(query, true); //stored in a bean.
+                product = indProductQuery(query, true); //stored in a bean.
                 request.setAttribute("product", product); //java bean for individual product is stored in the request obj.
 
             } catch (SQLException ex) {
