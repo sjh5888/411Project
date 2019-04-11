@@ -68,11 +68,14 @@ public class CheckoutServlet extends HttpServlet {
         }
         else if (action.equals("confirm")) { 
             
+            ClientSocket cs = new ClientSocket("localhost", 10001);
             
             long cardNumber = (long) request.getAttribute("cardNumber");
-            ProcessCC pcc = new ProcessCC();
             
-            if (pcc.process(cardNumber)){
+           String result = cs.start(cardNumber);
+           
+            
+            if (result.equals("true")){
                 url = "/thanks.jsp";
             }
             else{
