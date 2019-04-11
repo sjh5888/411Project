@@ -70,8 +70,9 @@ public class ServerSockets {
             writeToSocket(socket, "Hello. You are connected to ServerSockets" + socket.getLocalPort() + "\n"); //change to display port number 11001
             do {     
                 str = readFromSocket(socket);
-                Test2 t2 = new Test2();
-                t2.getCardNum(socket, str);
+                ProcessCC t2 = new ProcessCC();
+                long ls = Long.parseLong(str);
+                t2.process(ls); // socket, ls
                 if (str.toLowerCase().equals("goodbye"))
                     writeToSocket(socket, "Goodbye\n");
                 else

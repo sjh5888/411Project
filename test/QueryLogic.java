@@ -1,4 +1,4 @@
-package data;
+//package data;
 
 public class QueryLogic
 {
@@ -6,15 +6,18 @@ public class QueryLogic
     private String startQuery;
     
     public QueryLogic() {
-        this.startQuery = "SELECT * FROM PRODUCTS";
+        startQuery = "SELECT * FROM PRODUCTS";
     }
     
     public String query(String query) {
-        if (query.equals("all")) {
-            query = this.startQuery;
+        if (query.equals("categories")) {
+            query = "SELECT CATEGORYID FROM PRODUCTS";
         }
-        else {
-            query = this.startQuery + " WHERE ID='" + query + "'";
+        else if (!query.equals("categores") && query.substring(0, 1).equals("c")) {
+            query = "SELECT * FORM PRODUCTS WHERE CATEGORYID=" + query.substring(1, query.length());
+                }
+        else if (query.substring(0, 1).equals("p")) {
+            query = "WHERE PRODUCTID='" + query.substring(1, query.length());
         }
         return query;
     }
