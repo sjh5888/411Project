@@ -10,25 +10,28 @@
  */
 public class ProcessCC {
    private String convert;
+   
    private int i;
-   private boolean result;
+   private String result;
     
 public ProcessCC (){
    
 }
 
-public boolean process(long id){
+public String process(long id){
     
         convert = Long.toString(id);
         String[] checkArray = convert.split("");
         System.out.println(checkArray.length);
     
         if (checkArray.length == 16){
-            result = true;
+            result = "true";
         }
         else{
-            result = false;
+            result = "false";
         }
+        
+
       return result;
 }
 }
