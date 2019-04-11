@@ -14,7 +14,7 @@ public ProcessCC (){
    
 }
 
-public String process(long id){
+public String process(String id){
     
         //convert = Long.toString(id);
         String[] checkArray = convert.split("");
