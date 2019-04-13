@@ -71,11 +71,11 @@ public class ServerSockets {
             do {     
                 str = readFromSocket(socket);
                 ProcessCC pc = new ProcessCC();
-                pc.process(str); // socket, ls
+                pc.process(socket, str); // socket, ls
                 if (str.toLowerCase().equals("goodbye"))
                     writeToSocket(socket, "Goodbye\n");
                 else
-                    writeToSocket(socket, str + "\n");
+                    writeToSocket(socket, str);  //////////
             }  while (!str.toLowerCase().equals("goodbye"));
         } catch (IOException e) {
             e.printStackTrace();

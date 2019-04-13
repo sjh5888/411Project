@@ -8,27 +8,38 @@
  *
  * @author elgoo
  */
+import java.net.*;
+import java.io.*;
+
 public class ProcessCC {
    private String convert;
    private int i;
-   private boolean result;
-    
+   //private boolean result;
+   private String result;
 public ProcessCC (){
    
 }
 
-public boolean process(long id){
+public String process(Socket socket, String id){
     
-        convert = Long.toString(id);
+        convert = id;
         String[] checkArray = convert.split("");
         System.out.println(checkArray.length);
     
         if (checkArray.length == 16){
-            result = true;
+            result = "true";
         }
         else{
-            result = false;
+            result = "false";
         }
-      return result;
+      ServerSockets ss = new ServerSockets(10001,5);
+      try {
+      ss.writeToSocket(socket, result);
+      }
+      catch (Exception e) {
+          e.printStackTrace(System.out);
+      }
+            return result;
+
 }
 }

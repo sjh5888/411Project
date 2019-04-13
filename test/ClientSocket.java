@@ -49,13 +49,14 @@ protected void requestService(Socket socket, String cc) throws IOException {
             do {
                 //userStr = readFromSocket(socket);                   // Get input from socket
                 userStr = String.valueOf(cc);
-                writeToSocket(socket, userStr + "\n");          // Send it to server
-                writeToSocket(socket, "goodbye");
+                writeToSocket(socket, userStr);          // Send it to server  +"\n"/////////
+                //writeToSocket(socket, "goodbye");
                 servStr = readFromSocket(socket);               // Read the server's 
                 test1 t1 = new test1();        
                 t1.returnStatement("Return: " + servStr);       // Report the server's response
-            } while (!userStr.toLowerCase().equals("goodbye")); // Until user says 'goodbye'
-        }
+            //} while (!userStr.toLowerCase().equals("goodbye")||!userStr.toLowerCase().equals("true")||!userStr.toLowerCase().equals("false")); // Until user says 'goodbye'
+            } while (!servStr.toLowerCase().equals("true"));
+            }
         
     } // requestService()
     protected String readFromSocket(Socket sock) throws IOException {

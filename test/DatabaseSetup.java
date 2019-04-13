@@ -31,22 +31,18 @@ public class DatabaseSetup
             InputStream in = null;
             ResourceBundle newResources;
 
-            //in = ClassLoader.getSystemResourceAsStream("db.properties");
+            in = ClassLoader.getSystemResourceAsStream("db.properties");
 
-            //resources = new PropertyResourceBundle(in);
+            resources = new PropertyResourceBundle(in);
 
-            //in.close();
+            in.close();
 
-            //className = resources.getString("jdbc.driver");
-            //url = resources.getString("jdbc.url");
-            //System.out.println(className);
-            //user = resources.getString("jdbc.user");
-            //password = resources.getString("jdbc.password");
-            className = "org.apache.derby.jdbc.ClientDriver";
-            url = "jdbc:derby://localhost:1527/Categories";
+            className = resources.getString("jdbc.driver");
+            url = resources.getString("jdbc.url");
             System.out.println(className);
-            user = "app";
-            password = "app";
+            user = resources.getString("jdbc.user");
+            password = resources.getString("jdbc.password");
+            
         } // end try
         
         catch (Exception exp)
@@ -99,7 +95,8 @@ public class DatabaseSetup
             stmt.execute(tmpString);
             
             
-            System.out.println("Created Products Table");
+            //System.out.println("Created Products Table");
+            System.out.println("Created Categories Table");
             /*
             String[] brand = {"Asus", "Gigabyte", "MSI", "ASRock", "Asus", "MSI", "Gigabyte", "ASRock"};
             String[] prod = {"ASUS ROG DOMINUS EXTREME", "GIGABYTE Z390 AORUS XTREME WATERFORCE LGA 1151 (300 Series)", "MSI MEG Z390 GODLIKE LGA 1151 (300 Series)", "ASRock Z390 Phantom Gaming 9 LGA 1151 (300 Series)", "ASUS ROG Zenith Extreme Alpha X399", "MSI MEG X399 CREATION sTR4", "GIGABYTE X399 AORUS Gaming 7 sTR4", "ASRock X399 Phantom Gaming 6 sTR4"};
