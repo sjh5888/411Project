@@ -15,6 +15,7 @@ public class ClientSocket {
     protected static Socket socket;
     protected InputStream iStream;            // Instance variables
     protected OutputStream oStream;
+    private String switcher = "on";
     
     public ClientSocket(String url, int port)  {
         try {
@@ -52,10 +53,13 @@ protected void requestService(Socket socket, String cc) throws IOException {
                 writeToSocket(socket, userStr);          // Send it to server  +"\n"/////////
                 //writeToSocket(socket, "goodbye");
                 servStr = readFromSocket(socket);               // Read the server's 
+                if (servStr.equals("true") || servStr.equals("false")) {
+                    switcher = "off";
+                }
                 test1 t1 = new test1();        
                 t1.returnStatement("Return: " + servStr);       // Report the server's response
             //} while (!userStr.toLowerCase().equals("goodbye")||!userStr.toLowerCase().equals("true")||!userStr.toLowerCase().equals("false")); // Until user says 'goodbye'
-            } while (!servStr.toLowerCase().equals("true"));
+            } while (!switcher.equals("off"));
             }
         
     } // requestService()

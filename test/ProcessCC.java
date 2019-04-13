@@ -17,7 +17,7 @@ import java.util.*;
 public class ProcessCC {
    private String convert;
    private String result;
-   private String t;
+   private String t="";
    private String p;
    private int c;
    private int n;
@@ -32,10 +32,9 @@ public String process(Socket socket, String id){
       input1 = input1.reverse(); 
       result = String.valueOf(input1);
       String r = result;
-     t = "";
+      
      for (int i=0; i<r.length(); i++) {
-        char k = r.charAt(i);
-        c = Character.getNumericValue(k);
+        c = Character.getNumericValue(r.charAt(i));
         if (i % 2 != 0) {
           c = c*2;
           t = t + c;
