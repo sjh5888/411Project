@@ -10,9 +10,9 @@
             <span class ="ProdText">Product</span>
         </a>
         <div id="indivProd">
-            <p>Product Description ${ProductsBean.getDescription}</p>
+            <p>Product Description ${ProductsBean.description}</p>
             <span > <button type="submit" class="btn btn-default" 
-                            name="Add to Cart" value="${ProductsBean.getProductId}"> Add To Cart</button></span>
+                            name="Add to Cart" value="${ProductsBean.productId}"> Add To Cart</button></span>
         </div>
     </div>  
 </div>

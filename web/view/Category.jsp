@@ -11,7 +11,7 @@
 
         <a href="./Products.jsp">
             <img src="../sprinkles.jpg" width="250" height="100" alt="sprinkles"/>
-            <span class ="categoryText">Category1</span></a>
+            <span class ="categoryText" >Category1</span></a>
     </div> 
     <div class ="categoryImage">
         <a href="./Products.jsp">
