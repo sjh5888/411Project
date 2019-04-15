@@ -10,13 +10,15 @@
     <body>
         <div id ="main">
             <div id = "header">
-                  <button onclick="goBack()">Back</button>
 
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
+
+                <button onclick="goBack()">Back</button>
+
+                <script>
+                    function goBack() {
+                        window.history.back();
+                    }
+                </script>
                 <div id="widgetBar">  
 
                     <div class="headerWidget">
@@ -31,6 +33,6 @@
                     </div>
                 </div>
 
-
+                
                 <img src="#" id="logoText" alt="Penn State Candy Co.">
             </div>
