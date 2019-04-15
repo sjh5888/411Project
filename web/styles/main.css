@@ -77,7 +77,18 @@ body {
     line-height: 150%;
     font-size: x-large;
 }
+.productImage {
+    height: 120px;
+    width: 200px;
+    margin: 21px 14px 6px;
+    float: inherit;
+    background: #ccc;
+}
 
+.productText {
+    line-height: 150%;
+    font-size: x-large;
+}
 hr{
     border: 0;
     background-color: #333;
