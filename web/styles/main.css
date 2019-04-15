@@ -66,11 +66,17 @@ body {
     background: #aaa;
 }
 .categoryImage {
-    height: 120px;
-    width: 200px;
+    height: 200px;
+    width: 300px;
     margin: 21px 14px 6px;
-    float: inherit;
+    float: left;
     background: #ccc;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
 .categoryText {
