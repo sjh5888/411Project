@@ -14,19 +14,19 @@ body {
     background: #b3d9ff;
     text-align: center;
 }
-#indexCenterColumn {
+#centerColumn {
     height: 500px;
     width: auto;
     background: #e6f2ff;
     align-content: center;
 }
-#indexLeftColumn {
+#leftColumn {
     height: 400px;
     width: 350px;
     float: left;
     background: #e6f2ff;
 }
-#indexRightColumn {
+#rightColumn {
     height: 400px;
     width: 500px;
     float: left;
