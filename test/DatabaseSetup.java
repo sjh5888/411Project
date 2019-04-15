@@ -70,6 +70,15 @@ public class DatabaseSetup
             
             String tmpString;
             /*
+            tmpString = ("CREATE TABLE Categories" + 
+                         "(CategoryID int, " +
+                         "Description varchar(500), " +
+                         "primary key (CategoryID))"); 
+            
+            stmt.execute(tmpString);
+            
+            System.out.println("Created Categories Table");
+            
             tmpString = ("CREATE TABLE Products" + 
                          "(ProductID int, " +
                          "Name varchar(255), " +
@@ -81,29 +90,37 @@ public class DatabaseSetup
                          "Weight float, " +
                          "Size varchar(255), " +
                          "ImageLocation varchar(255), " +
-                         "primary key (ProductID))"); 
+                         "primary key (ProductID), " + 
+                         "foreign key (CategoryID)" + 
+                         "references Categories(CategoryID))"); 
             
                         stmt.execute(tmpString);
 
+                        System.out.println("Created Products Table");
+
+            
             */
-            tmpString = ("CREATE TABLE Categories" + 
-                         "(CategoryID int, " +
-                         "Description varchar(500), " +
-                         "primary key (CategoryID))"); 
+            int[] catid = {Math.abs("white Chocolate".hashCode()), Math.abs("Milk Chocolate".hashCode()), Math.abs("Dark Chocolate".hashCode()), Math.abs("Other".hashCode())};
+            String[] description = {"White Chocolate", "Milk Chocolate", "Dark Chocolate", "Other"};
+            for (int i=0;i<catid.length;i++) {
+                tmpString = ("INSERT INTO  CATEGORIES (CATEGORYID, DESCRIPTION)" +
+                         "VALUES (" + catid[i] + ", '" + description[i] + "')"); 
+                stmt.execute(tmpString);
+            };
             
+            /*    
+            String[] prodid = {};
+            String[] name = {""};
+            double[] price = {};
+            String[] description = {""};
+            int[] inventory = {};
+            String[] shippingLocation = {};
+            int[] weight = {};
+            String[] size = {};
+            String[] imageLocation = {};
             
-            stmt.execute(tmpString);
-            
-            
-            //System.out.println("Created Products Table");
-            System.out.println("Created Categories Table");
-            /*
-            String[] brand = {"Asus", "Gigabyte", "MSI", "ASRock", "Asus", "MSI", "Gigabyte", "ASRock"};
-            String[] prod = {"ASUS ROG DOMINUS EXTREME", "GIGABYTE Z390 AORUS XTREME WATERFORCE LGA 1151 (300 Series)", "MSI MEG Z390 GODLIKE LGA 1151 (300 Series)", "ASRock Z390 Phantom Gaming 9 LGA 1151 (300 Series)", "ASUS ROG Zenith Extreme Alpha X399", "MSI MEG X399 CREATION sTR4", "GIGABYTE X399 AORUS Gaming 7 sTR4", "ASRock X399 Phantom Gaming 6 sTR4"};
-            double[] price = {1799.99, 899.99, 566.34, 233.99, 649.99, 549.99, 369.99, 249.99};
-            String[] chip = {"Intel", "Intel", "Intel", "AMD", "AMD", "AMD", "AMD", "AMD"};
             for (int i=0;i<brand.length;i++) {
-                tmpString = ("INSERT INTO  MOTHERBOARDS (PRODUCTID, BRAND, PRODNAME, PRICE, CHIP)" +
+                tmpString = ("INSERT INTO  PRODUCTS (PRODUCTID, NAME, CATEGORYID, PRICE, DESCRIPTION, INVENTORY, SHIPPINGLOCATION, WEIGHT, SIZE, IMAGELOCATION)" +
                          "VALUES (" + (1111+i) + ", '" + brand[i] + "', '" + prod[i] + "', " + price[i] + ", '" + chip[i] + "')"); 
                 stmt.execute(tmpString);
                         }; */

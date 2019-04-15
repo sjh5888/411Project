@@ -24,15 +24,22 @@ public class ProcessCC {
 public ProcessCC (){
    
 }
-
+/*
+* Method takes a credit card number as a string and reverses the order
+* then multiplies every other number by 2, adds all of the single digits
+* together and then attempts to divide by 10. If it divides then credit
+* card number passes the check, if not the credit card number fails.
+*/
 public String process(Socket socket, String id){
-    
+     
+      // Reverse the credit card string
       StringBuilder input1 = new StringBuilder();
       input1.append(id); 
       input1 = input1.reverse(); 
       result = String.valueOf(input1);
       String r = result;
       
+     // Double every other number
      for (int i=0; i<r.length(); i++) {
         c = Character.getNumericValue(r.charAt(i));
         if (i % 2 != 0) {
@@ -45,19 +52,21 @@ public String process(Socket socket, String id){
         }
         }
      System.out.println("t: " + t);
-  // Finally, add up all the single digits in this string.
-
+     
+  //Add up all the single digits in this string.
   int n = 0;
   for (int i=0; i < t.length(); i++) {
     c = Character.getNumericValue(t.charAt(i));
     n = n + c;
   }
   System.out.println("n: " + n);
-      if (n != 0 && n % 10 == 0) {
-    result = "true";
+  
+    // Check if the result is divisible by ten with no remainder
+    if (n != 0 && n % 10 == 0) {
+        result = "true";
       }
-      else {
-    result = "false";
+    else {
+        result = "false";
       }
       
       ServerSockets ss = new ServerSockets(10001,5);
