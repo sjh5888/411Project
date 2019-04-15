@@ -3,13 +3,7 @@
     Author     : gkemp
 --%>
 
- <div id ="indexLeftColumn">
-                <div id="welcomeText">
-                    <p>words</p>
-                </div>
-            </div>
-            
-            <div id ="indexRightColumn">
+ <div id ="indexCenterColumn">
                 <div class ="categoryImage">
                     <a href="#">
                         <span class ="categoryText">Category1</span>
@@ -26,4 +20,3 @@
                     </a>
                 </div>  
             </div>
-            
