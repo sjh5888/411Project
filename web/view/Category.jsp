@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 
-<div id ="indexCenterColumn">
+<div id ="centerColumn">
 
     <p>Feel free to browse our categories <br/><br/></p>
     <div class="row">

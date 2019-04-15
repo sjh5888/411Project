@@ -3,13 +3,13 @@
     Author     : gkemp
 --%>
 
- <div id ="indexLeftColumn">
+ <div id ="leftColumn">
                 <div id="welcomeText">
                     <p>words</p>
                 </div>
             </div>
             
-            <div id ="indexRightColumn">
+            <div id ="rightColumn">
                 <div class ="productImage">
                     <a href="./IndProducts.jsp">
                         <span class ="productText">Product1</span>

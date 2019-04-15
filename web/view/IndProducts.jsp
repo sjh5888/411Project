@@ -3,7 +3,7 @@
     Author     : gkemp
 --%>
 
-<div id ="indexCenterColumn">
+<div id ="centerColumn">
 
     <div class ="prodImage">
         <a href="#">
