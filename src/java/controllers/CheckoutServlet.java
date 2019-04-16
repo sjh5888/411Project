@@ -5,7 +5,6 @@
  */
 package controllers;
 
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -52,16 +51,19 @@ public class CheckoutServlet extends HttpServlet {
 
         String action = request.getParameter("action");
         String url = "/index.html";
-
-        if (action.equals("addToCart")) { 
+       
+        if(action == null){
+            url = "index.jsp";
             
+        }else if (action.equals("addToCart")) {
+
             String itemID = request.getParameter("itemID");
             cart = cart + itemID;
-            
+
             Cookie c = new Cookie("cart", cart);
-            c.setMaxAge(60 * 60 * 24 * 365 * 3); 
-            c.setPath("/");                     
-            
+            c.setMaxAge(60 * 60 * 24 * 365 * 3);
+            c.setPath("/");
+
             response.addCookie(c);
 
         } else if (action.equals("viewCart")) {
@@ -70,24 +72,24 @@ public class CheckoutServlet extends HttpServlet {
             url = "/Checkout.jsp";
 
         } else if (action.equals("confirm")) {
-
-            ClientSocket cs = new ClientSocket("localhost", 10001);
+            System.out.println("help me"); //test
+            ClientSocket cs = new ClientSocket("localhost", 10002);
 
             String cardNumber = (String) request.getAttribute("cardNumber");
 
-             cs.start(cardNumber);
-             
-             String result = cs.getReturn();
-             System.out.println(result);
+            cs.start(cardNumber);
+
+            String result = cs.getReturn();
+            System.out.println(result);
 
             if (result.equals("true")) {
-                url = "/thanks.jsp";
-                System.out.println("good");
+                url = "/Confirmation.jsp";
+                System.out.println("pass");
             } else {
                 url = "/Checkout.jsp";
                 boolean error = true;
                 request.setAttribute("error", error); //to alert user that the card was declined
-                System.out.println("bad");
+                System.out.println("fail");
             }
         }
 
