@@ -5,6 +5,7 @@
  */
 package controllers;
 
+import data.ClientSocket;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -71,7 +72,7 @@ public class CheckoutServlet extends HttpServlet {
 
             ClientSocket cs = new ClientSocket("localhost", 10001);
 
-            long cardNumber = (long) request.getAttribute("cardNumber");
+            String cardNumber = (String) request.getAttribute("cardNumber");
 
             String result = cs.start(cardNumber);
 

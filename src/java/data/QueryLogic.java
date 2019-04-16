@@ -16,7 +16,7 @@ public class QueryLogic
         if (query.equals("categories")) {
             query = "SELECT CATEGORYID FROM PRODUCTS";
         }
-        else if (!query.equals("categores") && query.substring(0, 1).equals("c")) {
+        else if (!query.equals("categories") && query.substring(0, 1).equals("c")) {
             query = "SELECT * FORM PRODUCTS WHERE CATEGORYID=" + query.substring(1, query.length());
                 }
         else if (query.substring(0, 1).equals("p")) {
