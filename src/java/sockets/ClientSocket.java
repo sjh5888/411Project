@@ -1,4 +1,4 @@
-package controllers;
+package sockets;
 
 /**
  * IST 411 2nd Group Project
@@ -76,7 +76,7 @@ public class ClientSocket {
      *  @throws IOException -- exception to be caught
      */
     protected String requestService(Socket socket, String cc) throws IOException {         
-        String servStr = readFromSocket(socket);          // Check for "Hello"
+        servStr = readFromSocket(socket);          // Check for "Hello"
         System.out.println("SERVER: " + servStr);         // Report the server's response
         if (servStr.substring(0,5).equals("Hello")) {
             //System.out.println("CLIENT: type a line or 'goodbye' to quit"); // Prompt the user
