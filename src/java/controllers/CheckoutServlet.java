@@ -12,6 +12,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import sockets.ClientSocket;
 
 /**
  *
@@ -71,12 +72,15 @@ public class CheckoutServlet extends HttpServlet {
 
             ClientSocket cs = new ClientSocket("localhost", 10001);
 
-            long cardNumber = (long) request.getAttribute("cardNumber");
+            String  cardNumber = (String) request.getAttribute("cardNumber");
 
-            String result = cs.start(cardNumber);
+             cs.start(cardNumber);
+             
+             String result = cs.getReturn();
+             System.out.println(result);
 
             if (result.equals("true")) {
-                url = "/thanks.jsp";
+                url = "/Confirmation.jsp";
             } else {
                 url = "/Checkout.jsp";
                 boolean error = true;
