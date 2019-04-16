@@ -5,7 +5,7 @@
  */
 package controllers;
 
-import static data.AccessDb.runQuery;
+import static data.AccessDb.*;
 import data.QueryLogic;
 import java.io.IOException;
 import java.io.PrintWriter;

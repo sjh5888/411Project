@@ -10,18 +10,28 @@ package controllers;
  * @author elgoo
  */
 public class ProductsBean {
-    private long productId = 0;
-    private String name = null;
-    private long categoryId = 0;
-    private double price = 0;
-    private String description = null;
-    private int inventory = 0;
-    private String shippingLocation = null;
-    private double weight = 0;
-    private String size = null;
-    private String imageLocation = null;
+    private long productId; 
+    private String name;
+    private long categoryId;
+    private double price;
+    private String description;
+    private int inventory;
+    private String shippingLocation;
+    private double weight;
+    private String size;
+    private String imageLocation;
     
  public ProductsBean(){
+     productId = 0;
+     name = null;
+     categoryId = 0;
+     price = 0;
+     description = null;
+     inventory = 0;
+     shippingLocation = null;
+     weight = 0;
+     size = null;
+     imageLocation = null;
      
  }
 

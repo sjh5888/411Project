@@ -3,27 +3,22 @@
     Author     : gkemp
 --%>
 
- <div id ="indexLeftColumn">
-                <div id="welcomeText">
-                    <p>words</p>
-                </div>
-            </div>
+<div id ="centerColumn">
+    <h1>Confirmation</h1>
+    <div class ="categoryImage">
+        <a href="#">
             
-            <div id ="indexRightColumn">
-                <div class ="categoryImage">
-                    <a href="#">
-                        <span class ="categoryText">Category1</span>
-                    </a>
-                </div> 
-                <div class ="categoryImage">
-                    <a href="#">
-                        <span class ="categoryText">Category2</span>
-                    </a>
-                </div>  
-                <div class ="categoryImage">
-                    <a href="#">
-                        <span class ="categoryText">Category3</span>
-                    </a>
-                </div>  
-            </div>
-            
+            <span class ="categoryText">${ProductsBean.productName}</span>
+        </a>
+    </div> 
+    <div class ="categoryImage">
+        <a href="#">
+            <span class ="categoryText">Category2</span>
+        </a>
+    </div>  
+    <div class ="categoryImage">
+        <a href="#">
+            <span class ="categoryText">Category3</span>
+        </a>
+    </div>  
+</div>

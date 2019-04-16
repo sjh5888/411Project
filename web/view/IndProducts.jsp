@@ -3,27 +3,22 @@
     Author     : gkemp
 --%>
 
- <div id ="indexLeftColumn">
-                <div id="welcomeText">
-                    <p>words</p>
-                </div>
-            </div>
-            
-            <div id ="indexRightColumn">
-                <div class ="categoryImage">
-                    <a href="#">
-                        <span class ="categoryText">Category1</span>
-                    </a>
-                </div> 
-                <div class ="categoryImage">
-                    <a href="#">
-                        <span class ="categoryText">Category2</span>
-                    </a>
-                </div>  
-                <div class ="categoryImage">
-                    <a href="#">
-                        <span class ="categoryText">Category3</span>
-                    </a>
-                </div>  
-            </div>
-            
+<div id ="centerColumn">
+
+    <div class ="prodImage">
+        <a href="#">
+            <span class ="ProdText">Product</span>
+        </a>
+        <div id="indivProd">
+            <p>Product Description ${ProductsBean.description}</p>
+             <label class="pad_top">Product Name: </label>
+                <input type="hidden" name="Name" value=${ProductsBean.getName} /><br>
+                <label class="pad_top">ID: </label>
+                <input type="hidden" name="ProductId" value="${ProductsBean.getProductId}" /><br>
+                <label class="pad_top">Price: </label>
+                <input type="hidden" name="Price" value="${ProductsBean.getPrice}" /><br>
+            <span > <button type="submit" class="btn" 
+                            name="Add to Cart" value="${ProductsBean.productId}"> Add To Cart</button></span>
+        </div>
+    </div>  
+</div>

@@ -77,13 +77,13 @@ public class AccessDb {
         }
         return resultStr;
     }
-    
+
     /**
-     * 
+     *
      * @param queryString
      * @param type
      * @return
-     * @throws SQLException 
+     * @throws SQLException
      */
     public static ProductsBean indProductQuery(String queryString, boolean type) throws SQLException {
 
@@ -114,67 +114,58 @@ public class AccessDb {
 
         }
 
-        try {
-            Connection con = DriverManager.getConnection(url, user, password);
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(queryString);
+        Connection con = DriverManager.getConnection(url, user, password);
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery(queryString);
 
-            ResultSetMetaData rsmd = rs.getMetaData();
-            int columnCount = rsmd.getColumnCount();
+        ResultSetMetaData rsmd = rs.getMetaData();
+        int columnCount = rsmd.getColumnCount();
 
-            for (int x = 1; x <= columnCount; x++) {
-                String columnName = rsmd.getColumnName(x);
+        ProductsBean product = new ProductsBean();
 
-            }
-            while (rs.next()) {
-                for (int x = 1; x <= columnCount; x++) {
-                    ProductsBean product = new ProductsBean();
-                    if (columnName.equals("PRODUCTID")){
-                        product.setProductId(rs.getString());
-                    }
-                    else if (columnName.equals("NAME")){
-                        product.setName(rs.getString());
-                    }
-                    else if (columnName.equals("CATEGORYID")){
-                        product.setCategoryId(rs.getString());
-                    }
-                    else if (columnName.equals("PRICE")){
-                        product.setPrice(rs.getString());
-                    }
-                    else if (columnName.equals("DESCRIPTION")){
-                        product.setDescription(rs.getString());
-                    }
-                    else if (columnName.equals("INVENTORY")){
-                        product.setInventory(rs.getString());
-                    }
-                    else if (columnName.equals("SHIPPINGLOCATION")){
-                        product.setShippingLocation(rs.getString());
-                    }
-                    else if (columnName.equals("WEIGHT")){
-                        product.setWeight(rs.getString());
-                    }
-                    else if (columnName.equals("SIZE")){
-                        product.setSize(rs.getString());
-                    }
-                    else if (columnName.equals("IMAGELOCATION")){
-                        product.setImageLocation(rs.getString());
-                    }
-            
-                    
-                    return product;
+        for (int x = 1; x <= columnCount; x++) {
+            String columnName = rsmd.getColumnName(x);
+
+            //while (rs.next()) { //maybe changeto a for loop to run once because we are only getting data for one product
+            for (int i = 1; i <= columnCount; i++) {
+
+                if (columnName.equals("PRODUCTID")) {
+                    product.setProductId(Long.parseLong(rs.getString(i)));
+                } else if (columnName.equals("NAME")) {
+                    product.setName(rs.getString(i));
+                } else if (columnName.equals("CATEGORYID")) {
+                    product.setCategoryId(Long.parseLong(rs.getString(i)));
+                } else if (columnName.equals("PRICE")) {
+                    product.setPrice(Double.parseDouble(rs.getString(i)));
+                } else if (columnName.equals("DESCRIPTION")) {
+                    product.setDescription(rs.getString(i));
+                } else if (columnName.equals("INVENTORY")) {
+                    product.setInventory(Integer.parseInt(rs.getString(i)));
+                } else if (columnName.equals("SHIPPINGLOCATION")) {
+                    product.setShippingLocation(rs.getString(i));
+                } else if (columnName.equals("WEIGHT")) {
+                    product.setWeight(Double.parseDouble(rs.getString(i)));
+                } else if (columnName.equals("SIZE")) {
+                    product.setSize(rs.getString(i));
+                } else if (columnName.equals("IMAGELOCATION")) {
+                    product.setImageLocation(rs.getString(i));
                 }
             }
-                
+        }
+        return product;
+    }
+
     /**
      * Return array of ProductBeans
+     *
      * @param queryString
      * @param type
      * @return
-     * @throws SQLException 
+     * @throws SQLException
      */
     public static ProductsBean arrayProductQuery(String queryString, boolean type) throws SQLException {
-        
-         try {
+
+        try {
             ResourceBundle resources;
             InputStream in = null;
 
@@ -209,31 +200,45 @@ public class AccessDb {
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnCount = rsmd.getColumnCount();
 
-            for (int x = 1; x <= columnCount; x++) {
-                String columnName = rsmd.getColumnName(x);
+            ProductsBean products = new ProductsBean();
+            
+           
+          
 
+int rows = 0;
+if (rs.last()) {
+    rows = rs.getRow();
+    // Move to beginning
+    rs.beforeFirst();
+   
+}
+            
+            for(int i = 0; i < rows;i++){
+            for (int j = 1; j <= columnCount; j++) {
+                String columnName = rsmd.getColumnName(j);
+            
+                while (rs.next()) {
+                    for (int x = 1; x <= columnCount; x++) {
+                        
+                        if (columnName.equals("PRODUCTID")) {
+                            products.setProductId(Long.parseLong(rs.getString(x)));
+                        } else if (columnName.equals("NAME")) {
+                            products.setName((rs.getString(x)));
+                        } else if (columnName.equals("PRICE")) {
+                            products.setPrice(Double.parseDouble(rs.getString(x)));
+                        }
+                    }
+                }
+                }
+                
             }
-            while (rs.next()) {
-                for (int x = 1; x <= columnCount; x++) {
-                    ProductsBean products = new ProductsBean();
-                    if (columnName.equals("PRODUCTID")){
-                        products.setProductId(rs.getString());
-                    }
-                    else if (columnName.equals("NAME")){
-                        products.setName(rs.getString());
-                    }
-                    else if (columnName.equals("PRICE")){
-                        products.setPrice(rs.getString());
-                    }
-                }   
-            }
-    
+
             stmt.close();
             con.close();
         } catch (Exception e) {
             System.out.println(e);
         }
-        return resultStr;
+
+        return resultStr
+
     }
-    
-    
