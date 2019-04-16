@@ -200,6 +200,9 @@ public class AccessDb {
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnCount = rsmd.getColumnCount();
 
+            ProductsBean products = new ProductsBean();
+            
+           
           
 
 int rows = 0;
@@ -211,21 +214,21 @@ if (rs.last()) {
 }
             
             for(int i = 0; i < rows;i++){
-            for (int x = 1; x <= columnCount; x++) {
-                String columnName = rsmd.getColumnName(x);
-            }
+            for (int j = 1; j <= columnCount; j++) {
+                String columnName = rsmd.getColumnName(j);
+            
                 while (rs.next()) {
-                    for (int i = 1; x <= columnCount; x++) {
-                        ProductsBean products = new ProductsBean();
+                    for (int x = 1; x <= columnCount; x++) {
+                        
                         if (columnName.equals("PRODUCTID")) {
-                            products.setProductId(rs.getString());
+                            products.setProductId(Long.parseLong(rs.getString(x)));
                         } else if (columnName.equals("NAME")) {
-                            products.setName(rs.getString());
+                            products.setName((rs.getString(x)));
                         } else if (columnName.equals("PRICE")) {
-                            products.setPrice(rs.getString());
+                            products.setPrice(Double.parseDouble(rs.getString(x)));
                         }
                     }
-                    
+                }
                 }
                 
             }
@@ -236,6 +239,6 @@ if (rs.last()) {
             System.out.println(e);
         }
 
-        return resultStr;
+        return resultStr
 
     }
