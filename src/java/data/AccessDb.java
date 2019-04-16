@@ -200,9 +200,20 @@ public class AccessDb {
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnCount = rsmd.getColumnCount();
 
+          
+
+int rows = 0;
+if (rs.last()) {
+    rows = rs.getRow();
+    // Move to beginning
+    rs.beforeFirst();
+   
+}
+            
+            for(int i = 0; i < rows;i++){
             for (int x = 1; x <= columnCount; x++) {
                 String columnName = rsmd.getColumnName(x);
-
+            }
                 while (rs.next()) {
                     for (int i = 1; x <= columnCount; x++) {
                         ProductsBean products = new ProductsBean();
@@ -214,8 +225,9 @@ public class AccessDb {
                             products.setPrice(rs.getString());
                         }
                     }
-                    return products;
+                    
                 }
+                
             }
 
             stmt.close();
