@@ -18,7 +18,7 @@ import java.sql.*;
 */
 public class DatabaseSetup  
 {
-    public static void main (String args[]) 
+    public static void main (String args[]) throws SQLException 
     {
         String className=null;
         String url=null;
@@ -69,7 +69,7 @@ public class DatabaseSetup
             Statement stmt = con.createStatement();
             
             String tmpString;
-            /*
+            
             tmpString = ("CREATE TABLE Categories" + 
                          "(CategoryID int, " +
                          "Description varchar(500), " +
@@ -99,16 +99,16 @@ public class DatabaseSetup
                         System.out.println("Created Products Table");
 
             
-            */
+            
             int[] catid = {Math.abs("white Chocolate".hashCode()), Math.abs("Milk Chocolate".hashCode()), Math.abs("Dark Chocolate".hashCode()), Math.abs("Other".hashCode())};
             String[] description = {"White Chocolate", "Milk Chocolate", "Dark Chocolate", "Other"};
             for (int i=0;i<catid.length;i++) {
                 tmpString = ("INSERT INTO  CATEGORIES (CATEGORYID, DESCRIPTION)" +
                          "VALUES (" + catid[i] + ", '" + description[i] + "')"); 
                 stmt.execute(tmpString);
-            };
+            }
             
-            /*    
+            /*
             String[] prodid = {};
             String[] name = {""};
             double[] price = {};
@@ -123,7 +123,7 @@ public class DatabaseSetup
                 tmpString = ("INSERT INTO  PRODUCTS (PRODUCTID, NAME, CATEGORYID, PRICE, DESCRIPTION, INVENTORY, SHIPPINGLOCATION, WEIGHT, SIZE, IMAGELOCATION)" +
                          "VALUES (" + (1111+i) + ", '" + brand[i] + "', '" + prod[i] + "', " + price[i] + ", '" + chip[i] + "')"); 
                 stmt.execute(tmpString);
-                        }; */
+                        }; 
             stmt.close();
         
             con.close();
@@ -132,7 +132,7 @@ public class DatabaseSetup
         catch (Exception e) 
         {
             System.out.println(e);
-        } // end catch
+        } // end catch */
     } // end main
 } // end ExecuteExample
 
