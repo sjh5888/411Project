@@ -1,36 +1,27 @@
 package data;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author Laptop
- */
-public class QueryLogic {
+//package data;
+
+public class QueryLogic
+{
     private String query;
-    private String startQuery = "SELECT * FROM PRODUCTS"; //select all from products would only happen with a where clause since they are pulled from the Db based on category.
-                                                            // I think that this should be select * from categories. Could be wrong tho idk. Pineapple. 
+    private String startQuery;
+    
+    public QueryLogic() {
+        startQuery = "SELECT * FROM PRODUCTS";
+    }
     
     public String query(String query) {
-        if (query.equals("all")) {
-            query = startQuery;
+        if (query.equals("categories")) {
+            query = "SELECT CATEGORYID FROM PRODUCTS";
         }
-        else {
-            query = startQuery + " WHERE ID='" + query + "'";
+        else if (!query.equals("categores") && query.substring(0, 1).equals("c")) {
+            query = "SELECT * FORM PRODUCTS WHERE CATEGORYID=" + query.substring(1, query.length());
+                }
+        else if (query.substring(0, 1).equals("p")) {
+            query = "WHERE PRODUCTID='" + query.substring(1, query.length());
         }
         return query;
     }
 }
-
-/*
-Keyword List
-
-"categories" : select * from categories
-
-"all"        : select * from products
-
-*/

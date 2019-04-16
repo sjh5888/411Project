@@ -3,26 +3,26 @@
     Author     : gkemp
 --%>
 
- <div id ="indexLeftColumn">
+ <div id ="leftColumn">
                 <div id="welcomeText">
                     <p>words</p>
                 </div>
             </div>
             
-            <div id ="indexRightColumn">
-                <div class ="categoryImage">
-                    <a href="#">
-                        <span class ="categoryText">Category1</span>
+            <div id ="rightColumn">
+                <div class ="productImage">
+                    <a href="./IndProducts.jsp">
+                        <span class ="productText">Product1</span>
                     </a>
                 </div> 
-                <div class ="categoryImage">
-                    <a href="#">
-                        <span class ="categoryText">Category2</span>
+                <div class ="productImage">
+                    <a href="./IndProducts.jsp">
+                        <span class ="productText">Product2</span>
                     </a>
                 </div>  
-                <div class ="categoryImage">
-                    <a href="#">
-                        <span class ="categoryText">Category3</span>
+                <div class ="productImage">
+                    <a href="./IndProducts.jsp">
+                        <span class ="productText">Product3</span>
                     </a>
                 </div>  
             </div>

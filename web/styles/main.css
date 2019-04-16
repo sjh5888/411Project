@@ -7,33 +7,35 @@ body {
     
 }
 #main {
-    background: #eee;
+    background: #e6f2ff;
 }
 #header {
     height: 250px;
-    background: #aaa;
+    background: #b3d9ff;
+    text-align: center;
 }
-#indexCenterColumn {
+#centerColumn {
     height: 500px;
     width: auto;
-    background: #ccc;
+    background: #e6f2ff;
+    align-content: center;
 }
-#indexLeftColumn {
+#leftColumn {
     height: 400px;
     width: 350px;
     float: left;
-    background: #ccc;
+    background: #e6f2ff;
 }
-#indexRightColumn {
+#rightColumn {
     height: 400px;
     width: 500px;
     float: left;
-    background: #eee;
+    background: #e6f2ff;
 }
 #footer {
     height: 60px;
     clear: left;
-    background: #aaa;
+    background: #b3d9ff;
 }
 #logo {
     height: 150px;
@@ -53,7 +55,7 @@ body {
     height: 50px;
     width: 850px;
     float:right;
-    background: #ccc
+    background: #b3d9ff
 }
 .headerWidget{
     width: 194px;
@@ -64,6 +66,24 @@ body {
     background: #aaa;
 }
 .categoryImage {
+    height: 200px;
+    width: 300px;
+    margin: 21px 14px 6px;
+    float: left;
+    background: #ccc;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.categoryText {
+    line-height: 150%;
+    font-size: x-large;
+}
+.productImage {
     height: 120px;
     width: 200px;
     margin: 21px 14px 6px;
@@ -71,11 +91,10 @@ body {
     background: #ccc;
 }
 
-.categoryText {
+.productText {
     line-height: 150%;
     font-size: x-large;
 }
-
 hr{
     border: 0;
     background-color: #333;
@@ -87,9 +106,6 @@ hr{
     font-size: x-large;
 }
 
-#footerText {
-    
-}
 
 span {
     margin-left: 0.5em;    

@@ -214,9 +214,9 @@ public class AccessDb {
             for (int x = 1; x <= columnCount; x++) {
                 String columnName = rsmd.getColumnName(x);
 
-            }
+       
             while (rs.next()) {
-                for (int x = 1; x <= columnCount; x++) {
+                for (int i = 1; x <= columnCount; x++) {
                     ProductsBean products = new ProductsBean();
                     if (columnName.equals("PRODUCTID")){
                         products.setProductId(rs.getString());
@@ -228,6 +228,7 @@ public class AccessDb {
                         products.setPrice(rs.getString());
                     }
                 }   
+                return Products;
             }
     
             stmt.close();

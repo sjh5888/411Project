@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-      <head>
+    <head>
         <title>411 Candy Shop</title>
         <meta charset="utf-8">
         <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/styles/main.css"/>
@@ -10,20 +10,29 @@
     <body>
         <div id ="main">
             <div id = "header">
-                <div id="widgetBar">   
-                    
+
+
+                <button onclick="goBack()">Back</button>
+
+                <script>
+                    function goBack() {
+                        window.history.back();
+                    }
+                </script>
+                <div id="widgetBar">  
+
                     <div class="headerWidget">
-                        <input type="submit" value="Check Out" name="Check Out" />
+
+                        <a href="./Checkout.jsp"class="btn">
+                            <input type="submit" value="Check Out" name="Check Out" /> </a>
                     </div>
 
                     <div class="headerWidget">
-                        <input type="submit" value="Shopping Cart" name="Shopping Cart" />
+                        <a href="./ShoppingCart.jsp" class="btn">
+                            <input type="submit" value="Shopping Cart" name="Shopping Cart" /> </a>
                     </div>
                 </div>
 
-                <a href="#">
-                    <img src="#" id="logo" alt="Logo/Store Name">
-                </a>
-
+                
                 <img src="#" id="logoText" alt="Penn State Candy Co.">
             </div>
