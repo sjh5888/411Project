@@ -13,7 +13,7 @@ package controllers;
  * @author Kevin Hansen
  */
 
-import .*;
+
 import java.net.*;
 import java.io.*;
 
@@ -71,7 +71,7 @@ public class ClientSocket {
      *  @param cc -- the string holding the credit card number
      *  @throws IOException -- exception to be caught
      */
-    protected void requestService(Socket socket, String cc) throws IOException {         
+    protected String requestService(Socket socket, String cc) throws IOException {         
         String servStr = readFromSocket(socket);          // Check for "Hello"
         System.out.println("SERVER: " + servStr);         // Report the server's response
         if (servStr.substring(0,5).equals("Hello")) {
@@ -86,12 +86,13 @@ public class ClientSocket {
                 if (servStr.equals("true") || servStr.equals("false")) {
                     switcher = "off";
                 }
-                test1 t1 = new test1();        
-                t1.returnStatement("Return: " + servStr);       // Report the server's response
+                //test1 t1 = new test1();        
+                //t1.returnStatement("Return: " + servStr);       // Report the server's response
             //} while (!userStr.toLowerCase().equals("goodbye")||!userStr.toLowerCase().equals("true")||!userStr.toLowerCase().equals("false")); // Until user says 'goodbye'
             } while (!switcher.equals("off"));
             }
-        
+        return servStr;
+
     } // requestService()
     
      /**
