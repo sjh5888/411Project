@@ -22,6 +22,7 @@ public class ClientSocket {
     protected InputStream iStream;            // Instance variables
     protected OutputStream oStream;
     private String switcher = "on";
+    private String servStr;
     
     /**
      * ClientSocket() constructor creates a server object given
@@ -50,16 +51,19 @@ public class ClientSocket {
      *   server repeatedly accepts a connection from a client and
      *   provides it whatever service is defined in requestService().
      */
-    public void start(String cc) {
+    public String start(String cc) {
          try {
              requestService(socket, cc);  
+             servStr = readFromSocket(socket);               // Read the server's 
+
              socket.close();
              System.out.println("CLIENT: connection closed");
              
          } catch (IOException e) { 
              System.out.println(e.getMessage());
          }
-         
+     return servStr;
+
      } // start()
     
     /**
