@@ -214,7 +214,7 @@ public class AccessDb {
                             products.setPrice(rs.getString());
                         }
                     }
-                    return Products;
+                    return products;
                 }
             }
 
