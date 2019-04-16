@@ -13,7 +13,6 @@ package sockets;
  * @author Kevin Hansen
  */
 
-
 import java.net.*;
 import java.io.*;
 
@@ -51,19 +50,15 @@ public class ClientSocket {
      *   server repeatedly accepts a connection from a client and
      *   provides it whatever service is defined in requestService().
      */
-    public String start(String cc) {
+    public void start(String cc) {
          try {
              requestService(socket, cc);  
-             servStr = readFromSocket(socket);               // Read the server's 
-
              socket.close();
              System.out.println("CLIENT: connection closed");
              
          } catch (IOException e) { 
              System.out.println(e.getMessage());
          }
-     return servStr;
-
      } // start()
     
     /**
@@ -75,7 +70,7 @@ public class ClientSocket {
      *  @param cc -- the string holding the credit card number
      *  @throws IOException -- exception to be caught
      */
-    protected String requestService(Socket socket, String cc) throws IOException {         
+    protected void requestService(Socket socket, String cc) throws IOException {         
         servStr = readFromSocket(socket);          // Check for "Hello"
         System.out.println("SERVER: " + servStr);         // Report the server's response
         if (servStr.substring(0,5).equals("Hello")) {
@@ -88,17 +83,20 @@ public class ClientSocket {
                 //writeToSocket(socket, "goodbye");
                 servStr = readFromSocket(socket);               // Read the server's 
                 if (servStr.equals("true") || servStr.equals("false")) {
+                    setReturn("Return: " + servStr);
                     switcher = "off";
                 }
-                //test1 t1 = new test1();        
-                //t1.returnStatement("Return: " + servStr);       // Report the server's response
-            //} while (!userStr.toLowerCase().equals("goodbye")||!userStr.toLowerCase().equals("true")||!userStr.toLowerCase().equals("false")); // Until user says 'goodbye'
-            } while (!switcher.equals("off"));
-            }
-        return servStr;
+           } while (!switcher.equals("off"));
+         }
 
+        //return servStr;
     } // requestService()
-    
+    public void setReturn(String rs) {
+        servStr = rs;
+    }
+    public String getReturn() {
+        return servStr;
+    }
      /**
      *  readFromSocket() reads a String from a given socket
      *  @param sock -- a reference to the Socket object
