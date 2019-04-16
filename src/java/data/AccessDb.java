@@ -114,7 +114,7 @@ public class AccessDb {
 
         }
 
-        try {
+      
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(queryString);
@@ -125,9 +125,9 @@ public class AccessDb {
             for (int x = 1; x <= columnCount; x++) {
                 String columnName = rsmd.getColumnName(x);
 
-            }
+            
             while (rs.next()) {
-                for (int x = 1; x <= columnCount; x++) {
+                for (int i = 1; i <= columnCount; i++) {
                     ProductsBean product = new ProductsBean();
                     if (columnName.equals("PRODUCTID")){
                         product.setProductId(rs.getString());
@@ -159,11 +159,13 @@ public class AccessDb {
                     else if (columnName.equals("IMAGELOCATION")){
                         product.setImageLocation(rs.getString());
                     }
-            
-                    
-                    return product;
                 }
+                }
+            
+                    return product;
+                
             }
+            
                 
     /**
      * Return array of ProductBeans
