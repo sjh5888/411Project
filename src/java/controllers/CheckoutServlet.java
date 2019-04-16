@@ -51,12 +51,15 @@ public class CheckoutServlet extends HttpServlet {
         String action = request.getParameter("action");
         String url = "/index.html";
 
-        if (action.equals("addToCart")) { //continue button on index page
+        if (action.equals("addToCart")) { 
+            
             String itemID = request.getParameter("itemID");
             cart = cart + itemID;
+            
             Cookie c = new Cookie("cart", cart);
-            c.setMaxAge(60 * 60 * 24 * 365 * 3); // set age to 3 years
-            c.setPath("/");                     // allow entire app to access it
+            c.setMaxAge(60 * 60 * 24 * 365 * 3); 
+            c.setPath("/");                     
+            
             response.addCookie(c);
 
         } else if (action.equals("viewCart")) {
