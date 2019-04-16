@@ -5,7 +5,7 @@
  */
 package controllers;
 
-import data.ClientSocket;
+import controllers.ClientSocket;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -78,10 +78,12 @@ public class CheckoutServlet extends HttpServlet {
 
             if (result.equals("true")) {
                 url = "/thanks.jsp";
+                System.out.println("good");
             } else {
                 url = "/Checkout.jsp";
                 boolean error = true;
                 request.setAttribute("error", error); //to alert user that the card was declined
+                System.out.println("bad");
             }
         }
 

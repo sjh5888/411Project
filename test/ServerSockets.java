@@ -1,5 +1,3 @@
-package data;
-
 /**
  * IST 411 2nd Group Project
  * ServerSockets.java
