@@ -120,50 +120,49 @@ public class AccessDb {
 
         ResultSetMetaData rsmd = rs.getMetaData();
         int columnCount = rsmd.getColumnCount();
-        
+
         ProductsBean product = new ProductsBean();
 
         for (int x = 1; x <= columnCount; x++) {
             String columnName = rsmd.getColumnName(x);
 
             //while (rs.next()) { //maybe changeto a for loop to run once because we are only getting data for one product
-                for (int i = 1; i <= columnCount; i++) {
-                    
-                    if (columnName.equals("PRODUCTID")) {
-                        product.setProductId(Long.parseLong(rs.getString(i)));
-                    } else if (columnName.equals("NAME")) {
-                        product.setName(rs.getString(i));
-                    } else if (columnName.equals("CATEGORYID")) {
-                        product.setCategoryId(Long.parseLong(rs.getString(i))); 
-                    } else if (columnName.equals("PRICE")) {
-                        product.setPrice(Double.parseDouble(rs.getString(i)));
-                    } else if (columnName.equals("DESCRIPTION")) {
-                        product.setDescription(rs.getString(i));
-                    } else if (columnName.equals("INVENTORY")) {
-                        product.setInventory(Integer.parseInt(rs.getString(i)));
-                    } else if (columnName.equals("SHIPPINGLOCATION")) {
-                        product.setShippingLocation(rs.getString(i));
-                    } else if (columnName.equals("WEIGHT")) {
-                        product.setWeight(Double.parseDouble(rs.getString(i)));
-                    } else if (columnName.equals("SIZE")) {
-                        product.setSize(rs.getString(i));
-                    } else if (columnName.equals("IMAGELOCATION")) {
-                        product.setImageLocation(rs.getString(i));
-                    }
+            for (int i = 1; i <= columnCount; i++) {
+
+                if (columnName.equals("PRODUCTID")) {
+                    product.setProductId(Long.parseLong(rs.getString(i)));
+                } else if (columnName.equals("NAME")) {
+                    product.setName(rs.getString(i));
+                } else if (columnName.equals("CATEGORYID")) {
+                    product.setCategoryId(Long.parseLong(rs.getString(i)));
+                } else if (columnName.equals("PRICE")) {
+                    product.setPrice(Double.parseDouble(rs.getString(i)));
+                } else if (columnName.equals("DESCRIPTION")) {
+                    product.setDescription(rs.getString(i));
+                } else if (columnName.equals("INVENTORY")) {
+                    product.setInventory(Integer.parseInt(rs.getString(i)));
+                } else if (columnName.equals("SHIPPINGLOCATION")) {
+                    product.setShippingLocation(rs.getString(i));
+                } else if (columnName.equals("WEIGHT")) {
+                    product.setWeight(Double.parseDouble(rs.getString(i)));
+                } else if (columnName.equals("SIZE")) {
+                    product.setSize(rs.getString(i));
+                } else if (columnName.equals("IMAGELOCATION")) {
+                    product.setImageLocation(rs.getString(i));
                 }
             }
-            return product;
+        }
+        return product;
     }
 
-        
-        /**
-         * Return array of ProductBeans
-         *
-         * @param queryString
-         * @param type
-         * @return
-         * @throws SQLException
-         */
+    /**
+     * Return array of ProductBeans
+     *
+     * @param queryString
+     * @param type
+     * @return
+     * @throws SQLException
+     */
     public static ProductsBean arrayProductQuery(String queryString, boolean type) throws SQLException {
 
         try {
@@ -217,12 +216,14 @@ public class AccessDb {
                     }
                     return Products;
                 }
+            }
 
-                stmt.close();
-                con.close();
-            }catch (Exception e) {
+            stmt.close();
+            con.close();
+        } catch (Exception e) {
             System.out.println(e);
         }
-            return resultStr;
-        }
+
+        return resultStr;
+
     }
