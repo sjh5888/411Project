@@ -20,18 +20,6 @@ body {
     background: #e6f2ff;
     align-content: center;
 }
-#leftColumn {
-    height: 400px;
-    width: 350px;
-    float: left;
-    background: #e6f2ff;
-}
-#rightColumn {
-    height: 400px;
-    width: 500px;
-    float: left;
-    background: #e6f2ff;
-}
 #footer {
     height: 60px;
     clear: left;
@@ -65,7 +53,7 @@ body {
     line-height: 25px;
     background: #aaa;
 }
-.categoryImage {
+.image {
     height: 200px;
     width: 300px;
     margin: 21px 14px 6px;
@@ -82,13 +70,6 @@ body {
 .categoryText {
     line-height: 150%;
     font-size: x-large;
-}
-.productImage {
-    height: 120px;
-    width: 200px;
-    margin: 21px 14px 6px;
-    float: inherit;
-    background: #ccc;
 }
 
 .productText {
@@ -110,5 +91,9 @@ hr{
 span {
     margin-left: 0.5em;    
     margin-bottom: 0.5em;    
+}
+
+.pad_top {
+    padding-top: 0.25em;
 }
 
