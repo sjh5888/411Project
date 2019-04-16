@@ -32,9 +32,9 @@ public class ClientSocket {
              System.exit(1);
          }
      } //ClientSocket
-    public void start(String cc) {
+    public  String start(String cc) {
          try {
-             requestService(socket, cc);  
+            requestService(socket, cc);  
              socket.close();
              System.out.println("CLIENT: connection closed");
              
@@ -55,8 +55,8 @@ protected void requestService(Socket socket, String cc) throws IOException {
                 writeToSocket(socket, userStr);          // Send it to server  +"\n"/////////
                 //writeToSocket(socket, "goodbye");
                 servStr = readFromSocket(socket);               // Read the server's 
-                test1 t1 = new test1();        
-                t1.returnStatement("Return: " + servStr);       // Report the server's response
+                //test1 t1 = new test1();        
+                //t1.returnStatement("Return: " + servStr);       // Report the server's response
             //} while (!userStr.toLowerCase().equals("goodbye")||!userStr.toLowerCase().equals("true")||!userStr.toLowerCase().equals("false")); // Until user says 'goodbye'
             } while (!servStr.toLowerCase().equals("true"));
             }
