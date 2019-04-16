@@ -16,10 +16,8 @@
         
         <form action="CheckoutServlet">
             <input type="hidden" name ="action" value ="confirm"</input>
-            <p>Name:</p> 
-            <input type= "text" name="cardNumber"/>
-            <p>Yearly Salary:</p> 
-            <input type= "text" name="salary"/>
+            <p>Card #:</p> 
+            <input type= "text" name="cardNumber"/>      
             <input type= "submit" value="submit"/>
         </form>
         
