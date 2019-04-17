@@ -60,9 +60,12 @@ public class ProductServlet extends HttpServlet {
         ProductsBean product;
 
         if (action.equals("continue")) { //continue button on index page
+            //System.out.println("eggs");
             url = "/view/Category.jsp";
             QueryLogic cat = new QueryLogic();
             String query = cat.query("categories"); //categories table
+           
+            System.out.println(query);
 
             try {
                 description = runQuery(query, true); //true for pull

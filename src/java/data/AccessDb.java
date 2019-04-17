@@ -26,7 +26,7 @@ public class AccessDb {
     public static String[] runQuery(String queryString, boolean type) throws SQLException {
 
         try {
-            ResourceBundle resources;
+            /*ResourceBundle resources;
             InputStream in = null;
 
             in = ClassLoader.getSystemResourceAsStream("db.properties");
@@ -39,7 +39,11 @@ public class AccessDb {
             url = resources.getString("jdbc.url");
             //System.out.println(url);
             user = resources.getString("jdbc.user");
-            password = resources.getString("jdbc.password");
+            password = resources.getString("jdbc.password"); */
+            className = "org.apache.derby.jdbc.ClientDriver";
+            url = "jdbc:derby://localhost:1527/Products";
+            user = "app";
+            password = "app";
         } catch (Exception exp) {
             System.out.println("Couldn't load resources." + exp);
             System.exit(-1);
