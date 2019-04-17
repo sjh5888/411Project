@@ -12,6 +12,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import sockets.ClientSocket;
 
 /**
  *
@@ -50,16 +51,19 @@ public class CheckoutServlet extends HttpServlet {
 
         String action = request.getParameter("action");
         String url = "/index.html";
-
-        if (action.equals("addToCart")) { 
+       
+        if(action == null){
+            url = "index.jsp";
             
+        }else if (action.equals("addToCart")) {
+
             String itemID = request.getParameter("itemID");
             cart = cart + itemID;
-            
+
             Cookie c = new Cookie("cart", cart);
-            c.setMaxAge(60 * 60 * 24 * 365 * 3); 
-            c.setPath("/");                     
-            
+            c.setMaxAge(60 * 60 * 24 * 365 * 3);
+            c.setPath("/");
+
             response.addCookie(c);
 
         } else if (action.equals("viewCart")) {
@@ -68,19 +72,24 @@ public class CheckoutServlet extends HttpServlet {
             url = "/Checkout.jsp";
 
         } else if (action.equals("confirm")) {
+            System.out.println("help me"); //test
+            ClientSocket cs = new ClientSocket("localhost", 10002);
 
-            ClientSocket cs = new ClientSocket("localhost", 10001);
+            String cardNumber = (String) request.getAttribute("cardNumber");
 
-            long cardNumber = (long) request.getAttribute("cardNumber");
+            cs.start(cardNumber);
 
-            String result = cs.start(cardNumber);
+            String result = cs.getReturn();
+            System.out.println(result);
 
             if (result.equals("true")) {
-                url = "/thanks.jsp";
+                url = "/Confirmation.jsp";
+                System.out.println("pass");
             } else {
                 url = "/Checkout.jsp";
                 boolean error = true;
                 request.setAttribute("error", error); //to alert user that the card was declined
+                System.out.println("fail");
             }
         }
 
