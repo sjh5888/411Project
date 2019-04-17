@@ -53,10 +53,10 @@ public class CheckoutServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String action = request.getParameter("action");
-        String url = "/index.html";
+        String url = "/view/index.html";
        
         if(action == null){
-            url = "index.jsp";
+            url = "/view/index.jsp";
             
         }else if (action.equals("addToCart")) {
 
@@ -70,29 +70,27 @@ public class CheckoutServlet extends HttpServlet {
             response.addCookie(c);
 
         } else if (action.equals("viewCart")) {
-            url = "/ShoppingCart.jsp";
+            url = "/view/ShoppingCart.jsp";
         } else if (action.equals("checkout")) {
-            url = "/Checkout.jsp";
-
+            url = "/view/Checkout.jsp";
+        
         } else if (action.equals("confirm")) {
             System.out.println("help me"); //test
-            ClientSocket cs = new ClientSocket("localhost", 10002);
+            ClientSocket cs = new ClientSocket("localhost", 11001);
 
-            String cardNumber = (String) request.getAttribute("cardNumber");
-
+            //String cardNumber = (String) request.getAttribute("cardNumber");
+            String cardNumber = request.getParameter("cardNumber"); // 1234567890123452 is a valid test number
+            System.out.println("Card" + cardNumber);
             cs.start(cardNumber);
 
             String result = cs.getReturn();
             System.out.println(result);
 
             if (result.equals("true")) {
-                url = "/Confirmation.jsp";
-
-                System.out.println("good");
-     System.out.println("pass");
-
+                url = "/view/Confirmation.jsp";
+                System.out.println("pass");
             } else {
-                url = "/Checkout.jsp";
+                url = "/view/Checkout.jsp";
                 boolean error = true;
                 request.setAttribute("error", error); //to alert user that the card was declined
                 System.out.println("fail");
