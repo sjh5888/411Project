@@ -113,7 +113,7 @@ public class ServerSockets {
       *  main() creates a SocketServer at port 10001
       */
     public static void main(String args[]) {
-        ServerSockets master = new ServerSockets(10001,5);
+        ServerSockets master = new ServerSockets(11001,5);
         master.start();
     } // main()
 } // EchoServerMaster
