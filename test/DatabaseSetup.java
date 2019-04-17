@@ -123,16 +123,17 @@ public class DatabaseSetup
                 tmpString = ("INSERT INTO  PRODUCTS (PRODUCTID, NAME, CATEGORYID, PRICE, DESCRIPTION, INVENTORY, SHIPPINGLOCATION, WEIGHT, SIZE, IMAGELOCATION)" +
                          "VALUES (" + (1111+i) + ", '" + brand[i] + "', '" + prod[i] + "', " + price[i] + ", '" + chip[i] + "')"); 
                 stmt.execute(tmpString);
-                        }; 
+                        }; */
             stmt.close();
         
             con.close();
+         
         } // end try
         
         catch (Exception e) 
         {
             System.out.println(e);
-        } // end catch */
+        } // end catch 
     } // end main
 } // end ExecuteExample
 
