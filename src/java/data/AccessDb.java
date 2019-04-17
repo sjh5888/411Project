@@ -136,12 +136,12 @@ public class AccessDb {
 
         ProductsBean product = new ProductsBean();
 
-        for (int x = 1; x <= columnCount; x++) {
-            String columnName = rsmd.getColumnName(x);
+        //for (int x = 1; x <= columnCount; x++) {
+            
 
             //while (rs.next()) { //maybe changeto a for loop to run once because we are only getting data for one product
             for (int i = 1; i <= columnCount; i++) {
-
+               String columnName = rsmd.getColumnName(i);
                 if (columnName.equals("PRODUCTID")) {
                     product.setProductId(Long.parseLong(rs.getString(i)));
                 } else if (columnName.equals("NAME")) {
@@ -163,7 +163,7 @@ public class AccessDb {
                 } else if (columnName.equals("IMAGELOCATION")) {
                     product.setImageLocation(rs.getString(i));
                 }
-            }
+            //}
         }
         return product;
     }
