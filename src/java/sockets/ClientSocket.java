@@ -50,15 +50,17 @@ public class ClientSocket {
      *   server repeatedly accepts a connection from a client and
      *   provides it whatever service is defined in requestService().
      */
-    public void start(String cc) {
-         try {
-             requestService(socket, cc);  
+    public String start(String cc) {
+        String result = ""; 
+        try {
+             result = requestService(socket, cc);  
              socket.close();
              System.out.println("CLIENT: connection closed");
              
          } catch (IOException e) { 
              System.out.println(e.getMessage());
          }
+         return result;
      } // start()
     
     /**
@@ -70,7 +72,7 @@ public class ClientSocket {
      *  @param cc -- the string holding the credit card number
      *  @throws IOException -- exception to be caught
      */
-    protected void requestService(Socket socket, String cc) throws IOException {         
+    protected String requestService(Socket socket, String cc) throws IOException {         
         servStr = readFromSocket(socket);          // Check for "Hello"
         System.out.println("SERVER: " + servStr);         // Report the server's response
         if (servStr.substring(0,5).equals("Hello")) {
@@ -89,7 +91,7 @@ public class ClientSocket {
            } while (!switcher.equals("off"));
          }
 
-        //return servStr;
+        return servStr;
     } // requestService()
     public void setReturn(String rs) {
         servStr = rs;
