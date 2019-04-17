@@ -69,7 +69,7 @@ public class DatabaseSetup
             Statement stmt = con.createStatement();
             
             String tmpString;
-            /*
+            
             tmpString = ("CREATE TABLE Categories" + 
                          "(CategoryID int, " +
                          "Description varchar(500), " +
@@ -99,7 +99,7 @@ public class DatabaseSetup
                         System.out.println("Created Products Table");
 
             
-            */
+            
             int[] catid = {Math.abs("white Chocolate".hashCode()), Math.abs("Milk Chocolate".hashCode()), Math.abs("Dark Chocolate".hashCode()), Math.abs("Other".hashCode())};
             String[] description = {"White Chocolate", "Milk Chocolate", "Dark Chocolate", "Other"};
             for (int i=0;i<catid.length;i++) {
