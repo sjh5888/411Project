@@ -5,7 +5,7 @@
  */
 package data;
 
-import controllers.ProductsBean;
+import data.ProductsBean;
 import java.sql.*;
 import java.io.*;
 import java.util.*;
@@ -20,9 +20,10 @@ public class AccessDb {
     static String url = null;
     static String user = null;
     static String password = null;
-    static String resultStr = "";
+    static String[] description;
+    static ProductsBean[] products;
 
-    public static String runQuery(String queryString, boolean type) throws SQLException {
+    public static String[] runQuery(String queryString, boolean type) throws SQLException {
 
         try {
             ResourceBundle resources;
@@ -63,19 +64,31 @@ public class AccessDb {
                 //String columnName = rsmd.getColumnName(x);
 
             }*/
-            while (rs.next()) {
+ /*  while (rs.next()) {
                 for (int x = 1; x <= columnCount; x++) {
                     resultStr = resultStr + rs.getString(x) + "\t";
 
                 }
 
+            } */
+            int rows = 0;
+            if (rs.last()) {
+                rows = rs.getRow();
+                // Move to beginning
+                rs.beforeFirst();
+
+            }
+            while (rs.next()) {
+                for(int i = 0; i < rows;i++){
+                description[i] = rs.getString(2);
+                }
             }
             stmt.close();
             con.close();
         } catch (Exception e) {
             System.out.println(e);
         }
-        return resultStr;
+        return description;
     }
 
     /**
@@ -163,7 +176,7 @@ public class AccessDb {
      * @return
      * @throws SQLException
      */
-    public static ProductsBean arrayProductQuery(String queryString, boolean type) throws SQLException {
+    public static ProductsBean[] arrayProductQuery(String queryString, boolean type) throws SQLException {
 
         try {
             ResourceBundle resources;
@@ -200,38 +213,36 @@ public class AccessDb {
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnCount = rsmd.getColumnCount();
 
-            ProductsBean products = new ProductsBean();
             
-           
-          
 
-int rows = 0;
-if (rs.last()) {
-    rows = rs.getRow();
-    // Move to beginning
-    rs.beforeFirst();
-   
-}
-            
-            for(int i = 0; i < rows;i++){
-            for (int j = 1; j <= columnCount; j++) {
-                String columnName = rsmd.getColumnName(j);
-            
-                while (rs.next()) {
-                    for (int x = 1; x <= columnCount; x++) {
+            int rows = 0;
+            if (rs.last()) {
+                rows = rs.getRow();
+                // Move to beginning
+                rs.beforeFirst();
+
+            }
+            products = new ProductsBean[rows];
+
+            for (int i = 0; i < rows; i++) {
+                for (int j = 1; j <= columnCount; j++) {
+                    String columnName = rsmd.getColumnName(j);
+
+                    //while (rs.next()) {
                         
-                        if (columnName.equals("PRODUCTID")) {
-                            products.setProductId(Long.parseLong(rs.getString(x)));
-                        } else if (columnName.equals("NAME")) {
-                            products.setName((rs.getString(x)));
-                        } else if (columnName.equals("PRICE")) {
-                            products.setPrice(Double.parseDouble(rs.getString(x)));
-                        }
+
+                            if (columnName.equals("PRODUCTID")) {
+                                products[i].setProductId(Long.parseLong(rs.getString(j)));
+                            } else if (columnName.equals("NAME")) {
+                                products[i].setName((rs.getString(j)));
+                            } else if (columnName.equals("PRICE")) {
+                                products[i].setPrice(Double.parseDouble(rs.getString(j)));
+                            }
+                        //}
                     }
                 }
-                }
-                
-            }
+
+            
 
             stmt.close();
             con.close();
@@ -239,6 +250,7 @@ if (rs.last()) {
             System.out.println(e);
         }
 
-        return resultStr
+        return products;
 
     }
+}

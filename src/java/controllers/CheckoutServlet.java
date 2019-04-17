@@ -53,10 +53,10 @@ public class CheckoutServlet extends HttpServlet {
             throws ServletException, IOException {
 
         String action = request.getParameter("action");
-        String url = "/view/index.html";
+        String url = "/index.html";
        
         if(action == null){
-            url = "/view/index.jsp";
+            url = "/index.html";
             
         }else if (action.equals("addToCart")) {
 
