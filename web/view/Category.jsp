@@ -14,7 +14,10 @@
 
             <a href="./Products.jsp">
                 <img src="../sprinkles.jpg" width="250" height="100" alt="sprinkles"/>
-                <span class ="categoryText" >Category1</span></a>
+                <span class ="categoryText" >
+                <label class="pad_top">Category 1</label>
+                    <span>${ProductsBean.categoryId}</span><br>
+                   </a>
         </div> 
         <div class ="image">
             <a href="./Products.jsp">
