@@ -101,7 +101,7 @@ public class ServerSockets {
      *  @param sock -- a reference to the Socket object
      *  @param str -- the string to be written
      */
-    protected void writeToSocket(Socket sock, String str) throws IOException {
+    public void writeToSocket(Socket sock, String str) throws IOException {
         oStream = sock.getOutputStream();
         if (str.charAt( str.length() - 1 ) != '\n')
             str = str + '\n';

@@ -9,17 +9,17 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Checkout Test</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        
-        <form action="CheckoutServlet">
-            <input type="hidden" name ="action" value ="confirm"</input>
+        <h1>Life is pain</h1>
+
+        <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
+            <input type="hidden" name ="action" value ="confirm"/>
             <p>Card #:</p> 
             <input type= "text" name="cardNumber"/>      
             <input type= "submit" value="submit"/>
         </form>
-        
+
     </body>
 </html>

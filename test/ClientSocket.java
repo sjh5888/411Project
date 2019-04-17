@@ -19,6 +19,7 @@ public class ClientSocket {
     protected InputStream iStream;            // Instance variables
     protected OutputStream oStream;
     private String switcher = "on";
+    private String servStr;
     
     /**
      * ClientSocket() constructor creates a server object given
@@ -56,7 +57,6 @@ public class ClientSocket {
          } catch (IOException e) { 
              System.out.println(e.getMessage());
          }
-         
      } // start()
     
     /**
@@ -69,7 +69,7 @@ public class ClientSocket {
      *  @throws IOException -- exception to be caught
      */
     protected void requestService(Socket socket, String cc) throws IOException {         
-        String servStr = readFromSocket(socket);          // Check for "Hello"
+        servStr = readFromSocket(socket);          // Check for "Hello"
         System.out.println("SERVER: " + servStr);         // Report the server's response
         if (servStr.substring(0,5).equals("Hello")) {
             //System.out.println("CLIENT: type a line or 'goodbye' to quit"); // Prompt the user
@@ -81,16 +81,20 @@ public class ClientSocket {
                 //writeToSocket(socket, "goodbye");
                 servStr = readFromSocket(socket);               // Read the server's 
                 if (servStr.equals("true") || servStr.equals("false")) {
+                    setReturn("Return: " + servStr);
                     switcher = "off";
                 }
-                test1 t1 = new test1();        
-                t1.returnStatement("Return: " + servStr);       // Report the server's response
-            //} while (!userStr.toLowerCase().equals("goodbye")||!userStr.toLowerCase().equals("true")||!userStr.toLowerCase().equals("false")); // Until user says 'goodbye'
-            } while (!switcher.equals("off"));
-            }
-        
+           } while (!switcher.equals("off"));
+         }
+
+        //return servStr;
     } // requestService()
-    
+    public void setReturn(String rs) {
+        servStr = rs;
+    }
+    public String getReturn() {
+        return servStr;
+    }
      /**
      *  readFromSocket() reads a String from a given socket
      *  @param sock -- a reference to the Socket object
