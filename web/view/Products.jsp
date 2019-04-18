@@ -14,7 +14,7 @@
                 <span>${ProductsBean.productId}</span><br>
                 <label class="pad_top">Price: </label>
                 <span>${ProductsBean.price}</span><br>
-                <input type="hidden" name="action" value="select">
+                <input type="hidden" name="action" value="select ">
                 <input type="submit" value="Choose">
             </form></a>
         </div>
