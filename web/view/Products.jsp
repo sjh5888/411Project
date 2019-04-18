@@ -7,15 +7,15 @@
     <div class="row">
         <div class ="image">
             
-                <form action="ProductServlet" method="post">
+                <form action="${pageContext.servletContext.contextPath}/view/IndProducts.jsp" method="post">
                     <label class="pad_top">Product Name: </label>
                     <span>${ProductsBean.name}</span><br>
                     <label class="pad_top">ID: </label>
                     <span>${ProductsBean.productId}</span><br>
                     <label class="pad_top">Price: </label>
                     <span>${ProductsBean.price}</span><br>
-                    <input type="hiddent" name="action" value="select">
-                    <input type="button" name="btn" value="Choose">
+                    <input type="hidden" name="action" value="select">
+                    <input type="submit" value="Choose">
                 </form></a>
         </div>
         <div class ="image">
