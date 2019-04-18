@@ -14,7 +14,7 @@ public class QueryLogic
     
     public String query(String query) {
         if (query.equals("categories")) {
-            query = "SELECT CATEGORYID FROM PRODUCTS";
+            query = "SELECT CATEGORYID FROM categories";
         }
         else if (!query.equals("categories") && query.substring(0, 1).equals("c")) {
             query = "SELECT * FORM PRODUCTS WHERE CATEGORYID=" + query.substring(1, query.length());

@@ -60,7 +60,7 @@ public class ProductServlet extends HttpServlet {
         ProductsBean product;
 
         if (action.equals("continue")) { //continue button on index page
-            //System.out.println("eggs");
+           // System.out.println("eggs");
             url = "/view/Category.jsp";
             QueryLogic cat = new QueryLogic();
             String query = cat.query("categories"); //categories table
@@ -69,7 +69,9 @@ public class ProductServlet extends HttpServlet {
 
             try {
                 description = runQuery(query, true); //true for pull
+                
                 request.setAttribute("descriptions",description);
+                System.out.println(description[0]);
                
             } catch (SQLException ex) {
                 ex.getMessage();

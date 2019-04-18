@@ -56,7 +56,8 @@ public class AccessDb {
 
         try {
             Connection con = DriverManager.getConnection(url, user, password);
-            Statement stmt = con.createStatement();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_READ_ONLY);
             ResultSet rs = stmt.executeQuery(queryString);
 
             ResultSetMetaData rsmd = rs.getMetaData();
@@ -73,18 +74,23 @@ public class AccessDb {
                 }
 
             } */
-            int rows = 0;
+           /* int rows = 0;
             if (rs.last()) {
                 rows = rs.getRow();
                 // Move to beginning
                 rs.beforeFirst();
 
-            }
-            while (rs.next()) {
-                for (int i = 0; i < rows; i++) {
-                    description[i] = rs.getString(2);
-                }
-            }
+            }*/
+            // while (rs.next()) {
+          //if(  rs.next()){
+            //for (int i = 0; i < rows; i++) {
+
+                description[0] = rs.getString(1);
+               System.out.print(description[0]);
+
+            //}
+        //}
+            //}
             stmt.close();
             con.close();
         } catch (Exception e) {
@@ -134,7 +140,8 @@ public class AccessDb {
         }
 
         Connection con = DriverManager.getConnection(url, user, password);
-        Statement stmt = con.createStatement();
+        Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+                ResultSet.CONCUR_READ_ONLY);
         ResultSet rs = stmt.executeQuery(queryString);
 
         ResultSetMetaData rsmd = rs.getMetaData();
@@ -215,7 +222,8 @@ public class AccessDb {
 
         try {
             Connection con = DriverManager.getConnection(url, user, password);
-            Statement stmt = con.createStatement();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_READ_ONLY);
             ResultSet rs = stmt.executeQuery(queryString);
 
             ResultSetMetaData rsmd = rs.getMetaData();
