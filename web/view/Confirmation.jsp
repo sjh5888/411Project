@@ -9,7 +9,7 @@
         <p>Thank you for your purchase! <br> 
             You will be receiving your candy shortly!</p>
 
-        <span class ="categoryText">${ProductsBean.productName}</span>
+        <span class ="categoryText">${data.ProductsBean.productName}</span>
 
     </div>  
 </div>
