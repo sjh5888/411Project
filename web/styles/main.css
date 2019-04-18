@@ -10,14 +10,14 @@ body {
     background: #e6f2ff;
 }
 #header {
-    height: 250px;
+    height: 175px;
     background: #b3d9ff;
     text-align: center;
 }
 #centerColumn {
     height: 500px;
     width: auto;
-    background: #e6f2ff;
+    background: #ffffff;
     align-content: center;
 }
 #footer {
