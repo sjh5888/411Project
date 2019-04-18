@@ -17,7 +17,7 @@ public class QueryLogic
             query = "SELECT description FROM categories";
         }
         else if (!query.equals("categories") && query.substring(0, 1).equals("c")) {
-            query = "SELECT * FORM PRODUCTS WHERE CATEGORYID=" + query.substring(1, query.length());
+            query = "SELECT * FroM PRODUCTS WHERE CATEGORYID=" + query.substring(1, query.length());
                 }
         else if (query.substring(0, 1).equals("p")) {
             query = "WHERE PRODUCTID='" + query.substring(1, query.length());

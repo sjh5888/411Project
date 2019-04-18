@@ -100,7 +100,7 @@ public class DatabaseSetup
 
             
             
-            int[] catid = {Math.abs("white Chocolate".hashCode()), Math.abs("Milk Chocolate".hashCode()), Math.abs("Dark Chocolate".hashCode()), Math.abs("Other".hashCode())};
+            int[] catid = {Math.abs("White Chocolate".hashCode()), Math.abs("Milk Chocolate".hashCode()), Math.abs("Dark Chocolate".hashCode()), Math.abs("Other".hashCode())};
             String[] description = {"White Chocolate", "Milk Chocolate", "Dark Chocolate", "Other"};
             for (int i=0;i<catid.length;i++) {
                 tmpString = ("INSERT INTO  CATEGORIES (CATEGORYID, DESCRIPTION)" +

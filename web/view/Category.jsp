@@ -23,7 +23,8 @@ String[] descriptions = (String[])request.getAttribute("descriptions");
                 <label class="pad_top">Category: </label>
                 <span><%=descriptions[0]%></span><br>
                 <input type="hidden" name="action" value="products">
-                <input type="hidden" name="description" value=<%=descriptions[0]%>>
+                <input type="hidden" name="description" value="White Chocolate">
+                <!--<%//System.out.println(descriptions[0]); %> -->
                 <input type="submit" value="Choose">
             </form>
         </div> 

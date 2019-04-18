@@ -65,13 +65,13 @@ public class ProductServlet extends HttpServlet {
             QueryLogic cat = new QueryLogic();
             String query = cat.query("categories"); //categories table
            
-            System.out.println(query);
+          //  System.out.println(query);
 
             try {
                 description = runQuery(query, true); //true for pull
                 
                 request.setAttribute("descriptions",description);
-                System.out.println(description[0]);
+               // System.out.println(description[0]);
                
             } catch (SQLException ex) {
                 ex.getMessage();
@@ -80,10 +80,14 @@ public class ProductServlet extends HttpServlet {
             url = "/view/Products.jsp";
             QueryLogic all = new QueryLogic();
             String descr = (String) request.getParameter("description");
+            
+            System.out.println(descr);
+            
             descriptionHash = String.valueOf(Math.abs(descr.hashCode()));
             descriptionHash = "c" + descriptionHash; //this is the description ID that will be stored in the Db.
                 //retrieve categories from Db - call access db and query logic
             String query = all.query(descriptionHash);
+            System.out.println(query);
             try {
                 products = arrayProductQuery(query, true); // this should return an array of product beans I believe.
                 request.setAttribute("products", products); //products should be accessible to the view using the "products" attribute
