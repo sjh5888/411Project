@@ -1,7 +1,7 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * and open the template in the editor. 
  */
 
 /**
@@ -84,9 +84,9 @@ public class DatabaseSetup
                          "Name varchar(255), " +
                          "CategoryID int, " +
                          "Price float, " + 
-                         "Description varchar(500), " +
+                         "Description varchar(2000), " +
                          "Inventory int, " +
-                         "ShippingLocation varchar(255), " +
+                         "ShippingLocation int, " +
                          "Weight float, " +
                          "Size varchar(255), " +
                          "ImageLocation varchar(255), " +
@@ -100,7 +100,7 @@ public class DatabaseSetup
 
             
             
-            int[] catid = {Math.abs("white Chocolate".hashCode()), Math.abs("Milk Chocolate".hashCode()), Math.abs("Dark Chocolate".hashCode()), Math.abs("Other".hashCode())};
+            int[] catid = {Math.abs("White Chocolate".hashCode()), Math.abs("Milk Chocolate".hashCode()), Math.abs("Dark Chocolate".hashCode()), Math.abs("Other".hashCode())};
             String[] description = {"White Chocolate", "Milk Chocolate", "Dark Chocolate", "Other"};
             for (int i=0;i<catid.length;i++) {
                 tmpString = ("INSERT INTO  CATEGORIES (CATEGORYID, DESCRIPTION)" +
@@ -108,31 +108,34 @@ public class DatabaseSetup
                 stmt.execute(tmpString);
             }
             
-            /*
-            String[] prodid = {};
-            String[] name = {""};
-            double[] price = {};
-            String[] description = {""};
-            int[] inventory = {};
-            String[] shippingLocation = {};
-            int[] weight = {};
-            String[] size = {};
-            String[] imageLocation = {};
             
-            for (int i=0;i<brand.length;i++) {
+            int[] prodid = {Math.abs("HERSHEYS Milk Chocolate Bar".hashCode()), Math.abs("SYMPHONY Milk Chocolate Giant Bar".hashCode()), Math.abs("HERSHEYS KISSES Milk Chocolates Party Bag".hashCode()), Math.abs("HERSHEYS Caramels in Dark Chocolate Stand Up Bag".hashCode()), Math.abs("HERSHEYS SPECIAL DARK Mildly Sweet Chocolate Bars".hashCode()), Math.abs("HERSHEYS SPECIAL DARK Mildly Sweet Dark Chocolate Baking Chips".hashCode()), Math.abs("HERSHEYS Cookies n Creme Bars".hashCode()), Math.abs("HERSHEYS Premier White Chips".hashCode()), Math.abs("JOLLY RANCHER and TWIZZLER Candy Assortment".hashCode()), Math.abs("HERSHEYS KISSES Cookies n Creme Candy".hashCode())};
+            String[] name = {"HERSHEYS Milk Chocolate Bar", "SYMPHONY Milk Chocolate Giant Bar", "HERSHEYS KISSES Milk Chocolates Party Bag", "HERSHEYS Caramels in Dark Chocolate Stand Up Bag", "HERSHEYS SPECIAL DARK Mildly Sweet Chocolate Bars", "HERSHEYS SPECIAL DARK Mildly Sweet Dark Chocolate Baking Chips", "HERSHEYS Cookies n Creme Bars", "HERSHEYS Premier White Chips", "JOLLY RANCHER and TWIZZLER Candy Assortment", "HERSHEYS KISSES Cookies n Creme Candy"};
+            int[] catid1 = {Math.abs("Milk Chocolate".hashCode()), Math.abs("Milk Chocolate".hashCode()), Math.abs("Milk Chocolate".hashCode()), Math.abs("Dark Chocolate".hashCode()), Math.abs("Dark Chocolate".hashCode()), Math.abs("Dark Chocolate".hashCode()), Math.abs("Milk Chocolate".hashCode()), Math.abs("Milk Chocolate".hashCode()), Math.abs("Other".hashCode()), Math.abs("Other".hashCode())};
+            double[] price = {1.00, 1.30, 2.10, 1.10, 2.00, 1.75, 2.10, 2.50, 1.70, 2.00};
+            String[] description1 = {"Made with farm fresh milk, this HERSHEYS Chocolate Bar makes life delicious. Unwrap a bar, break off a piece, savor and repeat.", "This giant version of HERSHEYS SYMPHONY Candy Bar is perfect for sharing. Its creamy milk chocolate contains the perfect harmony of flavors.", "Get the perfect milk chocolate candy for sharing and savoring in a bag fit for a party!", "HERSHEYS Caramels in Dark Chocolate bring together HERSHEYS dark chocolate and a rich center of smooth, soft caramel in just the right amounts.", "This six pack of HERSHEYS SPECIAL DARK Mildly Sweet Chocolate Bars contains plenty of full-sized bars to savor and share.", "These mildly sweet morsels of HERSHEYS SPECIAL DARK Chocolate are great in everything from breakfast muffins to dessert.", "If you love white chocolate or cookies and cream ice cream, then you will appreciate the delicious combination of crunchy chocolate cookie bits and smooth white creme.", "These baking chips are a sweet way to add unique color and white creme flavor to frostings, cookies, brownies and bars.", "This bag is full of assorted flavors of JOLLY RANCHER Chews, Lollipops and Hard Candy mixed in with TWIZZLERS PULL N PEEL Cherry Candy, TWIZZLERS Twists, and TWIZZLERS Rainbow Twist Candy.", "HERSHEYS KISSES Cookies n Creme Candy blends smooth white creme with crunchy chocolate cookie bits."};
+            int[] inventory = {20, 27, 10, 5, 21, 34, 15, 28, 40, 45};
+            int[] shippingLocation = {17404, 17350, 17340, 17331, 21157, 21158, 17402, 54879, 23456, 90210};
+            double[] weight = {1.55, 6.8, 40.0, 7.2, 7.2, 12.0, 1.55, 12.0, 68.8, 10.5};
+            String[] size = {"small", "small", "medium", "medium", "large", "meduim", "small", "meduim", "large", "medium"};
+            String[] imageLocation = {"images/MilkChocolateBar.png", "images/SymphoneMilkChocolate.png", "images/MilkChocolateKisses.png", "images/CaramelsDark.png", "images/SpecialDark.png", "images/DarkChocolateChips.png", "images/CookiesNcreame.png", "images/WhiteChips.png", "images/JollyRancherTwizzler.png", "images/CookiesCremeCandy.png"};
+            
+            for (int i=0;i<name.length;i++) {
                 tmpString = ("INSERT INTO  PRODUCTS (PRODUCTID, NAME, CATEGORYID, PRICE, DESCRIPTION, INVENTORY, SHIPPINGLOCATION, WEIGHT, SIZE, IMAGELOCATION)" +
-                         "VALUES (" + (1111+i) + ", '" + brand[i] + "', '" + prod[i] + "', " + price[i] + ", '" + chip[i] + "')"); 
+                         "VALUES (" + prodid[i] + ", '" + name[i] + "', " + catid1[i] + ", " + price[i] + ", '" + description1[i] + "', " + inventory[i] + ", " + shippingLocation[i] + ", " + weight[i] + ", '" + size[i] + "', '" + imageLocation[i] + "')"); 
+                                
                 stmt.execute(tmpString);
                         }; 
             stmt.close();
         
             con.close();
+         
         } // end try
         
         catch (Exception e) 
         {
             System.out.println(e);
-        } // end catch */
+        } // end catch 
     } // end main
 } // end ExecuteExample
 

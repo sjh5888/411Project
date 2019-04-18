@@ -5,15 +5,12 @@
 
 <div id ="centerColumn">
     <h1>Checkout</h1>
-    <form method ="post" action="${initParam['posturl']}">
-    <input type="hidden" name="upload" value="1" />
-    <input type="hidden" name="return" value="${initParam['returnurl']}" />
-    <input type="hidden" name="cmd" value="_ShoppingCart" />
-    <input type="hidden" name="business" value="${initParam['business']}"/>
-    
-    <input type="hidden" name="Name" value="1" />
-    <input type="hidden" name="ProductId" value="p1" />
-    <input type="hidden" name="Price" value="2" />
-    <input type="hidden" name="business" value="3"/>
+    <h2>Please Enter The Following</h2>
+    <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
+            <input type="hidden" name ="action" value ="confirm"/>
+            <p>Credit Card Number:</p> 
+            <input type= "text" name="cardNumber"/>      
+            <input type= "submit" value="submit"/>
+        </form>
     </form>
 </div>

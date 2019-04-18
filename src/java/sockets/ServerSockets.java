@@ -101,7 +101,7 @@ public class ServerSockets {
      *  @param sock -- a reference to the Socket object
      *  @param str -- the string to be written
      */
-    protected void writeToSocket(Socket sock, String str) throws IOException {
+    public void writeToSocket(Socket sock, String str) throws IOException {
         oStream = sock.getOutputStream();
         if (str.charAt( str.length() - 1 ) != '\n')
             str = str + '\n';
@@ -113,7 +113,7 @@ public class ServerSockets {
       *  main() creates a SocketServer at port 10001
       */
     public static void main(String args[]) {
-        ServerSockets master = new ServerSockets(10001,5);
+        ServerSockets master = new ServerSockets(11001,5);
         master.start();
     } // main()
 } // EchoServerMaster

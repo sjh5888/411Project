@@ -6,11 +6,10 @@
 package controllers;
 
 import static data.AccessDb.*;
+import data.ProductsBean;
 import data.QueryLogic;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -61,30 +60,44 @@ public class ProductServlet extends HttpServlet {
         ProductsBean product;
 
         if (action.equals("continue")) { //continue button on index page
-            url = "/Category.jsp";
+           // System.out.println("eggs");
+            url = "/view/Category.jsp";
             QueryLogic cat = new QueryLogic();
             String query = cat.query("categories"); //categories table
+           
+          //  System.out.println(query);
 
             try {
                 description = runQuery(query, true); //true for pull
+                
                 request.setAttribute("descriptions",description);
-                                
+               // System.out.println(description[0]);
+               
             } catch (SQLException ex) {
                 ex.getMessage();
             }
         } else if (action.equals("products")) { //selected product category
-            url = "/Products.jsp";
+            url = "/view/Products.jsp";
             QueryLogic all = new QueryLogic();
-            String descr = (String) request.getAttribute("description");
-            descriptionHash = String.valueOf(descr.hashCode());
-            descriptionHash = "C" + descriptionHash; //this is the description ID that will be stored in the Db.
+            String descr = (String) request.getParameter("description");
+            
+            System.out.println(descr);
+            
+            descriptionHash = String.valueOf(Math.abs(descr.hashCode()));
+            descriptionHash = "c" + descriptionHash; //this is the description ID that will be stored in the Db.
                 //retrieve categories from Db - call access db and query logic
             String query = all.query(descriptionHash);
-            products = arrayProductQuery(query, true); // this should return an array of product beans I believe.
-            request.setAttribute("products", products); //products should be accessible to the view using the "products" attribute
+            System.out.println(query);
+            try {
+                products = arrayProductQuery(query, true); // this should return an array of product beans I believe.
+                request.setAttribute("products", products); //products should be accessible to the view using the "products" attribute
+            } catch (SQLException ex) {
+                System.out.println(ex);
+            }
+            
 
         } else if (action.equals("select")) { //selected product
-            url = "/IndProducts.jsp"; //create array of product beans 
+            url = "/view/IndProducts.jsp"; //create array of product beans 
             String prodID = String.valueOf(request.getAttribute("productID")); //will get the selected ID from the URL maybe lmao. 
             QueryLogic one = new QueryLogic();
             String query = one.query(prodID);

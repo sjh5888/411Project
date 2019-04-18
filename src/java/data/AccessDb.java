@@ -5,10 +5,8 @@
  */
 package data;
 
-import controllers.ProductsBean;
+import data.ProductsBean;
 import java.sql.*;
-import java.io.*;
-import java.util.*;
 
 /**
  *
@@ -20,12 +18,13 @@ public class AccessDb {
     static String url = null;
     static String user = null;
     static String password = null;
-    static String resultStr = "";
+    static String description[];
+    static ProductsBean[] products;
 
-    public static String runQuery(String queryString, boolean type) throws SQLException {
+    public static String[] runQuery(String queryString, boolean type) throws SQLException {
 
         try {
-            ResourceBundle resources;
+            /*ResourceBundle resources;
             InputStream in = null;
 
             in = ClassLoader.getSystemResourceAsStream("db.properties");
@@ -38,7 +37,11 @@ public class AccessDb {
             url = resources.getString("jdbc.url");
             //System.out.println(url);
             user = resources.getString("jdbc.user");
-            password = resources.getString("jdbc.password");
+            password = resources.getString("jdbc.password"); */
+            className = "org.apache.derby.jdbc.ClientDriver";
+            url = "jdbc:derby://localhost:1527/Products";
+            user = "app";
+            password = "app";
         } catch (Exception exp) {
             System.out.println("Couldn't load resources." + exp);
             System.exit(-1);
@@ -53,29 +56,64 @@ public class AccessDb {
 
         try {
             Connection con = DriverManager.getConnection(url, user, password);
-            Statement stmt = con.createStatement();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_READ_ONLY);
             ResultSet rs = stmt.executeQuery(queryString);
 
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnCount = rsmd.getColumnCount();
+            //System.out.println("pass");
 
             /* for (int x = 1; x <= columnCount; x++) {
                 //String columnName = rsmd.getColumnName(x);
 
             }*/
-            while (rs.next()) {
+ /*  while (rs.next()) {
                 for (int x = 1; x <= columnCount; x++) {
                     resultStr = resultStr + rs.getString(x) + "\t";
 
                 }
 
+            } */
+            int rows = 0;
+            if (rs.last()) {
+                rows = rs.getRow();
+                // Move to beginning
+                rs.beforeFirst();
+
             }
+            description = new String[rows];
+            
+            int i = 0;
+
+while (rs.next()) {
+    String result = rs.getString(1);
+    description[i++] = result;
+}
+            // while (rs.next()) {
+          //if(  rs.next()){
+          
+          /*for (int i = 0; i < rows; i++) {
+          while(rs.next()) {  
+          for (int j = 0; j < 2; j++) {
+ 
+        
+     //description = rs.getString(1);
+                description[i] = rs.getString(1);
+               //System.out.println(description[i]);
+               
+            }
+ //rs.next();
+            }
+          } */
+        
             stmt.close();
             con.close();
         } catch (Exception e) {
             System.out.println(e);
         }
-        return resultStr;
+        //System.out.println(description[6]);
+        return description;
     }
 
     /**
@@ -88,7 +126,7 @@ public class AccessDb {
     public static ProductsBean indProductQuery(String queryString, boolean type) throws SQLException {
 
         try {
-            ResourceBundle resources;
+            /*ResourceBundle resources;
             InputStream in = null;
 
             in = ClassLoader.getSystemResourceAsStream("db.properties");
@@ -101,7 +139,11 @@ public class AccessDb {
             url = resources.getString("jdbc.url");
             //System.out.println(url);
             user = resources.getString("jdbc.user");
-            password = resources.getString("jdbc.password");
+            password = resources.getString("jdbc.password");*/
+            className = "org.apache.derby.jdbc.ClientDriver";
+            url = "jdbc:derby://localhost:1527/Products";
+            user = "app";
+            password = "app";
         } catch (Exception exp) {
             System.out.println("Couldn't load resources." + exp);
             System.exit(-1);
@@ -115,7 +157,8 @@ public class AccessDb {
         }
 
         Connection con = DriverManager.getConnection(url, user, password);
-        Statement stmt = con.createStatement();
+        Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+                ResultSet.CONCUR_READ_ONLY);
         ResultSet rs = stmt.executeQuery(queryString);
 
         ResultSetMetaData rsmd = rs.getMetaData();
@@ -123,34 +166,32 @@ public class AccessDb {
 
         ProductsBean product = new ProductsBean();
 
-        for (int x = 1; x <= columnCount; x++) {
-            String columnName = rsmd.getColumnName(x);
-
-            //while (rs.next()) { //maybe changeto a for loop to run once because we are only getting data for one product
-            for (int i = 1; i <= columnCount; i++) {
-
-                if (columnName.equals("PRODUCTID")) {
-                    product.setProductId(Long.parseLong(rs.getString(i)));
-                } else if (columnName.equals("NAME")) {
-                    product.setName(rs.getString(i));
-                } else if (columnName.equals("CATEGORYID")) {
-                    product.setCategoryId(Long.parseLong(rs.getString(i)));
-                } else if (columnName.equals("PRICE")) {
-                    product.setPrice(Double.parseDouble(rs.getString(i)));
-                } else if (columnName.equals("DESCRIPTION")) {
-                    product.setDescription(rs.getString(i));
-                } else if (columnName.equals("INVENTORY")) {
-                    product.setInventory(Integer.parseInt(rs.getString(i)));
-                } else if (columnName.equals("SHIPPINGLOCATION")) {
-                    product.setShippingLocation(rs.getString(i));
-                } else if (columnName.equals("WEIGHT")) {
-                    product.setWeight(Double.parseDouble(rs.getString(i)));
-                } else if (columnName.equals("SIZE")) {
-                    product.setSize(rs.getString(i));
-                } else if (columnName.equals("IMAGELOCATION")) {
-                    product.setImageLocation(rs.getString(i));
-                }
+        //for (int x = 1; x <= columnCount; x++) {
+        //while (rs.next()) { //maybe changeto a for loop to run once because we are only getting data for one product
+        for (int i = 1; i <= columnCount; i++) {
+            String columnName = rsmd.getColumnName(i);
+            if (columnName.equals("PRODUCTID")) {
+                product.setProductId(Long.parseLong(rs.getString(i)));
+            } else if (columnName.equals("NAME")) {
+                product.setName(rs.getString(i));
+            } else if (columnName.equals("CATEGORYID")) {
+                product.setCategoryId(Long.parseLong(rs.getString(i)));
+            } else if (columnName.equals("PRICE")) {
+                product.setPrice(Double.parseDouble(rs.getString(i)));
+            } else if (columnName.equals("DESCRIPTION")) {
+                product.setDescription(rs.getString(i));
+            } else if (columnName.equals("INVENTORY")) {
+                product.setInventory(Integer.parseInt(rs.getString(i)));
+            } else if (columnName.equals("SHIPPINGLOCATION")) {
+                product.setShippingLocation(rs.getString(i));
+            } else if (columnName.equals("WEIGHT")) {
+                product.setWeight(Double.parseDouble(rs.getString(i)));
+            } else if (columnName.equals("SIZE")) {
+                product.setSize(rs.getString(i));
+            } else if (columnName.equals("IMAGELOCATION")) {
+                product.setImageLocation(rs.getString(i));
             }
+            //}
         }
         return product;
     }
@@ -163,10 +204,10 @@ public class AccessDb {
      * @return
      * @throws SQLException
      */
-    public static ProductsBean arrayProductQuery(String queryString, boolean type) throws SQLException {
+    public static ProductsBean[] arrayProductQuery(String queryString, boolean type) throws SQLException {
 
         try {
-            ResourceBundle resources;
+            /* ResourceBundle resources;
             InputStream in = null;
 
             in = ClassLoader.getSystemResourceAsStream("db.properties");
@@ -179,7 +220,11 @@ public class AccessDb {
             url = resources.getString("jdbc.url");
             //System.out.println(url);
             user = resources.getString("jdbc.user");
-            password = resources.getString("jdbc.password");
+            password = resources.getString("jdbc.password"); */
+            className = "org.apache.derby.jdbc.ClientDriver";
+            url = "jdbc:derby://localhost:1527/Products";
+            user = "app";
+            password = "app";
         } catch (Exception exp) {
             System.out.println("Couldn't load resources." + exp);
             System.exit(-1);
@@ -194,43 +239,36 @@ public class AccessDb {
 
         try {
             Connection con = DriverManager.getConnection(url, user, password);
-            Statement stmt = con.createStatement();
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,
+                    ResultSet.CONCUR_READ_ONLY);
             ResultSet rs = stmt.executeQuery(queryString);
 
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnCount = rsmd.getColumnCount();
 
-            ProductsBean products = new ProductsBean();
-            
-           
-          
+            int rows = 0;
+            if (rs.last()) {
+                rows = rs.getRow();
+                // Move to beginning
+                rs.beforeFirst();
 
-int rows = 0;
-if (rs.last()) {
-    rows = rs.getRow();
-    // Move to beginning
-    rs.beforeFirst();
-   
-}
-            
-            for(int i = 0; i < rows;i++){
-            for (int j = 1; j <= columnCount; j++) {
-                String columnName = rsmd.getColumnName(j);
-            
-                while (rs.next()) {
-                    for (int x = 1; x <= columnCount; x++) {
-                        
-                        if (columnName.equals("PRODUCTID")) {
-                            products.setProductId(Long.parseLong(rs.getString(x)));
-                        } else if (columnName.equals("NAME")) {
-                            products.setName((rs.getString(x)));
-                        } else if (columnName.equals("PRICE")) {
-                            products.setPrice(Double.parseDouble(rs.getString(x)));
-                        }
+            }
+            products = new ProductsBean[rows];
+
+            for (int i = 0; i < rows; i++) {
+                for (int j = 1; j <= columnCount; j++) {
+                    String columnName = rsmd.getColumnName(j);
+
+                    //while (rs.next()) {
+                    if (columnName.equals("PRODUCTID")) {
+                        products[i].setProductId(Long.parseLong(rs.getString(j)));
+                    } else if (columnName.equals("NAME")) {
+                        products[i].setName((rs.getString(j)));
+                    } else if (columnName.equals("PRICE")) {
+                        products[i].setPrice(Double.parseDouble(rs.getString(j)));
                     }
+                    //}
                 }
-                }
-                
             }
 
             stmt.close();
@@ -239,6 +277,7 @@ if (rs.last()) {
             System.out.println(e);
         }
 
-        return resultStr
+        return products;
 
     }
+}

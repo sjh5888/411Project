@@ -82,10 +82,9 @@ public class ClientSocket {
                 //userStr = readFromSocket(socket);                   // Get input from socket
                 userStr = String.valueOf(cc);
                 writeToSocket(socket, userStr);          // Send it to server  +"\n"/////////
-                //writeToSocket(socket, "goodbye");
                 servStr = readFromSocket(socket);               // Read the server's 
                 if (servStr.equals("true") || servStr.equals("false")) {
-                    setReturn("Return: " + servStr);
+                    setReturn(servStr); //servStr
                     switcher = "off";
                 }
             } while (!switcher.equals("off"));

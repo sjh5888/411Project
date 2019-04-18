@@ -10,7 +10,7 @@ package controllers;
  *
  * @author elgoo
  */
-import data.ServerSockets;
+import sockets.ServerSockets;
 import java.net.*;
 import java.io.*;
 import java.lang.*; 

@@ -6,25 +6,54 @@
     <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 
+<% 
+    
+String[] descriptions = (String[])request.getAttribute("descriptions");
+
+
+%>
+
 <div id ="centerColumn">
 
     <p>Feel free to browse our categories <br/><br/></p>
     <div class="row">
         <div class ="image">
 
-            <a href="./Products.jsp">
-                <img src="../sprinkles.jpg" width="250" height="100" alt="sprinkles"/>
-                <span class ="categoryText" >Category1</span></a>
+            <form action="${pageContext.servletContext.contextPath}/product" method="post">
+                <label class="pad_top">Category: </label>
+                <span><%=descriptions[0]%></span><br>
+                <input type="hidden" name="action" value="products">
+                <input type="hidden" name="description" value="White Chocolate">
+                <!--<%//System.out.println(descriptions[0]); %> -->
+                <input type="submit" value="Choose">
+            </form>
         </div> 
         <div class ="image">
-            <a href="./Products.jsp">
-                <span class ="categoryText">Category2</span>
-            </a>
+            <form action="${pageContext.servletContext.contextPath}/product" method="post">
+                <label class="pad_top">Category: </label>
+                <span><%=descriptions[1]%></span><br>
+                <input type="hidden" name="action" value="products">
+                <input type="hidden" name="description" value=<%=descriptions[1]%>>
+                <input type="submit" value="Choose">
+            </form>
         </div>  
         <div class ="image">
-            <a href="./Products.jsp">
-                <span class ="categoryText">Category3</span>
-            </a>
+            <form action="${pageContext.servletContext.contextPath}/product" method="post">
+                <label class="pad_top">Category: </label>
+                <span><%=descriptions[2]%></span><br>
+                <input type="hidden" name="action" value="products">
+                <input type="hidden" name="description" value=<%=descriptions[2]%>>
+                <input type="submit" value="Choose">
+            </form></a>
+        </div> 
+        <div class ="image">
+            <form action="${pageContext.servletContext.contextPath}/product" method="post">
+                <label class="pad_top">Category: </label>
+                <span><%=descriptions[3]%></span><br>
+                <input type="hidden" name="action" value="products">
+                <input type="hidden" name="description" value=<%=descriptions[3]%>>
+                <input type="submit" value="Choose">
+            </form></a>
         </div> 
     </div>
 </div>
