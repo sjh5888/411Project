@@ -11,7 +11,7 @@
         <p>Test Words</p>
             <form action="${pageContext.servletContext.contextPath}/view/Products.jsp" method="post">
                 <label class="pad_top">Product Name: </label>
-                <span>${ProductsBean.categoryId}</span><br>
+                <span>${data.ProductsBean.categoryId}</span><br>
                 <input type="" name="action" value="products">
                 <input type="submit" value="Choose">
             </form></a>
