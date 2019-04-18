@@ -12,7 +12,7 @@
     <div class="row">
         <div class ="image">
 
-            <form action="${pageContext.servletContext.contextPath}/view/Products.jsp" method="post">
+            <form action="${pageContext.servletContext.contextPath}/product" method="post">
                 <label class="pad_top">Category: </label>
                 <span>${ProductsBean.categoryId}</span><br>
                 <input type="hidden" name="action" value="products">
@@ -20,7 +20,7 @@
             </form></a>
         </div> 
         <div class ="image">
-            <form action="${pageContext.servletContext.contextPath}/view/Products.jsp" method="post">
+            <form action="${pageContext.servletContext.contextPath}/product" method="post">
                 <label class="pad_top">Category: </label>
                 <span>${ProductsBean.categoryId}</span><br>
                 <input type="hidden" name="action" value="products">
