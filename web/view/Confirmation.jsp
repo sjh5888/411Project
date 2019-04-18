@@ -6,19 +6,10 @@
 <div id ="centerColumn">
     <h1>Confirmation</h1>
     <div class ="categoryImage">
-        <a href="#">
-            
-            <span class ="categoryText">${ProductsBean.productName}</span>
-        </a>
-    </div> 
-    <div class ="categoryImage">
-        <a href="#">
-            <span class ="categoryText">Category2</span>
-        </a>
-    </div>  
-    <div class ="categoryImage">
-        <a href="#">
-            <span class ="categoryText">Category3</span>
-        </a>
+        <p>Thank you for your purchase! <br> 
+            You will be receiving your candy shortly!</p>
+
+        <span class ="categoryText">${ProductsBean.productName}</span>
+
     </div>  
 </div>
