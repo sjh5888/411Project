@@ -18,7 +18,7 @@ public class AccessDb {
     static String url = null;
     static String user = null;
     static String password = null;
-    static String[] description;
+    static String description[];
     static ProductsBean[] products;
 
     public static String[] runQuery(String queryString, boolean type) throws SQLException {
@@ -62,6 +62,7 @@ public class AccessDb {
 
             ResultSetMetaData rsmd = rs.getMetaData();
             int columnCount = rsmd.getColumnCount();
+            //System.out.println("pass");
 
             /* for (int x = 1; x <= columnCount; x++) {
                 //String columnName = rsmd.getColumnName(x);
@@ -74,28 +75,44 @@ public class AccessDb {
                 }
 
             } */
-           /* int rows = 0;
+            int rows = 0;
             if (rs.last()) {
                 rows = rs.getRow();
                 // Move to beginning
                 rs.beforeFirst();
 
-            }*/
+            }
+            description = new String[rows];
+            
+            int i = 0;
+
+while (rs.next()) {
+    String result = rs.getString(1);
+    description[i++] = result;
+}
             // while (rs.next()) {
           //if(  rs.next()){
-            //for (int i = 0; i < rows; i++) {
-
-                description[0] = rs.getString(1);
-               System.out.print(description[0]);
-
-            //}
-        //}
-            //}
+          
+          /*for (int i = 0; i < rows; i++) {
+          while(rs.next()) {  
+          for (int j = 0; j < 2; j++) {
+ 
+        
+     //description = rs.getString(1);
+                description[i] = rs.getString(1);
+               //System.out.println(description[i]);
+               
+            }
+ //rs.next();
+            }
+          } */
+        
             stmt.close();
             con.close();
         } catch (Exception e) {
             System.out.println(e);
         }
+        //System.out.println(description[6]);
         return description;
     }
 
