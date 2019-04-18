@@ -13,7 +13,7 @@
                     <label class="pad_top">Product Name: </label>
                     <span>${data.ProductsBean.name}</span><br>
                     <label class="pad_top">Description: </label>
-                    <span>${data.ProductsBean.description}</span>
+                    <span>${data.ProductsBean.description}</span><br>
                     <input type="hidden" name="action" value="addToCart">
                     <input type="submit" value="Add to Cart">
                 </form>
