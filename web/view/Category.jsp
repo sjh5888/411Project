@@ -12,22 +12,36 @@
     <div class="row">
         <div class ="image">
 
-            <a href="./Products.jsp">
-                <img src="../sprinkles.jpg" width="250" height="100" alt="sprinkles"/>
-                <span class ="categoryText" >
-                <label class="pad_top">Category 1</label>
-                    <span>${ProductsBean.categoryId}</span><br>
-                   </a>
+            <form action="${pageContext.servletContext.contextPath}/view/Products.jsp" method="post">
+                <label class="pad_top">Category: </label>
+                <span>${ProductsBean.categoryId}</span><br>
+                <input type="hidden" name="action" value="products">
+                <input type="submit" value="Choose">
+            </form></a>
         </div> 
         <div class ="image">
-            <a href="./Products.jsp">
-                <span class ="categoryText">Category2</span>
-            </a>
+            <form action="${pageContext.servletContext.contextPath}/view/Products.jsp" method="post">
+                <label class="pad_top">Category: </label>
+                <span>${ProductsBean.categoryId}</span><br>
+                <input type="hidden" name="action" value="products">
+                <input type="submit" value="Choose">
+            </form>
         </div>  
         <div class ="image">
-            <a href="./Products.jsp">
-                <span class ="categoryText">Category3</span>
-            </a>
+            <form action="${pageContext.servletContext.contextPath}/view/Products.jsp" method="post">
+                <label class="pad_top">Category: </label>
+                <span>${ProductsBean.categoryId}</span><br>
+                <input type="hidden" name="action" value="products">
+                <input type="submit" value="Choose">
+            </form></a>
+        </div> 
+        <div class ="image">
+            <form action="${pageContext.servletContext.contextPath}/view/Products.jsp" method="post">
+                <label class="pad_top">Category: </label>
+                <span>${ProductsBean.categoryId}</span><br>
+                <input type="hidden" name="action" value="products">
+                <input type="submit" value="Choose">
+            </form></a>
         </div> 
     </div>
 </div>
