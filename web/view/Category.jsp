@@ -23,6 +23,7 @@ String[] descriptions = (String[])request.getAttribute("descriptions");
                 <label class="pad_top">Category: </label>
                 <span><%=descriptions[0]%></span><br>
                 <input type="hidden" name="action" value="products">
+                <input type="hidden" name="description" value=<%=descriptions[0]%>>
                 <input type="submit" value="Choose">
             </form>
         </div> 
@@ -31,6 +32,7 @@ String[] descriptions = (String[])request.getAttribute("descriptions");
                 <label class="pad_top">Category: </label>
                 <span><%=descriptions[1]%></span><br>
                 <input type="hidden" name="action" value="products">
+                <input type="hidden" name="description" value=<%=descriptions[1]%>>
                 <input type="submit" value="Choose">
             </form>
         </div>  
@@ -39,6 +41,7 @@ String[] descriptions = (String[])request.getAttribute("descriptions");
                 <label class="pad_top">Category: </label>
                 <span><%=descriptions[2]%></span><br>
                 <input type="hidden" name="action" value="products">
+                <input type="hidden" name="description" value=<%=descriptions[2]%>>
                 <input type="submit" value="Choose">
             </form></a>
         </div> 
@@ -47,6 +50,7 @@ String[] descriptions = (String[])request.getAttribute("descriptions");
                 <label class="pad_top">Category: </label>
                 <span><%=descriptions[3]%></span><br>
                 <input type="hidden" name="action" value="products">
+                <input type="hidden" name="description" value=<%=descriptions[3]%>>
                 <input type="submit" value="Choose">
             </form></a>
         </div> 

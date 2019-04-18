@@ -79,9 +79,9 @@ public class ProductServlet extends HttpServlet {
         } else if (action.equals("products")) { //selected product category
             url = "/view/Products.jsp";
             QueryLogic all = new QueryLogic();
-            String descr = (String) request.getAttribute("description");
-            descriptionHash = String.valueOf(descr.hashCode());
-            descriptionHash = "C" + descriptionHash; //this is the description ID that will be stored in the Db.
+            String descr = (String) request.getParameter("description");
+            descriptionHash = String.valueOf(Math.abs(descr.hashCode()));
+            descriptionHash = "c" + descriptionHash; //this is the description ID that will be stored in the Db.
                 //retrieve categories from Db - call access db and query logic
             String query = all.query(descriptionHash);
             try {
