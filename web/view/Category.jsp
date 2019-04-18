@@ -22,18 +22,17 @@ String[] descriptions = (String[])request.getAttribute("descriptions");
             <form action="${pageContext.servletContext.contextPath}/product" method="post">
                 <label class="pad_top">Category: </label>
                 <span><%=descriptions[0]%></span><br>
-                <input type="hidden" name="action" value="products">
-                <input type="hidden" name="description" value="White Chocolate">
-                <!--<%//System.out.println(descriptions[0]); %> -->
-                <input type="submit" value="Choose">
+                <input type="hidden" name="action" value="products"/>
+                <input type="hidden" name="description" value="<%=descriptions[0]%>"/>
+                <input type="submit" value="Choose"/>
             </form>
         </div> 
         <div class ="image">
             <form action="${pageContext.servletContext.contextPath}/product" method="post">
-                <label class="pad_top">Category: </label>
+                <label class="pad_top">Category: </label>S
                 <span><%=descriptions[1]%></span><br>
                 <input type="hidden" name="action" value="products">
-                <input type="hidden" name="description" value=<%=descriptions[1]%>>
+                <input type="hidden" name="description" value="<%=descriptions[1]%>"/>
                 <input type="submit" value="Choose">
             </form>
         </div>  
@@ -42,18 +41,18 @@ String[] descriptions = (String[])request.getAttribute("descriptions");
                 <label class="pad_top">Category: </label>
                 <span><%=descriptions[2]%></span><br>
                 <input type="hidden" name="action" value="products">
-                <input type="hidden" name="description" value=<%=descriptions[2]%>>
+                <input type="hidden" name="description" value="<%=descriptions[2]%>"/>
                 <input type="submit" value="Choose">
-            </form></a>
+            </form>
         </div> 
         <div class ="image">
             <form action="${pageContext.servletContext.contextPath}/product" method="post">
                 <label class="pad_top">Category: </label>
                 <span><%=descriptions[3]%></span><br>
                 <input type="hidden" name="action" value="products">
-                <input type="hidden" name="description" value=<%=descriptions[3]%>>
+                <input type="hidden" name="description" value="<%=descriptions[3]%>"/>
                 <input type="submit" value="Choose">
-            </form></a>
+            </form>
         </div> 
     </div>
 </div>
