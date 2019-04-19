@@ -5,7 +5,7 @@
 
 <%
 
-    String[] products = (String[]) request.getAttribute("products");
+    ProductsBean[] products = (ProductsBean[]) request.getAttribute("products");
 
 
 %>
