@@ -6,9 +6,9 @@
     <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 
-<% 
-    
-String[] descriptions = (String[])request.getAttribute("descriptions");
+<%
+
+    String[] descriptions = (String[]) request.getAttribute("descriptions");
 
 
 %>
@@ -18,10 +18,9 @@ String[] descriptions = (String[])request.getAttribute("descriptions");
     <p>Feel free to browse our categories <br/><br/></p>
     <div class="row">
         <div class ="image">
-           <!-- <img src="../images/CookiesNcreame.png" alt="White Chocolate"/> -->
-           <img src='<c:url value="/images/CookiesCremeCandy.png" />'
+            <img src='<c:url value="/images/CookiesCremeCandy.png" />'
 
-            <form action="${pageContext.servletContext.contextPath}/product" method="post">
+                 <form action="${pageContext.servletContext.contextPath}/product" method="post">
                 <label class="pad_top">Category: </label>
                 <span><%=descriptions[0]%></span><br>
                 <input type="hidden" name="action" value="products"/>
