@@ -49,41 +49,6 @@
                 <input type="hidden" name="products" value="<%=products[4]%>"/>
                 <input type="submit" value="Choose"/>
             </form>
-            <form action="${pageContext.servletContext.contextPath}/product" method="post">
-                <label class="pad_top">Product: </label>
-                <span><%=products[5]%></span><br>
-                <input type="hidden" name="action" value="products"/>
-                <input type="hidden" name="products" value="<%=products[5]%>"/>
-                <input type="submit" value="Choose"/>
-            </form>
-            <form action="${pageContext.servletContext.contextPath}/product" method="post">
-                <label class="pad_top">Product: </label>
-                <span><%=products[6]%></span><br>
-                <input type="hidden" name="action" value="products"/>
-                <input type="hidden" name="products" value="<%=products[6]%>"/>
-                <input type="submit" value="Choose"/>
-            </form>
-            <form action="${pageContext.servletContext.contextPath}/product" method="post">
-                <label class="pad_top">Product: </label>
-                <span><%=products[7]%></span><br>
-                <input type="hidden" name="action" value="products"/>
-                <input type="hidden" name="products" value="<%=products[7]%>"/>
-                <input type="submit" value="Choose"/>
-            </form>
-            <form action="${pageContext.servletContext.contextPath}/product" method="post">
-                <label class="pad_top">Product: </label>
-                <span><%=products[8]%></span><br>
-                <input type="hidden" name="action" value="products"/>
-                <input type="hidden" name="products" value="<%=products[8]%>"/>
-                <input type="submit" value="Choose"/>
-            </form>
-            <form action="${pageContext.servletContext.contextPath}/product" method="post">
-                <label class="pad_top">Product: </label>
-                <span><%=products[9]%></span><br>
-                <input type="hidden" name="action" value="products"/>
-                <input type="hidden" name="products" value="<%=products[9]%>"/>
-                <input type="submit" value="Choose"/>
-            </form>
         </div>
     </div>
 </div>
