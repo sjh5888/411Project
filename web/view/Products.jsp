@@ -23,9 +23,8 @@
                 <span><%=products[0]%></span><br>
                 <input type="hidden" name="action" value="products"/>
                
-                <input type="hidden" name="products" value="<%=products[0].getId%>"/>
-                <input type="hidden" name="products" value="<%=data.ProductsBean.productId[0]%>"/>
-                <input type="hidden" name="products" value="<%=data.ProductsBean.productId%>"/>
+                <input type="hidden" name="products" value="<%=products[0].getProductId() %>"/> <!-- eat my ass! -->
+               
                 
                 
                 <input type="submit" value="Choose"/>
