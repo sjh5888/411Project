@@ -83,17 +83,17 @@ public class AccessDb {
 
             }
             description = new String[rows];
-            
+
             int i = 0;
 
-while (rs.next()) {
-    String result = rs.getString(1);
-    description[i++] = result;
-}
+            while (rs.next()) {
+                String result = rs.getString(1);
+                description[i++] = result;
+            }
             // while (rs.next()) {
-          //if(  rs.next()){
-          
-          /*for (int i = 0; i < rows; i++) {
+            //if(  rs.next()){
+
+            /*for (int i = 0; i < rows; i++) {
           while(rs.next()) {  
           for (int j = 0; j < 2; j++) {
  
@@ -106,7 +106,6 @@ while (rs.next()) {
  //rs.next();
             }
           } */
-        
             stmt.close();
             con.close();
         } catch (Exception e) {
@@ -255,19 +254,28 @@ while (rs.next()) {
             }
             products = new ProductsBean[rows];
 
+           // int i = 0;
+
+           /* while (rs.next()) {
+                String result = rs.getString(1);
+                description[i++] = result;
+            }*/
+
+           while (rs.next()) {
             for (int i = 0; i < rows; i++) {
+                 products[i] = new ProductsBean();
                 for (int j = 1; j <= columnCount; j++) {
                     String columnName = rsmd.getColumnName(j);
 
-                    //while (rs.next()) {
+                    
                     if (columnName.equals("PRODUCTID")) {
-                        products[i].setProductId(Long.parseLong(rs.getString(j)));
+                       products[i].setProductId(Long.parseLong(rs.getString(j)));
                     } else if (columnName.equals("NAME")) {
                         products[i].setName((rs.getString(j)));
                     } else if (columnName.equals("PRICE")) {
                         products[i].setPrice(Double.parseDouble(rs.getString(j)));
                     }
-                    //}
+                    }
                 }
             }
 
@@ -276,7 +284,8 @@ while (rs.next()) {
         } catch (Exception e) {
             System.out.println(e);
         }
-
+        
+        //System.out.println(products[0]);
         return products;
 
     }

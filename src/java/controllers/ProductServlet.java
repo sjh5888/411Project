@@ -95,6 +95,9 @@ public class ProductServlet extends HttpServlet {
             System.out.println(query);
             try {
                 products = arrayProductQuery(query, true); // this should return an array of product beans I believe.
+                
+                System.out.println(products[0].getProductId());
+                
                 request.setAttribute("products", products); //products should be accessible to the view using the "products" attribute
             } catch (SQLException ex) {
                 System.out.println(ex);
