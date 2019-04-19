@@ -19,7 +19,7 @@ String[] descriptions = (String[])request.getAttribute("descriptions");
     <div class="row">
         <div class ="image">
            <!-- <img src="../images/CookiesNcreame.png" alt="White Chocolate"/> -->
-           <img src='<c:url value="/images/CookiesCremeCandy.png" />'
+           <img src='<c:url value="/images/CookiesCremeCandy.png" />
 
             <form action="${pageContext.servletContext.contextPath}/product" method="post">
                 <label class="pad_top">Category: </label>
