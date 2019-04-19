@@ -16,9 +16,9 @@
 <div id ="centerColumn">
 
     <p>Feel free to browse our categories <br/><br/></p>
-    <div class="row">
+    <div>
         <div class ="image">
-            <img src='<c:url value="/images/CookiesCremeCandy.png" />'
+            <img src='<c:url value="/images/CookiesCremeCandy.png" />
 
                  <form action="${pageContext.servletContext.contextPath}/product" method="post">
                 <label class="pad_top">Category: </label>
