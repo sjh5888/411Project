@@ -79,17 +79,25 @@ public class ProductServlet extends HttpServlet {
         } else if (action.equals("products")) { //selected product category
             url = "/view/Products.jsp";
             QueryLogic all = new QueryLogic();
-            String descr = (String) request.getParameter("description");
+            String descr =  request.getParameter("description");
             
+           /* if(!descr.equals("Other")){
+                descr = descr + " Chocolate";
+           
+            } */
             System.out.println(descr);
             
             descriptionHash = String.valueOf(Math.abs(descr.hashCode()));
+            System.out.println(descriptionHash);
             descriptionHash = "c" + descriptionHash; //this is the description ID that will be stored in the Db.
                 //retrieve categories from Db - call access db and query logic
             String query = all.query(descriptionHash);
             System.out.println(query);
             try {
                 products = arrayProductQuery(query, true); // this should return an array of product beans I believe.
+                
+                System.out.println("Prod ID of Element 1: " + products[0].getProductId());
+                
                 request.setAttribute("products", products); //products should be accessible to the view using the "products" attribute
             } catch (SQLException ex) {
                 System.out.println(ex);
