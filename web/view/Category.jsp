@@ -18,7 +18,7 @@
     <p>Feel free to browse our categories <br/><br/></p>
     <div class="row">
         <div class ="image">
-            <img src='<c:url value="/images2/CookiesCremeCandy.png" />'
+            <img src='<c:url value="/images2/CookiesCremeCandy.png" />'<br>
 
                  <form action="${pageContext.servletContext.contextPath}/product" method="post">
                 <label class="pad_top">Category: </label>
@@ -29,7 +29,7 @@
             </form>
         </div> 
         <div class ="image">
-            <img src='<c:url value="/images2/CookiesCremeCandy.png" />'
+            <img src='<c:url value="/images2/MilkChocolateBar.png" />'<br>
             <form action="${pageContext.servletContext.contextPath}/product" method="post">
                 <label class="pad_top">Category: </label>S
                 <span><%=descriptions[1]%></span><br>
@@ -39,6 +39,7 @@
             </form>
         </div>  
         <div class ="image">
+            <img src='<c:url value="/images2/SpecialDark.png" />'<br>
             <form action="${pageContext.servletContext.contextPath}/product" method="post">
                 <label class="pad_top">Category: </label>
                 <span><%=descriptions[2]%></span><br>
@@ -48,6 +49,7 @@
             </form>
         </div> 
         <div class ="image">
+            <img src='<c:url value="/images2/JollyRancherTwizzler.png" />'<br>
             <form action="${pageContext.servletContext.contextPath}/product" method="post">
                 <label class="pad_top">Category: </label>
                 <span><%=descriptions[3]%></span><br>
