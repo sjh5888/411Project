@@ -17,6 +17,7 @@
 
 <div id ="centerColumn">
     <div class="row">
+         <h1>Feel free to browse our products <br/><br/></h1>
         <div class ="image">
 
             <form action="${pageContext.servletContext.contextPath}/product" method="post">

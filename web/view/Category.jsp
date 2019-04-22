@@ -15,7 +15,7 @@
 
 <div id ="centerColumn">
 
-    <p>Feel free to browse our categories <br/><br/></p>
+    <h1>Feel free to browse our categories <br/><br/></h1>
     <div class="row">
         <div class ="image">
             <img src='<c:url value="/images2/CookiesCremeCandy.png" />'<br>
