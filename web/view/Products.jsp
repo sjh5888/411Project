@@ -6,9 +6,10 @@
 <%
 
     ProductsBean[] products = (ProductsBean[]) request.getAttribute("products");
+    int x;
 
     for (int i = 0; i < products.length; i++) {
-
+        x = products[i];
     }
 
 
