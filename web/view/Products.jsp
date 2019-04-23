@@ -26,7 +26,6 @@
         <div class ="image">
             <form action="${pageContext.servletContext.contextPath}/product" method="post">
                 <label class="pad_top">Product: </label>
-                <span><%=products[1]%></span><br> 
                 <input type="hidden" name="action" value="products"/>
                 <input type="hidden" name="ProductId" value="<%=products[1].getProductId()%>"/><br> 
                 <span><%=products[1].getName()%></span><br>
@@ -37,7 +36,6 @@
         <div class ="image">
             <form action="${pageContext.servletContext.contextPath}/product" method="post">
                 <label class="pad_top">Product: </label>
-                <span><%=products[2]%></span><br>
                 <input type="hidden" name="action" value="products"/>
                 <input type="hidden" name="ProductId" value="<%=products[2].getProductId()%>"/><br> 
                 <span><%=products[2].getName()%></span><br>
