@@ -106,7 +106,7 @@ public class ProductServlet extends HttpServlet {
 
         } else if (action.equals("select")) { //selected product
             url = "/view/IndProducts.jsp"; //create array of product beans 
-            String prodID = String.valueOf(request.getAttribute("productID")); //will get the selected ID from the URL maybe lmao. 
+            String prodID = String.valueOf(request.getAttribute("ProductId")); //will get the selected ID from the URL maybe lmao. 
             QueryLogic one = new QueryLogic();
             String query = one.query(prodID);
             try {
