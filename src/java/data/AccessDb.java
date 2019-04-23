@@ -20,6 +20,7 @@ public class AccessDb {
     static String password = null;
     static String description[];
     static ProductsBean[] products;
+    static ProductsBean product = new ProductsBean();
 
     public static String[] runQuery(String queryString, boolean type) throws SQLException {
 
@@ -163,11 +164,9 @@ public class AccessDb {
         ResultSetMetaData rsmd = rs.getMetaData();
         int columnCount = rsmd.getColumnCount();
 
-        ProductsBean product = new ProductsBean();
-
         //for (int x = 1; x <= columnCount; x++) {
         //while (rs.next()) { //maybe changeto a for loop to run once because we are only getting data for one product
-        for (int i = 1; i <= columnCount; i++) {
+        /*for (int i = 1; i <= columnCount; i++) {
             String columnName = rsmd.getColumnName(i);
             if (columnName.equals("PRODUCTID")) {
                 product.setProductId(Long.parseLong(rs.getString(i)));
@@ -189,9 +188,24 @@ public class AccessDb {
                 product.setSize(rs.getString(i));
             } else if (columnName.equals("IMAGELOCATION")) {
                 product.setImageLocation(rs.getString(i));
-            }
-            //}
+            } 
+            System.out.println(product.getName());
+        }*/
+        while (rs.next()) {
+            product.setProductId(Long.parseLong(rs.getString(1)));
+            product.setName(rs.getString(2));
+            product.setCategoryId(Long.parseLong(rs.getString(3)));
+            product.setPrice(Double.parseDouble(rs.getString(4)));
+            product.setDescription(rs.getString(5));
+            product.setInventory(Integer.parseInt(rs.getString(6)));
+            product.setShippingLocation(rs.getString(7));
+            product.setWeight(Double.parseDouble(rs.getString(8)));
+            product.setSize(rs.getString(9));
+            product.setImageLocation(rs.getString(10));
+
         }
+        //System.out.println(product.getName());
+        //System.out.println(product.getDescription());
         return product;
     }
 

@@ -106,14 +106,17 @@ public class ProductServlet extends HttpServlet {
 
         } else if (action.equals("select")) { //selected product
             url = "/view/IndProducts.jsp"; //create array of product beans 
-            String prodID = String.valueOf(request.getAttribute("ProductId")); //will get the selected ID from the URL maybe lmao. 
+            String prodID = String.valueOf(request.getParameter("ProductId")); //will get the selected ID from the URL maybe lmao. 
+             //System.out.println(prodID);
             QueryLogic one = new QueryLogic();
             
-            String query = one.query(prodID);
+            String query = one.query("p" + prodID);
             System.out.println(query);
             try {
                 product = indProductQuery(query, true); //stored in a bean.
                 request.setAttribute("product", product); //java bean for individual product is stored in the request obj.
+                System.out.println(product.getName());
+                System.out.println(product.getDescription());
 
             } catch (SQLException ex) {
                 ex.getMessage();
