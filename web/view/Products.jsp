@@ -8,9 +8,7 @@
     ProductsBean[] products = (ProductsBean[]) request.getAttribute("products");
     int x;
 
-    for (int i = 0; i < products.length; i++) {
-     //   x = products[i];
-    }
+   
 
 
 %>
@@ -22,11 +20,10 @@
 
             <form action="${pageContext.servletContext.contextPath}/product" method="post">
                 <label class="pad_top">Product: </label>
-                <span><%=products[0]%></span><br>
                 <input type="hidden" name="action" value="products"/>               
-                <input type="hidden" name="products" value="<%=products[0].getProductId()%>"/><br> 
-                <input type="hidden" name="products" value="<%=products[0].getName()%>" /><br>
-                <input type="hidden" name="products" value="<%=products[0].getPrice()%>" /><br>            
+                <input type="hidden" name="ProductId" value="<%=products[0].getProductId()%>"/><br> 
+                <span><%=products[0].getName()%></span><br>
+                <span><%=products[0].getPrice()%></span><br>            
                 <input type="submit" value="Choose"/>
             </form>
         </div> 
@@ -35,9 +32,9 @@
                 <label class="pad_top">Product: </label>
                 <span><%=products[1]%></span><br>
                 <input type="hidden" name="action" value="products"/>
-                <input type="hidden" name="products" value="<%=products[1].getProductId()%>"/><br> 
-                <input type="hidden" name="products" value="<%=products[1].getName()%>" /><br>
-                <input type="hidden" name="products" value="<%=products[1].getPrice()%>" /><br>   
+                <input type="hidden" name="ProductId" value="<%=products[1].getProductId()%>"/><br> 
+                <span><%=products[1].getName()%></span><br>
+                <span><%=products[1].getPrice()%></span><br>   
                 <input type="submit" value="Choose"/>
             </form>
         </div> 
@@ -46,9 +43,9 @@
                 <label class="pad_top">Product: </label>
                 <span><%=products[2]%></span><br>
                 <input type="hidden" name="action" value="products"/>
-                <input type="hidden" name="products" value="<%=products[2].getProductId()%>"/><br> 
-                <input type="hidden" name="products" value="<%=products[2].getName()%>" /><br>
-                <input type="hidden" name="products" value="<%=products[2].getPrice()%>" /><br>
+                <input type="hidden" name="ProductId" value="<%=products[2].getProductId()%>"/><br> 
+                <span><%=products[2].getName()%></span><br>
+                <span><%=products[2].getPrice()%>" </span><br>
                 <input type="submit" value="Choose"/>
             </form>
         </div> 
@@ -57,9 +54,9 @@
                 <label class="pad_top">Product: </label>
                 <span><%=products[3]%></span><br>
                 <input type="hidden" name="action" value="products"/>
-                <input type="hidden" name="products" value="<%=products[3].getProductId()%>"/><br> 
-                <input type="hidden" name="products" value="<%=products[3].getName()%>" /><br>
-                <input type="hidden" name="products" value="<%=products[3].getPrice()%>" /><br>
+                <input type="hidden" name="ProductId" value="<%=products[3].getProductId()%>"/><br> 
+                <span><%=products[3].getName()%></span><br>
+                <span><%=products[3].getPrice()%></span><br>
                 <input type="submit" value="Choose"/>
             </form>
         </div> 
@@ -68,9 +65,9 @@
                 <label class="pad_top">Product: </label>
                 <span><%=products[4]%></span><br>
                 <input type="hidden" name="action" value="products"/>
-                <input type="hidden" name="products" value="<%=products[4].getProductId()%>"/><br> 
-                <input type="hidden" name="products" value="<%=products[4].getName()%>" /><br>
-                <input type="hidden" name="products" value="<%=products[4].getPrice()%>" /><br>
+                <input type="hidden" name="ProductId" value="<%=products[4].getProductId()%>"/><br> 
+                <span><%=products[4].getName()%></span><br>
+                <span><%=products[4].getPrice()%></span><br>
                 <input type="submit" value="Choose"/>
             </form>
         </div>
