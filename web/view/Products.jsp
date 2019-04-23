@@ -12,9 +12,8 @@
 
 <div id ="centerColumn">
     <div class="row">
-         <h1>Feel free to browse our products <br/><br/></h1>
+        <h1>Feel free to browse our products <br/><br/></h1>
         <div class ="image">
-
             <form action="${pageContext.servletContext.contextPath}/product" method="post">
                 <label class="pad_top">Product: </label>
                 <input type="hidden" name="action" value="products"/>               
@@ -27,7 +26,7 @@
         <div class ="image">
             <form action="${pageContext.servletContext.contextPath}/product" method="post">
                 <label class="pad_top">Product: </label>
-                <span><%=products[1]%></span><br>
+                <span><%=products[1]%></span><br> 
                 <input type="hidden" name="action" value="products"/>
                 <input type="hidden" name="ProductId" value="<%=products[1].getProductId()%>"/><br> 
                 <span><%=products[1].getName()%></span><br>
