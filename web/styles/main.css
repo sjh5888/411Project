@@ -56,7 +56,6 @@ body {
     width: 275px;
     margin: 21px 14px 6px;
     float: left;
-    background: #ccc;
 }
 
 .row::after {
