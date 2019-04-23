@@ -7,70 +7,41 @@
 
     ProductsBean[] products = (ProductsBean[]) request.getAttribute("products");
 
-    for (int i = 0; i < products.length; i++) {
-
-    }
-
 
 %>
 
 <div id ="centerColumn">
     <div class="row">
-        <div class ="image">
-
-            <form action="${pageContext.servletContext.contextPath}/product" method="post">
-                <label class="pad_top">Product: </label>
-                <span><%=products[0]%></span><br>
-                <input type="hidden" name="action" value="products"/>               
-                <input type="hidden" name="products" value="<%=products[0].getProductId()%>"/> 
-                <input type="hidden" name="products" value="<%=products[0].getName()%>" />
-                <input type="hidden" name="products" value="<%=products[0].getPrice()%>" />               
-                <input type="submit" value="Choose"/>
-            </form>
-        </div> 
-        <div class ="image">
-            <form action="${pageContext.servletContext.contextPath}/product" method="post">
-                <label class="pad_top">Product: </label>
-                <span><%=products[1]%></span><br>
-                <input type="hidden" name="action" value="products"/>
-                <input type="hidden" name="products" value="<%=products[1].getProductId()%>"/> 
-                <input type="hidden" name="products" value="<%=products[1].getName()%>" />
-                <input type="hidden" name="products" value="<%=products[1].getPrice()%>" />   
-                <input type="submit" value="Choose"/>
-            </form>
-        </div> 
-        <div class ="image">
-            <form action="${pageContext.servletContext.contextPath}/product" method="post">
-                <label class="pad_top">Product: </label>
-                <span><%=products[2]%></span><br>
-                <input type="hidden" name="action" value="products"/>
-                <input type="hidden" name="products" value="<%=products[2].getProductId()%>"/> 
-                <input type="hidden" name="products" value="<%=products[2].getName()%>" />
-                <input type="hidden" name="products" value="<%=products[2].getPrice()%>" />   
-                <input type="submit" value="Choose"/>
-            </form>
-        </div> 
-        <div class ="image">
-            <form action="${pageContext.servletContext.contextPath}/product" method="post">
-                <label class="pad_top">Product: </label>
-                <span><%=products[3]%></span><br>
-                <input type="hidden" name="action" value="products"/>
-                <input type="hidden" name="products" value="<%=products[3].getProductId()%>"/> 
-                <input type="hidden" name="products" value="<%=products[3].getName()%>" />
-                <input type="hidden" name="products" value="<%=products[3].getPrice()%>" />   
-                <input type="submit" value="Choose"/>
-            </form>
-        </div> 
-        <div class ="image">
-            <form action="${pageContext.servletContext.contextPath}/product" method="post">
-                <label class="pad_top">Product: </label>
-                <span><%=products[4]%></span><br>
-                <input type="hidden" name="action" value="products"/>
-                <input type="hidden" name="products" value="<%=products[4].getProductId()%>"/> 
-                <input type="hidden" name="products" value="<%=products[4].getName()%>" />
-                <input type="hidden" name="products" value="<%=products[4].getPrice()%>" />   
-                <input type="submit" value="Choose"/>
-            </form>
-        </div>
+        <h1>Feel free to browse our products <br/><br/></h1>
+        
+      <%
+      for(int i = 0; i < products.length; i++)
+      {
+      out.write("        <div class =\"image\">\n");
+      out.write("            <form action=\"");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.servletContext.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("/product\" method=\"post\">\n");
+      out.write("                <label class=\"pad_top\">Product: </label>\n");
+      out.write("                <input type=\"hidden\" name=\"action\" value=\"select\"/>               \n");
+      out.write("                <input type=\"hidden\" name=\"ProductId\" value=\"");
+      out.print(products[i].getProductId());
+      out.write("\"/><br> \n"); 
+out.print("<span>" + products[i].getProductId() +"</span>");
+      out.write("                <span>");
+      out.print("c:url value=" + products[i].getImageLocation());
+      out.write("</span><br>\n");
+      out.write("                <span>");
+      out.print(products[i].getName());
+      out.write("</span><br>\n");
+      out.write("                <span>");
+      out.print(products[i].getPrice());
+      out.write("</span><br>            \n");
+      out.write("                <input type=\"submit\" value=\"Choose\"/>\n");
+      out.write("            </form>\n");
+      out.write("        </div> \n");
+      }
+      %>
+        
+      <br><br>  
     </div>
 </div>

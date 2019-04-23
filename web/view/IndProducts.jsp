@@ -3,6 +3,14 @@
     Author     : gkemp
 --%>
 
+
+<%
+
+    ProductsBean select = (ProductsBean) request.getAttribute("product");
+
+
+%>
+
 <div id ="centerColumn">
 
     <div class ="prodImage">
