@@ -45,27 +45,5 @@
                 <input type="submit" value="Choose"/>
             </form>
         </div> 
-        <div class ="image">
-            <form action="${pageContext.servletContext.contextPath}/product" method="post">
-                <label class="pad_top">Product: </label>
-                <span><%=products[3]%></span><br>
-                <input type="hidden" name="action" value="products"/>
-                <input type="hidden" name="ProductId" value="<%=products[3].getProductId()%>"/><br> 
-                <span><%=products[3].getName()%></span><br>
-                <span><%=products[3].getPrice()%></span><br>
-                <input type="submit" value="Choose"/>
-            </form>
-        </div> 
-        <div class ="image">
-            <form action="${pageContext.servletContext.contextPath}/product" method="post">
-                <label class="pad_top">Product: </label>
-                <span><%=products[4]%></span><br>
-                <input type="hidden" name="action" value="products"/>
-                <input type="hidden" name="ProductId" value="<%=products[4].getProductId()%>"/><br> 
-                <span><%=products[4].getName()%></span><br>
-                <span><%=products[4].getPrice()%></span><br>
-                <input type="submit" value="Choose"/>
-            </form>
-        </div>
     </div>
 </div>
