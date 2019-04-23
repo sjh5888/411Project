@@ -115,8 +115,8 @@ public class ProductServlet extends HttpServlet {
             try {
                 product = indProductQuery(query, true); //stored in a bean.
                 request.setAttribute("product", product); //java bean for individual product is stored in the request obj.
-                System.out.println(product.getName());
-                System.out.println(product.getDescription());
+               // System.out.println(product.getName());
+               // System.out.println(product.getDescription());
 
             } catch (SQLException ex) {
                 ex.getMessage();
