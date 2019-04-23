@@ -176,7 +176,7 @@ public class AccessDb {
             } else if (columnName.equals("CATEGORYID")) {
                 product.setCategoryId(Long.parseLong(rs.getString(i)));
             } else if (columnName.equals("PRICE")) {
-                product.setPrice(Double.parseDouble(rs.getString(i)));
+                product.setPrice(rs.getString(i));  /////////////////
             } else if (columnName.equals("DESCRIPTION")) {
                 product.setDescription(rs.getString(i));
             } else if (columnName.equals("INVENTORY")) {
@@ -272,7 +272,7 @@ public class AccessDb {
                         
                             products[i].setName((rs.getString(2)));
                        
-                            products[i].setPrice(Double.parseDouble(rs.getString(4)));
+                            products[i].setPrice(rs.getString(4));
                             
                                i++;
                         }
