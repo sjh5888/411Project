@@ -17,7 +17,7 @@
       <%
       for(int i = 0; i < products.length; i++)
       {
-          out.write("        <div class =\"image\">\n");
+      out.write("        <div class =\"image\">\n");
       out.write("            <form action=\"");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.servletContext.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/product\" method=\"post\">\n");
@@ -35,9 +35,6 @@
       out.write("                <input type=\"submit\" value=\"Choose\"/>\n");
       out.write("            </form>\n");
       out.write("        </div> \n");
-      out.write("        <div class =\"image\">\n");
-      out.write("            <form action=\"");
-     // out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.servletContext.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       }
       %>
         
