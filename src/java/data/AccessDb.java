@@ -195,7 +195,7 @@ public class AccessDb {
             product.setProductId(Long.parseLong(rs.getString(1)));
             product.setName(rs.getString(2));
             product.setCategoryId(Long.parseLong(rs.getString(3)));
-            product.setPrice(Double.parseDouble(rs.getString(4)));
+            product.setPrice(String.valueOf(rs.getString(4)));
             product.setDescription(rs.getString(5));
             product.setInventory(Integer.parseInt(rs.getString(6)));
             product.setShippingLocation(rs.getString(7));
