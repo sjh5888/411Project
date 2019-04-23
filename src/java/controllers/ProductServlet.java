@@ -85,10 +85,10 @@ public class ProductServlet extends HttpServlet {
                 descr = descr + " Chocolate";
            
             } */
-            System.out.println(descr);
+           // System.out.println(descr);
             
             descriptionHash = String.valueOf(Math.abs(descr.hashCode()));
-            System.out.println(descriptionHash);
+            //System.out.println(descriptionHash);
             descriptionHash = "c" + descriptionHash; //this is the description ID that will be stored in the Db.
                 //retrieve categories from Db - call access db and query logic
             String query = all.query(descriptionHash);
