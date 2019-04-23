@@ -6,9 +6,6 @@
 <%
 
     ProductsBean[] products = (ProductsBean[]) request.getAttribute("products");
-    int x;
-
-   
 
 
 %>

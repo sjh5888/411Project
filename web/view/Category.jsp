@@ -31,7 +31,7 @@
         <div class ="image">
             <img src='<c:url value="/images2/MilkChocolateBar.png" />'<br>
             <form action="${pageContext.servletContext.contextPath}/product" method="post">
-                <label class="pad_top">Category: </label>S
+                <label class="pad_top">Category: </label>
                 <span><%=descriptions[1]%></span><br>
                 <input type="hidden" name="action" value="products">
                 <input type="hidden" name="description" value="<%=descriptions[1]%>"/>
