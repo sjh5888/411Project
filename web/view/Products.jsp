@@ -22,7 +22,7 @@
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.servletContext.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("/product\" method=\"post\">\n");
       out.write("                <label class=\"pad_top\">Product: </label>\n");
-      out.write("                <input type=\"hidden\" name=\"action\" value=\"products\"/>               \n");
+      out.write("                <input type=\"hidden\" name=\"action\" value=\"select\"/>               \n");
       out.write("                <input type=\"hidden\" name=\"ProductId\" value=\"");
       out.print(products[i].getProductId());
       out.write("\"/><br> \n");
