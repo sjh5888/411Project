@@ -68,6 +68,7 @@ public class CheckoutServlet extends HttpServlet {
             c.setPath("/");
 
             response.addCookie(c);
+            url = "/view/ShoppingCart.jsp";
 
         } else if (action.equals("viewCart")) {
             url = "/view/ShoppingCart.jsp";
