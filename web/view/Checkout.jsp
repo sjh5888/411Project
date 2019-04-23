@@ -16,5 +16,5 @@
         <input type="text" name="lastName" value="${CheckoutServlet.lastName}"><br>  
         <input type= "submit" value="submit"/>
     </form>
-</form>
+
 </div>
