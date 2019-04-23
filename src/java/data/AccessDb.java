@@ -175,7 +175,7 @@ public class AccessDb {
             } else if (columnName.equals("CATEGORYID")) {
                 product.setCategoryId(Long.parseLong(rs.getString(i)));
             } else if (columnName.equals("PRICE")) {
-                product.setPrice(Double.parseDouble(rs.getString(i)));
+                product.setPrice(rs.getString(i));  /////////////////
             } else if (columnName.equals("DESCRIPTION")) {
                 product.setDescription(rs.getString(i));
             } else if (columnName.equals("INVENTORY")) {
@@ -275,6 +275,27 @@ public class AccessDb {
                 description[i++] = result;
             }*/
             while (rs.next()) {
+                
+            
+                 products[i] = new ProductsBean();
+              
+                    products[i] = new ProductsBean();
+                        
+                            products[i].setProductId(Long.parseLong(rs.getString(1)));
+                        
+                            products[i].setName((rs.getString(2)));
+                       
+                            products[i].setPrice(rs.getString(4));
+                            
+                               i++;
+                        }
+                        
+       
+          /*  for (int i = 0; i < rows; i++) {
+                products[i] = new ProductsBean();
+                while (rs.next()) {
+                    for (int j = 1; j <= columnCount; j++) {
+                        String columnName = rsmd.getColumnName(j);
 
                 products[i] = new ProductsBean();
 
@@ -287,7 +308,7 @@ public class AccessDb {
                 products[i].setPrice(Double.parseDouble(rs.getString(4)));
 
                 i++;
-            }
+            } */
 
             stmt.close();
             con.close();

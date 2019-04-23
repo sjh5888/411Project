@@ -15,7 +15,7 @@ public class ProductsBean {
     private long productId; 
     private String name;
     private long categoryId;
-    private double price;
+    private String price; ////
     private String description;
     private int inventory;
     private String shippingLocation;
@@ -27,7 +27,7 @@ public class ProductsBean {
      productId = 0;
      name = null;
      categoryId = 0;
-     price = 0;
+     price = null; ////////// =0
      description = null;
      inventory = 0;
      shippingLocation = null;
@@ -49,8 +49,10 @@ public class ProductsBean {
         this.categoryId = categoryId;
     }
  
-    public void setPrice(double price) {
-        this.price = price;
+    public void setPrice(String pric) { ////////////////////////
+        double xyz = Double.parseDouble(pric);
+        System.out.println(xyz);
+        this.price = String.format("%.2f", xyz);
     }
 
     public void setDescription(String description) {
@@ -77,10 +79,6 @@ public class ProductsBean {
         this.imageLocation = imageLocation;
     }
      
-
-    
-    
-    
     
     public long getProductId(){
         return productId;
@@ -94,7 +92,7 @@ public class ProductsBean {
         return categoryId;
     }
 
-    public double getPrice() {
+    public String getPrice() {
         return price;
     }
 
