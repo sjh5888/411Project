@@ -24,13 +24,13 @@
       out.write("                <label class=\"pad_top\">Product: </label>\n");
       out.write("                <input type=\"hidden\" name=\"action\" value=\"products\"/>               \n");
       out.write("                <input type=\"hidden\" name=\"ProductId\" value=\"");
-      out.print(products[0].getProductId());
+      out.print(products[i].getProductId());
       out.write("\"/><br> \n");
       out.write("                <span>");
-      out.print(products[0].getName());
+      out.print(products[i].getName());
       out.write("</span><br>\n");
       out.write("                <span>");
-      out.print(products[0].getPrice());
+      out.print(products[i].getPrice());
       out.write("</span><br>            \n");
       out.write("                <input type=\"submit\" value=\"Choose\"/>\n");
       out.write("            </form>\n");
