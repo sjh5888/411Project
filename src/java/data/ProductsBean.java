@@ -51,8 +51,9 @@ public class ProductsBean {
  
     public void setPrice(String pric) { ////////////////////////
         double xyz = Double.parseDouble(pric);
-        System.out.println(xyz);
+        //System.out.println(xyz);
         this.price = String.format("%.2f", xyz);
+        price = "$" + price;
     }
 
     public void setDescription(String description) {
