@@ -27,6 +27,9 @@
       out.print(products[i].getProductId());
       out.write("\"/><br> \n");
       out.write("                <span>");
+      out.print(products[i].getImageLocation());
+      out.write("</span><br>\n");
+      out.write("                <span>");
       out.print(products[i].getName());
       out.write("</span><br>\n");
       out.write("                <span>");
