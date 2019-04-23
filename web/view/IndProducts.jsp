@@ -6,7 +6,7 @@
 
 <%
 
-    ProductsBean[] select = (ProductsBean[]) request.getAttribute("select");
+    ProductsBean select = (ProductsBean) request.getAttribute("product");
 
 
 %>

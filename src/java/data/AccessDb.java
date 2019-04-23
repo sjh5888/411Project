@@ -287,6 +287,8 @@ public class AccessDb {
                        
                             products[i].setPrice(rs.getString(4));
                             
+                            products[i].setImageLocation(rs.getString(10));
+                            
                                i++;
                         }
                         
