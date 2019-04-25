@@ -24,7 +24,7 @@
       out.write("                <label class=\"pad_top\"></label>\n");
       out.write("                <input type=\"hidden\" name=\"action\" value=\"select\"/>               \n");
       out.write("                <input type=\"hidden\" name=\"ProductId\" value=\"");
-      //out.print(products[i].getProductId());
+      out.print(products[i].getProductId());
       out.write("\"/><br> \n"); 
       //out.print("<span>" + products[i].getProductId() +"</span>");
       

@@ -61,6 +61,9 @@ public class CheckoutServlet extends HttpServlet {
         }else if (action.equals("addToCart")) {
 
             String itemID = request.getParameter("itemID");
+           
+            System.out.println(itemID);
+            
             cart = cart + itemID;
 
             Cookie c = new Cookie("cart", cart);
