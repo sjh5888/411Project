@@ -16,7 +16,7 @@
                     <label class="pad_top">Product: </label>
                     <span>${product.name}</span><br>
                     <label>Price: </label>
-                    <span>${product.price}</span>
+                    <span>${product.price}</span><br>
                     <label class="pad_top">Description: </label>
                     <span>${product.description}</span><br>
                     <input type="hidden" name="action" value="addToCart">
