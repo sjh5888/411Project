@@ -12,7 +12,7 @@
             <div class ="image">
                 <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
                     <label class="pad_top"></label>
-                    <span>${prodcut.imageLocation}</span>
+                    <span>${product.imageLocation}</span>
                     <label class="pad_top">Product: </label>
                     <span>${product.name}</span><br><br>
                     <label class="pad_top">Description: </label>
