@@ -7,12 +7,14 @@
 <div id ="centerColumn">
 
     <div class ="prodImage">
-       
+
         <div id="indivProd">
             <div class ="image">
                 <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
                     <label class="pad_top"></label>
                     <span>${product.imageLocation}</span><br>
+                    <label class="pad_top"></label>
+                    <span>${product.productId}</span>
                     <label class="pad_top">Product: </label>
                     <span>${product.name}</span><br>
                     <label>Price: </label>
