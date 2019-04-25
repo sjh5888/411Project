@@ -9,10 +9,10 @@
 
     <div class="row">
         <p>Test Words</p>
-            <form action="${pageContext.servletContext.contextPath}/view/Products.jsp" method="post">
+            <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
                 <label class="pad_top">Product Name: </label>
                 <span>${data.ProductsBean.categoryId}</span><br>
-                <input type="" name="action" value="products">
+                <input type="hidden" name="action" value="checkout">
                 <input type="submit" value="Choose">
             </form></a>
         </div> 
