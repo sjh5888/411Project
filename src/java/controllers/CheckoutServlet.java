@@ -74,7 +74,19 @@ public class CheckoutServlet extends HttpServlet {
             url = "/view/ShoppingCart.jsp";
 
         } else if (action.equals("viewCart")) {
+            
             url = "/view/ShoppingCart.jsp";
+            
+            Cookie[] cookies = request.getCookies();
+            String cookieName = "productCookie";
+            String cookieValue = "";
+            for (Cookie cookie : cookies){
+                if (cookieName.equals(cookie.getName())){
+                    cookieValue = cookie.getValue();
+                    System.out.println("ID is equal to: " + cookieValue);
+                }
+            }
+            request.setAttribute("cookie",cookieValue);
         } else if (action.equals("checkout")) {
             url = "/view/Checkout.jsp";
         
