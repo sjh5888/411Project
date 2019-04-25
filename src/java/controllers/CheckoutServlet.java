@@ -94,7 +94,7 @@ public class CheckoutServlet extends HttpServlet {
                 url = "/view/Confirmation.jsp";
                 System.out.println("pass");
             } else {
-                url = "/view/Checkout.jsp";
+                url = "/view/Checkout2.jsp";
                 boolean error = true;
                 request.setAttribute("error", error); //to alert user that the card was declined
                 System.out.println("fail");
