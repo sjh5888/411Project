@@ -118,7 +118,7 @@ public class DatabaseSetup
             int[] shippingLocation = {17404, 17350, 17340, 17331, 21157, 21158, 17402, 54879, 23456, 90210};
             double[] weight = {1.55, 6.8, 40.0, 7.2, 7.2, 12.0, 1.55, 12.0, 68.8, 10.5};
             String[] size = {"small", "small", "medium", "medium", "large", "meduim", "small", "meduim", "large", "medium"};
-            String[] imageLocation = {"images/MilkChocolateBar.png", "images/SymphoneMilkChocolate.png", "images/MilkChocolateKisses.png", "images/CaramelsDark.png", "images/SpecialDark.png", "images/DarkChocolateChips.png", "images/CookiesNcreame.png", "images/WhiteChips.png", "images/JollyRancherTwizzler.png", "images/CookiesCremeCandy.png"};
+            String[] imageLocation = {"images2/MilkChocolateBar.png", "images2/SymphoneMilkChocolate.png", "images2/MilkChocolateKisses.png", "images2/CaramelsDark.png", "images2/SpecialDark.png", "images2/DarkChocolateChips.png", "images2/CookiesNcreame.png", "images2/WhiteChips.png", "images2/JollyRancherTwizzler.png", "images2/CookiesCremeCandy.png"};
             
             for (int i=0;i<name.length;i++) {
                 tmpString = ("INSERT INTO  PRODUCTS (PRODUCTID, NAME, CATEGORYID, PRICE, DESCRIPTION, INVENTORY, SHIPPINGLOCATION, WEIGHT, SIZE, IMAGELOCATION)" +
