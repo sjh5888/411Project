@@ -8,7 +8,7 @@ body {
 #main {
 }
 #header {
-    height: 175px;
+    height: 100px;
     background: #b3d9ff;
     text-align: center;
 }
@@ -19,7 +19,7 @@ body {
     align-content: center;
 }
 #footer {
-    height: 60px;
+    height: 30px;
     clear: left;
     background: #b3d9ff;
 }
@@ -34,7 +34,7 @@ body {
     float: left;
     margin: 20px 0 0 70px;
     float-family: 'American Typewriter', Courier, monospace;
-    font-size: 50px;
+    font-size: 75px;
     color: #333;
 }
 #widgetBar {
@@ -49,7 +49,7 @@ body {
     font-size: small;
     float: right;
     line-height: 25px;
-    background: #aaa;
+    background: #b3d9ff;
 }
 .image {
     height: 200px;
