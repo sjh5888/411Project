@@ -22,7 +22,6 @@
                     <label class="pad_top">Description: </label>
                     <span>${product.description}</span><br>
                     <input type="hidden" name="action" value="addToCart">
-                    <input type="hidden" name="itemID" value="${product.productId}">
                     <input type="submit" value="Add to Cart">
                 </form>
             </div> 
