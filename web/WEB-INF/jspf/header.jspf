@@ -24,12 +24,25 @@
                 </script>
                 <div id="widgetBar">  
                     <div class="headerWidget">
-                        <a href="./Checkout.jsp"class="btn">
-                            <input type="submit" value="Check Out" name="Check Out" /> </a>
+                        <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
+
+                            <input type="hidden" name="action" value="viewCart">
+
+                            <input type="submit" value="Shopping Cart">
+                        </form>
+
+                        <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
+
+                            <input type="hidden" name="action" value="checkout">
+
+                            <input type="submit" value="Checkout">
+                        </form>
+
+
+
                     </div>
                     <div class="headerWidget">
-                        <a href="./ShoppingCart.jsp" class="btn">
-                            <input type="submit" value="Shopping Cart" name="Shopping Cart" /> </a>
+
                     </div>
                     <h1>Penn State Candy Shop</h1>
                 </div>
