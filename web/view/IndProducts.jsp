@@ -11,8 +11,10 @@
         <div id="indivProd">
             <div class ="image">
                 <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
-                    <label class="pad_top">Product Name: </label>
-                    <span>${product.name}</span><br>
+                    <label class="pad_top"></label>
+                    <span>${prodcut.imageLocation}</span>
+                    <label class="pad_top">Product: </label>
+                    <span>${product.name}</span><br><br>
                     <label class="pad_top">Description: </label>
                     <span>${product.description}</span><br>
                     <input type="hidden" name="action" value="addToCart">
