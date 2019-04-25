@@ -18,8 +18,8 @@
                 <input type="hidden" name="action" value="checkout">
                 <input type="submit" value="Check Out">
             </form></a>
-        </div> 
-
-
     </div> 
+
+
+</div> 
 </div>
