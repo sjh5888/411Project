@@ -111,7 +111,7 @@ public class ProductServlet extends HttpServlet {
             QueryLogic one = new QueryLogic();
             
             String query = one.query("p" + prodID);
-            System.out.println(query);
+            System.out.println("test: " + query);
             try {
                 product = indProductQuery(query, true); //stored in a bean.
                 request.setAttribute("product", product); //java bean for individual product is stored in the request obj.
