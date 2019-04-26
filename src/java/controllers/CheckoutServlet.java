@@ -60,11 +60,16 @@ public class CheckoutServlet extends HttpServlet {
             
         }else if (action.equals("addToCart")) {
 
-            String itemID = request.getParameter("itemId");
+            String itemID = request.getParameter("name");
+            String image = request.getParameter("image");
+            String price = request.getParameter("price");
+            String quantity = request.getParameter("quantity");
+            String price1 = price.substring(1, price.length());
+            //String total = String.valueOf(price2 * quantity1);
            
             System.out.println(itemID);
             
-            cart = cart + itemID;
+            cart = cart + itemID + "|" + image + "|" + price;
 
             Cookie c = new Cookie("cart", cart);
             c.setMaxAge(60 * 60 * 24 * 365 * 3);
