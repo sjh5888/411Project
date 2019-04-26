@@ -60,7 +60,7 @@ public class CheckoutServlet extends HttpServlet {
             
         }else if (action.equals("addToCart")) {
 
-            String itemID = request.getParameter("itemID");
+            String itemID = request.getParameter("itemId");
            
             System.out.println(itemID);
             

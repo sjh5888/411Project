@@ -4,6 +4,7 @@
 --%>
 
 <div id ="centerColumn">
+    <center>
     <h1>That number is invalid. </h1>
     <span>${product.name}</span>
     <h2>Please Try again</h2>
@@ -17,5 +18,5 @@
         <input type="text" name="lastName" value="${CheckoutServlet.lastName}"><br>  
         <input type= "submit" value="submit"/>
     </form>
-
+    </center>
 </div>
