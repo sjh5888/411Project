@@ -12,6 +12,7 @@
 
 <div id ="centerColumn">
     <div class="row">
+        <center>
         <h1>Feel free to browse our products <br/><br/></h1>
         
       <%
@@ -45,6 +46,7 @@
       }
       %>
         
-      <br><br>  
+      <br><br> 
+        </center>
     </div>
 </div>

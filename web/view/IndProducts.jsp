@@ -10,6 +10,7 @@
 
         <div id="indivProd">
             <div class ="image">
+                <center>
                 <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
                     <label class="pad_top">Product#: </label>
                     <span>${product.productId}</span><br>
@@ -30,6 +31,7 @@
                         <span>${product.description}</span><br><br><br>
                     <input type="hidden" name="action" value="addToCart">
                     <input type="submit" value="Add to Cart">
+                    </center>
                 </form>
             </div> 
         </div>

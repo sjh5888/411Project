@@ -24,6 +24,8 @@ import sockets.ClientSocket;
 public class CheckoutServlet extends HttpServlet {
 
     private String cart = "";
+    private String price;
+    private String total;
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -62,11 +64,9 @@ public class CheckoutServlet extends HttpServlet {
 
             String itemID = request.getParameter("name");
             String image = request.getParameter("image");
-            String price = request.getParameter("price");
+            price = request.getParameter("price");
             String quantity = request.getParameter("quantity");
-            String price1 = price.substring(1, price.length());
             //String total = String.valueOf(Double.parseDouble(price1) * Integer.parseInt(quantity));
-            //System.out.println(total);
             System.out.println(itemID);
             
             cart = cart + itemID + "|" + image + "|" + price;
@@ -93,6 +93,11 @@ public class CheckoutServlet extends HttpServlet {
             }
             request.setAttribute("cookie",cookieValue);
         } else if (action.equals("checkout")) {
+            String quantity = request.getParameter("quantity");
+            String price1 = price.substring(1, price.length());
+            total = String.valueOf(String.format("%.2f", Double.parseDouble(price1) * Integer.parseInt(quantity)));
+            System.out.println("total: " + total);
+            request.setAttribute("data", total); 
             url = "/view/Checkout.jsp";
         
         } else if (action.equals("confirm")) {
