@@ -65,8 +65,8 @@ public class CheckoutServlet extends HttpServlet {
             String price = request.getParameter("price");
             String quantity = request.getParameter("quantity");
             String price1 = price.substring(1, price.length());
-            //String total = String.valueOf(price2 * quantity1);
-           
+            //String total = String.valueOf(Double.parseDouble(price1) * Integer.parseInt(quantity));
+            //System.out.println(total);
             System.out.println(itemID);
             
             cart = cart + itemID + "|" + image + "|" + price;
