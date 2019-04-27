@@ -131,10 +131,10 @@ public class CheckoutServlet extends HttpServlet {
                  
             }
             
-            System.out.println("Testing the cartItems array: " + cartItems[1].getName());
+            System.out.println("Testing the cartItems array: " + cartItems[2].getName());
             System.out.println("Testing the total: " + total);
            
-            HttpSession session = request.getSession();
+           HttpSession session = request.getSession();
            session.setAttribute("total",total);
            session.setAttribute("items",cartItems);
             
