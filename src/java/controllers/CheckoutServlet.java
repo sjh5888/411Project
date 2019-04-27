@@ -83,8 +83,10 @@ public class CheckoutServlet extends HttpServlet {
 
             response.addCookie(c);
             url = "/view/ShoppingCart.jsp"; //change this so u have the option of adding shit
-            //action = "viewCart";
-            //request.setAttribute("action", action);
+            action = "viewCart";
+            request.setAttribute("action", action);
+           
+           
 
         } else if (action.equals("viewCart")) {
 
@@ -130,6 +132,7 @@ public class CheckoutServlet extends HttpServlet {
             
             System.out.println("Testing the cartItems array: " + cartItems[1].getName());
             System.out.println("Testing the total: " + total);
+           
            request.setAttribute("total",total);
            request.setAttribute("items",cartItems);
             

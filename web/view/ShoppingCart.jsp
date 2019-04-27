@@ -13,7 +13,7 @@
         <div id="indivProd">
             
             
-            <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
+           
                 <% 
                   /*  String name;
                     String image;
@@ -58,10 +58,16 @@
                         
                     } */
                  ProductsBean[] items = (ProductsBean[]) request.getAttribute("items");
-                 double total = Double.parseDouble(request.getParameter("total"));
+                 System.out.println("Testing recpetion of item array from checkout servlet: " + items[1].getName());
+               
+               /*  String reception ="";*/
+                 //reception = request.getParameter("total");
+                 double total =0;
+                        total = Double.parseDouble( request.getParameter("total"));
+                        System.out.println("Testing reception of total attribute from checkout servlet " + String.valueOf(total)); 
  
       for(int i = 0; i < items.length; i++){
-              out.write("\n");
+              out.write("\n  <form action=\"${pageContext.servletContext.contextPath}/checkout\" method=\"post\">");
       out.write("                \n");
       out.write("                \n");
       out.write("                <label class=\"pad_top\">Product Name: </label>\n");
@@ -69,6 +75,7 @@
       out.write("\n");
       out.write("                <span>");
       out.print( items[i].getName() );
+      System.out.println("Testing to see if i is initialized: " + items[i].getName());
       out.write("</span><br>\n");
       out.write("                <label class=\"pad_top\"></label>\n");
       out.write("                <span><img src=\"");
@@ -97,9 +104,9 @@
       }
      %>
      
-     <h1>$<%=total%></h1>
+   <%--     <h1>$<%=total%></h1>
                 
-             <%--   <label class="pad_top">Product Name: </label>
+             <label class="pad_top">Product Name: </label>
                 <span>${cookie.cart.value}</span>
                 <span><%= items[i].getName() %></span><br>
                 <label class="pad_top"></label>
