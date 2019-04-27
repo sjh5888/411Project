@@ -22,6 +22,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import sockets.ClientSocket;
 
 /**
@@ -133,8 +134,9 @@ public class CheckoutServlet extends HttpServlet {
             System.out.println("Testing the cartItems array: " + cartItems[1].getName());
             System.out.println("Testing the total: " + total);
            
-           request.setAttribute("total",total);
-           request.setAttribute("items",cartItems);
+            HttpSession session = request.getSession();
+           session.setAttribute("total",total);
+           session.setAttribute("items",cartItems);
             
 
         } else if (action.equals("checkout")) {
