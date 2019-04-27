@@ -29,6 +29,8 @@
                     <div class="image"><br><br>
                         <label class="pad_top"><strong>Description: </strong></label><br>
                         <span>${product.description}</span><br><br><br>
+                        <label class="pad_top">Enter Quantity: </label>
+                        <input type="text" name="quantity" value="${CheckoutServlet.quantity}"><br>
                     <input type="hidden" name="action" value="addToCart">
                     <input type="submit" value="Add to Cart">
                     </center>

@@ -5,11 +5,18 @@
  */
 package controllers;
 
+import static data.AccessDb.arrayProductQuery;
+import static data.AccessDb.indProductQuery;
+import data.ProductsBean;
+import data.QueryLogic;
 import sockets.ClientSocket;
-
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
@@ -56,33 +63,34 @@ public class CheckoutServlet extends HttpServlet {
 
         String action = request.getParameter("action");
         String url = "/index.html";
-       
-        if(action == null){
-            url = "/index.html";
-            
-        }else if (action.equals("addToCart")) {
 
-            String itemID = request.getParameter("name");
-            String image = request.getParameter("image");
-            price = request.getParameter("price");
+        if (action == null) {
+            url = "/index.html";
+
+        } else if (action.equals("addToCart")) { //need to not redirect but instead add a message or something
+
+            String itemID = request.getParameter("itemID");
+            //String image = request.getParameter("image");
+            // price = request.getParameter("price");
             String quantity = request.getParameter("quantity");
             //String total = String.valueOf(Double.parseDouble(price1) * Integer.parseInt(quantity));
-            System.out.println(itemID);
-            
-            cart = cart + itemID + "|" + image + "|" + price; // gonna need to add another pipe somewhere for multiple products
+            System.out.println("itemID for selected product: " + itemID);
 
-            Cookie c = new Cookie("cart", cart);
+            // Cookie c = new Cookie("cart", cart);
+            Cookie c = new Cookie(itemID, quantity);
             c.setMaxAge(60 * 60 * 24 * 365 * 3);
             c.setPath("/");
 
             response.addCookie(c);
-            url = "/view/ShoppingCart.jsp";
+            url = "/view/ShoppingCart.jsp"; //change this so u have the option of adding shit
+            //action = "viewCart";
+            //request.setAttribute("action", action);
 
         } else if (action.equals("viewCart")) {
-            
+
             url = "/view/ShoppingCart.jsp";
-            
-           /* Cookie[] cookies = request.getCookies();
+
+            /* Cookie[] cookies = request.getCookies();
             String cookieName = "productCookie";
             String cookieValue = "";
             for (Cookie cookie : cookies){
@@ -92,14 +100,48 @@ public class CheckoutServlet extends HttpServlet {
                 }
             }
             request.setAttribute("cookie",cookieValue); */
+            Cookie clientCookies[] = request.getCookies();
+            System.out.println("number of cookies stored on drive: " + clientCookies.length);
+            QueryLogic item = new QueryLogic();
+            ProductsBean[] cartItems = new ProductsBean[clientCookies.length];
+            double total = 0;
+
+            for (int i = 1; i < clientCookies.length; i++) { //starting at one to bypass the session cookie
+                
+                //cartItems = new ProductsBean[clientCookies.length];
+               // System.out.println(cartItems.length);
+                
+                String itemID = clientCookies[i].getName();
+                int quantity = Integer.parseInt(clientCookies[i].getValue());
+                //System.out.println(quantity);
+                String query = item.query("p" + itemID);
+                System.out.println("Query for product stored in cookie: " + query);
+                
+                try {
+                    cartItems[i] = indProductQuery(query,true);
+                    
+                } catch (SQLException ex) {
+                    System.out.println(ex.getMessage());
+                }
+                
+                total = total + Double.parseDouble(cartItems[i].getPrice().replace("$", "").trim()) * quantity;
+                 
+            }
+            
+            System.out.println("Testing the cartItems array: " + cartItems[1].getName());
+            System.out.println("Testing the total: " + total);
+           request.setAttribute("total",total);
+           request.setAttribute("items",cartItems);
+            
+
         } else if (action.equals("checkout")) {
             String quantity = request.getParameter("quantity");
             String price1 = price.substring(1, price.length());
             total = String.valueOf(String.format("%.2f", Double.parseDouble(price1) * Integer.parseInt(quantity)));
             System.out.println("total: " + total);
-            request.setAttribute("data", total); 
+            request.setAttribute("data", total);
             url = "/view/Checkout.jsp";
-        
+
         } else if (action.equals("confirm")) {
             //System.out.println("help me"); //test
             ClientSocket cs = new ClientSocket("localhost", 11001);

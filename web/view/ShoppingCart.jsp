@@ -4,18 +4,18 @@
 --%>
 
 <div id ="centerColumn">
-    
+    <center>
     <h1>Shopping Cart</h1>
 
-    <div class="row">
+    <%--<div class="row">--%>
     <div class ="prodImage">
 
         <div id="indivProd">
-            <div class ="image">
+            
             
             <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
                 <% 
-                    String name;
+                  /*  String name;
                     String image;
                     String price;
                     String total;
@@ -56,28 +56,69 @@
                         request.setAttribute("image", image);
                         request.setAttribute("price", price);
                         
-                    }
-                %>
-                <center>
-                <label class="pad_top">Product Name: </label>
-                <%--<span>${cookie.cart.value}</span>--%>
-                <span><%= request.getAttribute("name") %></span><br>
-                <label class="pad_top" />
-                <span><img src="<%= request.getAttribute("image") %>" /><br>
-                <label class="pad_top" />
-                <span><%= request.getAttribute("price") %></span><br
-                <label class="pad_top">Enter Quantity: </label>
+                    } */
+                 ProductsBean[] items = (ProductsBean[]) request.getAttribute("items");
+                 double total = Double.parseDouble(request.getParameter("total"));
+ 
+      for(int i = 0; i < items.length; i++){
+              out.write("\n");
+      out.write("                \n");
+      out.write("                \n");
+      out.write("                <label class=\"pad_top\">Product Name: </label>\n");
+      out.write("                ");
+      out.write("\n");
+      out.write("                <span>");
+      out.print( items[i].getName() );
+      out.write("</span><br>\n");
+      out.write("                <label class=\"pad_top\"></label>\n");
+      out.write("                <span><img src=\"");
+      out.print( items[i].getImageLocation());
+      out.write("\"></span><br>\n");
+      out.write("                <label class=\"pad_top\" ></label>\n");
+      out.write("                <span>");
+      out.print( items[i].getPrice());
+      out.write("</span><br\n");
+      out.write("                ");
+      out.write("\n");
+      out.write("                \n");
+      out.write("                <input type=\"hidden\" name=\"action\" value=\"checkout\">\n");
+      out.write("                <input type=\"submit\" value=\"Check Out\">\n");
+      out.write("                       \n");
+      out.write("            </form>\n");
+      out.write("    \n");
+      out.write("     \n");
+      out.write("\n");
+      out.write("    </center>\n");
+      out.write("</div> \n");
+      out.write("</div>\n");
+      out.write("</div>\n");
+      out.write("          \n");
+      out.write("\n");
+      }
+     %>
+     
+     <h1>$<%=total%></h1>
+                
+             <%--   <label class="pad_top">Product Name: </label>
+                <span>${cookie.cart.value}</span>
+                <span><%= items[i].getName() %></span><br>
+                <label class="pad_top"></label>
+                <span><img src="<%= items[i].getImageLocation()%>"></span><br>
+                <label class="pad_top" ></label>
+                <span><%= items[i].getPrice()%></span><br
+                <%-- <label class="pad_top">Enter Quantity: </label> 
                 <input type="text" name="quantity" value="${CheckoutServlet.quantity}"><br>
-                <%--<span>${data.ProductsBean.categoryId}</span><br>--%>
+                
+                <%--<span>${data.ProductsBean.categoryId}</span><br>
                 
                 <input type="hidden" name="action" value="checkout">
                 <input type="submit" value="Check Out">
-                       </center>
-            </form>
+                       
+            </form>--%>
     
-    </div> 
+     
 
-    
+    </center>
 </div> 
 </div>
 </div>
