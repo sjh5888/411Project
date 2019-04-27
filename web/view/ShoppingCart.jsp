@@ -58,7 +58,7 @@
                         
                     } */
                  ProductsBean[] items = (ProductsBean[]) session.getAttribute("items");
-                 System.out.println("Testing recpetion of item array from checkout servlet: " + items[1].getName());
+                 System.out.println("Testing recpetion of item array from checkout servlet: " + items[2].getName());
                
                /*  String reception ="";
                  //reception = request.getParameter("total");
