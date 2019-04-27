@@ -57,14 +57,14 @@
                         request.setAttribute("price", price);
                         
                     } */
-                 ProductsBean[] items = (ProductsBean[]) request.getAttribute("items");
+                 ProductsBean[] items = (ProductsBean[]) session.getAttribute("items");
                  System.out.println("Testing recpetion of item array from checkout servlet: " + items[1].getName());
                
-               /*  String reception ="";*/
+               /*  String reception ="";
                  //reception = request.getParameter("total");
                  double total =0;
                         total = Double.parseDouble( request.getParameter("total"));
-                        System.out.println("Testing reception of total attribute from checkout servlet " + String.valueOf(total)); 
+                        System.out.println("Testing reception of total attribute from checkout servlet " + String.valueOf(total)); */
  
       for(int i = 0; i < items.length; i++){
               out.write("\n  <form action=\"${pageContext.servletContext.contextPath}/checkout\" method=\"post\">");
