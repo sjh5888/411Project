@@ -33,9 +33,14 @@
                         <input type="text" name="quantity" value="${CheckoutServlet.quantity}"><br>
                     <input type="hidden" name="action" value="addToCart">
                     <input type="submit" value="Add to Cart">
+                    
+                </form> 
+                        <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
+                            <input type ="submit" name="action" value="viewCart">
+                        </form>
                     </center>
-                </form>
             </div> 
+                       
         </div>
     </div>  
 </div>

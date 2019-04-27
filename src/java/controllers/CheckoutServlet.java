@@ -82,9 +82,9 @@ public class CheckoutServlet extends HttpServlet {
             c.setPath("/");
 
             response.addCookie(c);
-            url = "/view/ShoppingCart.jsp"; //change this so u have the option of adding shit
-            action = "viewCart";
-            request.setAttribute("action", action);
+            url = "/view/IndProducts.jsp"; 
+           // action = "viewCart";
+            //request.setAttribute("action", action);
            
            
 
