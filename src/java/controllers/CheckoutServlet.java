@@ -69,7 +69,7 @@ public class CheckoutServlet extends HttpServlet {
             //String total = String.valueOf(Double.parseDouble(price1) * Integer.parseInt(quantity));
             System.out.println(itemID);
             
-            cart = cart + itemID + "|" + image + "|" + price;
+            cart = cart + itemID + "|" + image + "|" + price; // gonna need to add another pipe somewhere for multiple products
 
             Cookie c = new Cookie("cart", cart);
             c.setMaxAge(60 * 60 * 24 * 365 * 3);
@@ -82,7 +82,7 @@ public class CheckoutServlet extends HttpServlet {
             
             url = "/view/ShoppingCart.jsp";
             
-            Cookie[] cookies = request.getCookies();
+           /* Cookie[] cookies = request.getCookies();
             String cookieName = "productCookie";
             String cookieValue = "";
             for (Cookie cookie : cookies){
@@ -91,7 +91,7 @@ public class CheckoutServlet extends HttpServlet {
                     System.out.println("ID is equal to: " + cookieValue);
                 }
             }
-            request.setAttribute("cookie",cookieValue);
+            request.setAttribute("cookie",cookieValue); */
         } else if (action.equals("checkout")) {
             String quantity = request.getParameter("quantity");
             String price1 = price.substring(1, price.length());
@@ -101,7 +101,7 @@ public class CheckoutServlet extends HttpServlet {
             url = "/view/Checkout.jsp";
         
         } else if (action.equals("confirm")) {
-            System.out.println("help me"); //test
+            //System.out.println("help me"); //test
             ClientSocket cs = new ClientSocket("localhost", 11001);
 
             //String cardNumber = (String) request.getAttribute("cardNumber");

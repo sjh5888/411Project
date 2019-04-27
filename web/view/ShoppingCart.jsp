@@ -4,10 +4,10 @@
 --%>
 
 <div id ="centerColumn">
-    <center>
+    
     <h1>Shopping Cart</h1>
 
-    <%--<div class="row">--%>
+    <div class="row">
     <div class ="prodImage">
 
         <div id="indivProd">
@@ -73,11 +73,11 @@
                 <input type="hidden" name="action" value="checkout">
                 <input type="submit" value="Check Out">
                        </center>
-            </form></a>
+            </form>
     
     </div> 
 
-    </center>
+    
 </div> 
 </div>
 </div>
