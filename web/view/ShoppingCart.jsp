@@ -70,7 +70,7 @@
                         total = Double.parseDouble( request.getParameter("total"));
                         System.out.println("Testing reception of total attribute from checkout servlet " + String.valueOf(total)); */
  
-      for(int i = 1; i < items.length; i++){
+      for(int i = 0; i < items.length; i++){
              out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.servletContext.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       //out.write("/checkout\" method=\"post\">\n");
       //out.write("                \n");
