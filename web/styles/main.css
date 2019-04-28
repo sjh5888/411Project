@@ -17,6 +17,9 @@ body {
     background: #ffffff;
     align-content: center;
 }
+#indivProd {
+    padding-left: 400px
+}
 #footer {
     height: 30px;
     clear: left;

@@ -6,7 +6,9 @@
 
 <div id ="centerColumn">
 
+    <h1> <br/><br/></h1>
     <div class ="prodImage">
+        
 
         <div id="indivProd">
             <div class ="image">
@@ -27,7 +29,7 @@
                     <input type="hidden" name="price" value="${product.price}">
                     </div>
                     <div class="image"><br><br>
-                        <label class="pad_top"><strong>Description: </strong></label><br>
+                        <label class="pad_top"><strong>Description:</strong></label><br>
                         <span>${product.description}</span><br><br><br>
                         <label class="pad_top">Enter Quantity: </label>
                         <input type="text" name="quantity" value="${CheckoutServlet.quantity}"><br>
