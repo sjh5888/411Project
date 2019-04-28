@@ -4,12 +4,12 @@
 --%>
 
 <div id ="centerColumn">
-
+ <div class ="row">
     <h1>Shopping Cart</h1>
 
-    <div class ="row">
+   
 
-        <div class ="image">
+        
 
 
 
@@ -70,6 +70,8 @@
                     System.out.println("Testing reception of total attribute from checkout servlet " + String.valueOf(total)); */
 
                 for (int i = 0; i < items.length; i++) {
+                    out.write("        <div class =\"image\">\n");
+                    out.write("            <form action=\"");
                     out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.servletContext.contextPath}", java.lang.String.class, (PageContext) _jspx_page_context, null));
                     //out.write("/checkout\" method=\"post\">\n");
                     //out.write("                \n");
@@ -96,11 +98,14 @@
                     out.write("                <input type=\"submit\" value=\"Check Out\">\n<br>");
                     out.write("                       \n");
                     out.write("            </form>\n");
+                    out.write("    </div> \n");
                     out.write("    \n");
                     out.write("     \n");
                     out.write("\n");
+                    
                 }
                 out.write("    </center>\n");
+                out.write("    </div> \n");
                 out.write("</div> \n");
                 out.write("</div>\n");
                 out.write("</div>\n");
@@ -131,7 +136,7 @@
 
 
 
-        </div> 
+       
     </div>
 </div>
 
