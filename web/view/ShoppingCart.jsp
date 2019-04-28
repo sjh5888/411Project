@@ -90,13 +90,10 @@
                 out.write("                <label class=\"pad_top\" ></label>\n");
                 out.write("                <span>");
                 out.print(items[i].getPrice());
-                out.write("</span><br>\n");
+                out.write("</span><br>\n");          
                 out.write("                ");
                 out.write("\n");
-                out.write("                \n");
-                out.write("                <input type=\"hidden\" name=\"action\" value=\"checkout\">\n");
-                out.write("                <input type=\"submit\" value=\"Check Out\">\n<br>");
-                out.write("                       \n");
+                out.write("                \n");         
                 out.write("            </form>\n");
                 out.write("    </div> \n");
                 out.write("    \n");
@@ -104,6 +101,9 @@
                 out.write("\n");
 
             }
+                out.write("                <input type=\"hidden\" name=\"action\" value=\"checkout\">\n");
+                out.write("                <input type=\"submit\" value=\"Checkout\">\n<br>");
+                out.write("                       \n");
             out.write("    </center>\n");
             out.write("    </div> \n");
             out.write("</div> \n");
