@@ -18,9 +18,9 @@ public class AccessDbTest {
      */
     public static void main(String[] args) throws SQLException {
        
-        String[] x = AccessDb.runQuery("select description from categories", true);
+        ProductsBean[] x = AccessDb.arrayProductQuery("select * from products where productid=943770612 or productid=67058021", true);
        for(int i = 0; i < x.length; i ++){
-        System.out.println(x[i]);
+        System.out.println(x[i].getName());
     }
     }
     

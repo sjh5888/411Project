@@ -24,4 +24,19 @@ public class QueryLogic
         }
         return query;
     }
+    
+    public String checkoutQuery(String[] idList){
+       //select * from products where productid=943770612 or productid=67058021 <- this works
+        
+        String query = "select * from products where ";
+        String pid = "productid=";
+        
+        for(int i = 1; i < idList.length;i++){
+            query = query + pid + idList[i] + " or ";
+        }
+        //int length = query.l
+        query = query.substring(0,query.lastIndexOf("or"));
+        
+        return query;
+    }
 }

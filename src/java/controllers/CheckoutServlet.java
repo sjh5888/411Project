@@ -36,7 +36,7 @@ public class CheckoutServlet extends HttpServlet {
     private String total;
     private HttpSession session;
     private String myTotal;
-
+    private ProductsBean[] cartItems;
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -92,10 +92,9 @@ public class CheckoutServlet extends HttpServlet {
 
             //url = "/view/IndProducts.jsp"; 
             url = "/view/ContinueShopping.jsp";
-           // action = "viewCart";
+            // action = "viewCart";
 
             //request.setAttribute("action", action);
-
         } else if (action.equals("viewCart")) {
 
             url = "/view/ShoppingCart.jsp";
@@ -113,16 +112,40 @@ public class CheckoutServlet extends HttpServlet {
             Cookie clientCookies[] = request.getCookies();
             System.out.println("number of cookies stored on drive: " + clientCookies.length);
             final int COOKIE_AMOUNT = clientCookies.length;
-            int i = 1;
+            //int i = 1;
             QueryLogic item = new QueryLogic();
-            ProductsBean[] cartItems = new ProductsBean[clientCookies.length];
+
+            String[] idArray = new String[COOKIE_AMOUNT];
             double total = 0;
             String query = "";
-            HttpSession session = request.getSession();
+            //HttpSession session = request.getSession();
 
-            // for (int i = 1; i < clientCookies.length; i++) { //starting at one to bypass the session cookie
-            while (i < COOKIE_AMOUNT) {
-                //cartItems = new ProductsBean[clientCookies.length];
+            for (int i = 1; i < COOKIE_AMOUNT; i++) { //starting at one to bypass the session cookie
+                String itemID = clientCookies[i].getName();
+                idArray[i] = itemID;
+            }
+            // System.out.println("Testing element 1 of idArray: " + idArray[1]);
+            // System.out.println("Testing element 2 of idArray: " + idArray[2]);
+
+            query = item.checkoutQuery(idArray);
+            System.out.println("Query for cookie IDs: " + query);
+
+            try {
+
+                cartItems = arrayProductQuery(query, true);
+                request.setAttribute("items", cartItems);
+                //  System.out.println("Testing the db result: " + cartItems[i].getName());
+
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+
+
+            /*for (int i = 1; i < COOKIE_AMOUNT; i++) { //starting at one to bypass the session cookie
+                // while (i < COOKIE_AMOUNT) {
+                System.out.println("iteration: " + i);
+                cartItems = new ProductsBean[clientCookies.length];
+                //cartItems[i] = new ProductsBean();
                 // System.out.println(cartItems.length);
 
                 String itemID = clientCookies[i].getName();
@@ -132,39 +155,39 @@ public class CheckoutServlet extends HttpServlet {
                 System.out.println("Query for product stored in cookie: " + query);
 
                 try {
+                    System.out.println(i);
+                   // cartItems[i] = new ProductsBean();
                     cartItems[i] = indProductQuery(query, true);
-
+                    System.out.println(i);
                     System.out.println("Testing the db result: " + cartItems[i].getName());
-                    
+                    System.out.println(i);
 
                 } catch (SQLException ex) {
                     System.out.println(ex.getMessage());
                 }
 
-                
-                total = total + Double.parseDouble(cartItems[i].getPrice().replace("$", "").trim()) * quantity;
-                System.out.println("Testing the cartItems array: " + cartItems[i].getName());
-            
-            
-            System.out.println("Testing the total: " + total);
-           
-           session = request.getSession();
-           session.setAttribute("total",total);
-           session.setAttribute("items",cartItems); 
-
-
                 total = total + Double.parseDouble(cartItems[i].getPrice().replace("$", "").trim()) * quantity;
                 System.out.println("Testing the 1st element in cartItems array (inside): " + cartItems[1].getName());
-                i++;
-                System.out.println("iteration: " + i);
+                System.out.println("Testing the cartItems array: " + cartItems[i].getName());
 
                 System.out.println("Testing the total: " + total);
 
-                session.setAttribute("total", total);
+                //HttpSession session = request.getSession();
+                //session.removeAttribute("items");
+                request.setAttribute("items", cartItems);
+                System.out.println("Testing the session addition: pass");
 
-            }
-             System.out.println("Testing the 1st element in cartItems array (outside): " + cartItems[1].getName());
-             session.setAttribute("items", cartItems);
+                //total = total + Double.parseDouble(cartItems[i].getPrice().replace("$", "").trim()) * quantity;
+                // System.out.println("Testing the 1st element in cartItems array (inside): " + cartItems[1].getName());
+                //i++;
+                // System.out.println("Testing the total: " + total);
+                // session.setAttribute("total", total);
+            }*/
+            //System.out.println("Testing the 1st element in cartItems array (outside): " + cartItems[1].getName());
+            // ProductsBean[] testBean;
+            // testBean = (ProductsBean[]) session.getAttribute("items");
+            // System.out.println("testing the session attribute in the servlet: " + testBean[1].getName());
+            //session.setAttribute("total", total);
         } else if (action.equals("checkout")) {
             //String quantity = request.getParameter("quantity");
             //String price1 = price.substring(1, price.length());

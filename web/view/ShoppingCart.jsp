@@ -57,9 +57,10 @@
                         request.setAttribute("price", price);
                         
                     } */
-
-                 ProductsBean[] items = (ProductsBean[]) session.getAttribute("items");
-                 for(int i = 1; i < items.length; i++){
+                 //ProductsBean[] items = new ProductsBean[3];
+                  
+                 ProductsBean[] items = (ProductsBean[]) request.getAttribute("items");
+                 for(int i = 0; i < items.length; i++){
                  
                  System.out.println("Testing recpetion of item array from checkout servlet: " + items[i].getName());
                  }
