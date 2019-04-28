@@ -34,6 +34,9 @@ public class CheckoutServlet extends HttpServlet {
     private String cart = "";
     private String price;
     private String total;
+    private HttpSession session;
+    private String myTotal;
+
 
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -83,8 +86,14 @@ public class CheckoutServlet extends HttpServlet {
             c.setPath("/");
 
             response.addCookie(c);
+
             url = "/view/IndProducts.jsp";
             // action = "viewCart";
+
+            //url = "/view/IndProducts.jsp"; 
+            url = "/view/ContinueShopping.jsp";
+           // action = "viewCart";
+
             //request.setAttribute("action", action);
 
         } else if (action.equals("viewCart")) {
@@ -132,6 +141,18 @@ public class CheckoutServlet extends HttpServlet {
                     System.out.println(ex.getMessage());
                 }
 
+                
+                total = total + Double.parseDouble(cartItems[i].getPrice().replace("$", "").trim()) * quantity;
+                System.out.println("Testing the cartItems array: " + cartItems[i].getName());
+            
+            
+            System.out.println("Testing the total: " + total);
+           
+           session = request.getSession();
+           session.setAttribute("total",total);
+           session.setAttribute("items",cartItems); 
+
+
                 total = total + Double.parseDouble(cartItems[i].getPrice().replace("$", "").trim()) * quantity;
                 System.out.println("Testing the 1st element in cartItems array (inside): " + cartItems[1].getName());
                 i++;
@@ -145,12 +166,16 @@ public class CheckoutServlet extends HttpServlet {
              System.out.println("Testing the 1st element in cartItems array (outside): " + cartItems[1].getName());
              session.setAttribute("items", cartItems);
         } else if (action.equals("checkout")) {
-            String quantity = request.getParameter("quantity");
-            String price1 = price.substring(1, price.length());
-            total = String.valueOf(String.format("%.2f", Double.parseDouble(price1) * Integer.parseInt(quantity)));
-            System.out.println("total: " + total);
-            request.setAttribute("data", total);
+            //String quantity = request.getParameter("quantity");
+            //String price1 = price.substring(1, price.length());
+            //total = String.valueOf(String.format("%.2f", Double.parseDouble(price1) * Integer.parseInt(quantity)));
+            //System.out.println("total: " + total);
+            //request.setAttribute("data", total);
+            request.setAttribute("data", myTotal.format("%.2f", session.getAttribute("total")));
+
             url = "/view/Checkout.jsp";
+        } else if (action.equals("continueshopping")) {
+            url = "/view/Category.jsp";
 
         } else if (action.equals("confirm")) {
             //System.out.println("help me"); //test

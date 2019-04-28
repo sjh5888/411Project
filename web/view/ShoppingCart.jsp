@@ -57,9 +57,12 @@
                         request.setAttribute("price", price);
                         
                     } */
+
                  ProductsBean[] items = (ProductsBean[]) session.getAttribute("items");
-                 System.out.println("Testing recpetion of item array from checkout servlet: " + items[2].getName());
-               
+                 for(int i = 1; i < items.length; i++){
+                 
+                 System.out.println("Testing recpetion of item array from checkout servlet: " + items[i].getName());
+                 }
                /*  String reception ="";
                  //reception = request.getParameter("total");
                  double total =0;
@@ -68,8 +71,8 @@
  
       for(int i = 1; i < items.length; i++){
              out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.servletContext.contextPath}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("/checkout\" method=\"post\">\n");
-      out.write("                \n");
+      //out.write("/checkout\" method=\"post\">\n");
+      //out.write("                \n");
       out.write("                \n");
       out.write("                <label class=\"pad_top\">Product Name: </label>\n");
       out.write("                ");
@@ -85,24 +88,25 @@
       out.write("                <label class=\"pad_top\" ></label>\n");
       out.write("                <span>");
       out.print( items[i].getPrice());
-      out.write("</span><br\n");
+      out.write("</span><br>\n");
       out.write("                ");
       out.write("\n");
       out.write("                \n");
       out.write("                <input type=\"hidden\" name=\"action\" value=\"checkout\">\n");
-      out.write("                <input type=\"submit\" value=\"Check Out\">\n");
+      out.write("                <input type=\"submit\" value=\"Check Out\">\n<br>");
       out.write("                       \n");
       out.write("            </form>\n");
       out.write("    \n");
       out.write("     \n");
       out.write("\n");
+      }
       out.write("    </center>\n");
       out.write("</div> \n");
       out.write("</div>\n");
       out.write("</div>\n");
       out.write("          \n");
       out.write("\n");
-      }
+      //}
      %>
      
    <%--     <h1>$<%=total%></h1>

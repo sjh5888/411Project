@@ -6,7 +6,7 @@
 <div id ="centerColumn">
     <center>
     <h1>Checkout</h1>
-    <span>${product.name}</span>
+    <%--<span>${product.name}</span>--%>
     <p>Total Bill: <b>$
             <%=request.getAttribute("data") %></b></p><br>
     
