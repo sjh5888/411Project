@@ -104,6 +104,10 @@
                 out.write("                <input type=\"hidden\" name=\"action\" value=\"checkout\">\n");
                 out.write("                <input type=\"submit\" value=\"Checkout\">\n<br>");
                 out.write("                       \n");
+                out.write("                <form action=\"product\" method=\"post\">\n");
+                out.write("                    <input type=\"hidden\" name=\"action\" value=\"continue\"/>\n");
+                out.write("                    <input type=\"submit\" class=\"cs\" value=\"Continue Shopping\">\n");
+                out.write("                </form>");
             out.write("    </center>\n");
             out.write("    </div> \n");
             out.write("</div> \n");
@@ -113,7 +117,8 @@
             out.write("\n");
             //}
         %>
-
+        
+        
         <%--     <h1>$<%=total%></h1>
                      
                   <label class="pad_top">Product Name: </label>
