@@ -101,6 +101,8 @@
                 out.write("\n");
 
             }
+                out.write("                <form action=\"checkout\" method=\"post\">\n");
+
                 out.write("                <input type=\"hidden\" name=\"action\" value=\"checkout\">\n");
                 out.write("                <input type=\"submit\" value=\"Checkout\">\n<br>");
                 out.write("                       \n");
