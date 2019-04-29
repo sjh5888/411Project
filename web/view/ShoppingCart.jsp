@@ -23,9 +23,11 @@
                  }
             }
             double combine;
+            double combineAll = 0;
           
             for (int i = 0; i < items.length; i++) {
                 combine = Double.parseDouble(items[i].getPrice().substring(1, items[i].getPrice().length())) * Integer.parseInt(total[i]);
+                combineAll = combineAll + combine;
                 out.write("        <div class =\"image\">\n");
                 out.write("            <form action=\"");
                 out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${pageContext.servletContext.contextPath}", java.lang.String.class, (PageContext) _jspx_page_context, null));
@@ -64,6 +66,8 @@
                 out.write("\n");
 
             }
+                out.write("                 Total: ");
+                out.print(String.format("%.2f", combineAll));
                 out.write("                <form action=\"checkout\" method=\"post\">\n");
                 out.write("                <input type=\"hidden\" name=\"action\" value=\"checkout\">\n");
                 out.write("                <input type=\"submit\" value=\"Checkout\">\n<br>");
