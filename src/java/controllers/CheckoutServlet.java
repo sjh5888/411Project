@@ -38,6 +38,7 @@ public class CheckoutServlet extends HttpServlet {
     private String myTotal;
     private ProductsBean[] cartItems;
     private Cookie[] cookies;
+
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -144,69 +145,14 @@ public class CheckoutServlet extends HttpServlet {
                 System.out.println(ex.getMessage());
             }
 
-         
-
-            /*for (int i = 1; i < COOKIE_AMOUNT; i++) { //starting at one to bypass the session cookie
-                // while (i < COOKIE_AMOUNT) {
-                System.out.println("iteration: " + i);
-                cartItems = new ProductsBean[clientCookies.length];
-                //cartItems[i] = new ProductsBean();
-                // System.out.println(cartItems.length);
-
-                String itemID = clientCookies[i].getName();
-                int quantity = Integer.parseInt(clientCookies[i].getValue());
-                //System.out.println(quantity);
-                query = item.query("p" + itemID);
-                System.out.println("Query for product stored in cookie: " + query);
-
-                try {
-                    System.out.println(i);
-                   // cartItems[i] = new ProductsBean();
-                    cartItems[i] = indProductQuery(query, true);
-                    System.out.println(i);
-                    System.out.println("Testing the db result: " + cartItems[i].getName());
-                    System.out.println(i);
-
-                } catch (SQLException ex) {
-                    System.out.println(ex.getMessage());
-                }
-
-                total = total + Double.parseDouble(cartItems[i].getPrice().replace("$", "").trim()) * quantity;
-                System.out.println("Testing the 1st element in cartItems array (inside): " + cartItems[1].getName());
-                System.out.println("Testing the cartItems array: " + cartItems[i].getName());
-
-                System.out.println("Testing the total: " + total);
-
-                //HttpSession session = request.getSession();
-                //session.removeAttribute("items");
-                request.setAttribute("items", cartItems);
-                System.out.println("Testing the session addition: pass");
-
-                total = total + Double.parseDouble(cartItems[i].getPrice().replace("$", "").trim()) * quantity;
-                // System.out.println("Testing the 1st element in cartItems array (inside): " + cartItems[1].getName());
-                //i++;
-                // System.out.println("Testing the total: " + total);
-                // session.setAttribute("total", total);
-            }*/
-            //System.out.println("Testing the 1st element in cartItems array (outside): " + cartItems[1].getName());
-            // ProductsBean[] testBean;
-            // testBean = (ProductsBean[]) session.getAttribute("items");
-            // System.out.println("testing the session attribute in the servlet: " + testBean[1].getName());
-            //session.setAttribute("total", total);
         } else if (action.equals("checkout")) {
-            //String quantity = request.getParameter("quantity");
-            //String price1 = price.substring(1, price.length());
-            //total = String.valueOf(String.format("%.2f", Double.parseDouble(price1) * Integer.parseInt(quantity)));
-            //System.out.println("total: " + total);
-            //request.setAttribute("data", total);
-            //request.setAttribute("data", myTotal.format("%.2f", session.getAttribute("total")));
 
             url = "/view/Checkout.jsp";
         } else if (action.equals("continueshopping")) {
             url = "/view/Category.jsp";
 
         } else if (action.equals("confirm")) {
-             cookies = request.getCookies();
+            cookies = request.getCookies();
             //System.out.println("help me"); //test
             ClientSocket cs = new ClientSocket("localhost", 11001);
 
@@ -220,17 +166,16 @@ public class CheckoutServlet extends HttpServlet {
 
             if (result.equals("true")) {
                 url = "/view/Confirmation.jsp";
-                
+
                 //delete cart cookies when confirmed:
-                
-                 for(int i=1; i < cookies.length; i++){
-                     cookies[i].setMaxAge(0);
-                     cookies[i].setPath("/");
-                     response.addCookie(cookies[i]);
-                     System.out.println(cookies[i].getMaxAge());
-                                      
-                 }
-                
+                for (int i = 1; i < cookies.length; i++) {
+                    cookies[i].setMaxAge(0);
+                    cookies[i].setPath("/");
+                    response.addCookie(cookies[i]);
+                    System.out.println(cookies[i].getMaxAge());
+
+                }
+
                 System.out.println("pass");
             } else {
                 url = "/view/Checkout2.jsp";
