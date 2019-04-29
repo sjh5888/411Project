@@ -16,9 +16,10 @@ body {
     width: auto;
     background: #ffffff;
     align-content: center;
+    padding-left: 30px;
 }
 #indivProd {
-    padding-left: 400px
+    padding-left: 325px;
 }
 #footer {
     height: 30px;
