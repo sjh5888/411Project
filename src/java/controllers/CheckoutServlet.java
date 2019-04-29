@@ -225,8 +225,10 @@ public class CheckoutServlet extends HttpServlet {
                 
                  for(int i=1; i < cookies.length; i++){
                      cookies[i].setMaxAge(0);
+                     cookies[i].setPath("/");
                      response.addCookie(cookies[i]);
-                  
+                     System.out.println(cookies[i].getMaxAge());
+                                      
                  }
                 
                 System.out.println("pass");
