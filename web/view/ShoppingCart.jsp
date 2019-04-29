@@ -5,7 +5,9 @@
 
 <div id ="centerColumn">
     <div class ="row">
-        <h1>Shopping Cart</h1>
+        <center>
+            <h1>Shopping Cart</h1><br><br>
+        </center>
 
 
 
