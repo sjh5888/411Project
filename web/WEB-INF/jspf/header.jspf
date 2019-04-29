@@ -24,21 +24,18 @@
                 </script>
                 <div id="widgetBar">  
                     <div class="headerWidget">
+                        <form action="product" method="post">
+                            <input type="hidden" name ="action" value ="continue"/>  
+                            <input type= "submit" class="cs" value=" Categories "> 
+                        </form>
                         <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
-
                             <input type="hidden" name="action" value="viewCart">
-
                             <input type="submit" value="Shopping Cart">
                         </form>
-
                         <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
-
                             <input type="hidden" name="action" value="checkout">
-
-                            <input type="submit" value="Checkout">
+                            <input type="submit" value=" Checkout ">
                         </form>
-
-
 
                     </div>
                     <div class="headerWidget">
