@@ -82,7 +82,8 @@ public class CheckoutServlet extends HttpServlet {
 
             // Cookie c = new Cookie("cart", cart);
             Cookie c = new Cookie(itemID, quantity);
-            c.setMaxAge(60 * 60 * 24 * 365 * 3);
+            //c.setMaxAge(60 * 60 * 24 * 365 * 3);
+            c.setMaxAge(-1);
             c.setPath("/");
 
             response.addCookie(c);
@@ -116,14 +117,17 @@ public class CheckoutServlet extends HttpServlet {
             QueryLogic item = new QueryLogic();
 
             String[] idArray = new String[COOKIE_AMOUNT];
-            double total = 0;
+            String[] total = new String[COOKIE_AMOUNT];
             String query = "";
             //HttpSession session = request.getSession();
 
             for (int i = 1; i < COOKIE_AMOUNT; i++) { //starting at one to bypass the session cookie
                 String itemID = clientCookies[i].getName();
+                String totalValue = clientCookies[i].getValue();
                 idArray[i] = itemID;
+                total[i] = totalValue;
             }
+            request.setAttribute("total", total);
             // System.out.println("Testing element 1 of idArray: " + idArray[1]);
             // System.out.println("Testing element 2 of idArray: " + idArray[2]);
 
