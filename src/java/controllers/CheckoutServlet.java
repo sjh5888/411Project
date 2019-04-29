@@ -206,7 +206,7 @@ public class CheckoutServlet extends HttpServlet {
             //total = String.valueOf(String.format("%.2f", Double.parseDouble(price1) * Integer.parseInt(quantity)));
             //System.out.println("total: " + total);
             //request.setAttribute("data", total);
-            request.setAttribute("data", myTotal.format("%.2f", session.getAttribute("total")));
+            //request.setAttribute("data", myTotal.format("%.2f", session.getAttribute("total")));
 
             url = "/view/Checkout.jsp";
         } else if (action.equals("continueshopping")) {

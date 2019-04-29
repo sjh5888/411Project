@@ -7,8 +7,8 @@
     <center>
         <h1>Checkout</h1>
         <%--<span>${product.name}</span>--%>
-        <p>Total Bill: <b>$
-                <%=request.getAttribute("data")%></b></p><br>
+        <%--<p>Total Bill: <b>$
+                <%=request.getAttribute("data")%></b></p><br>--%>
 
         <h2>Please Enter The Following</h2>
         <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
