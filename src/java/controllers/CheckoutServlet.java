@@ -144,7 +144,7 @@ public class CheckoutServlet extends HttpServlet {
                 System.out.println(ex.getMessage());
             }
 
-            for (int i = 1; i < COOKIE_AMOUNT; i++) {
+           /* for (int i = 1; i < COOKIE_AMOUNT; i++) {
 
                 int quantity = Integer.parseInt(clientCookies[i].getValue());
                
@@ -153,7 +153,9 @@ public class CheckoutServlet extends HttpServlet {
                 }
             }
             System.out.println("Total: " + total);
-            System.out.println(clientCookies[1].getValue());
+            System.out.println(clientCookies[1].getValue()); */
+           
+           //^^ this is work in progress. The below is not.
 
             /*for (int i = 1; i < COOKIE_AMOUNT; i++) { //starting at one to bypass the session cookie
                 // while (i < COOKIE_AMOUNT) {
