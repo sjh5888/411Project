@@ -123,6 +123,8 @@ public class CheckoutServlet extends HttpServlet {
             for (int i = 1; i < COOKIE_AMOUNT; i++) { //starting at one to bypass the session cookie
                 String itemID = clientCookies[i].getName();
                 idArray[i] = itemID;
+
+                // int quantity = Integer.parseInt(clientCookies[i].getValue());
             }
             // System.out.println("Testing element 1 of idArray: " + idArray[1]);
             // System.out.println("Testing element 2 of idArray: " + idArray[2]);
@@ -140,6 +142,16 @@ public class CheckoutServlet extends HttpServlet {
                 System.out.println(ex.getMessage());
             }
 
+            for (int i = 1; i < COOKIE_AMOUNT; i++) {
+
+                int quantity = Integer.parseInt(clientCookies[i].getValue());
+               
+                for (int j = 0; j < cartItems.length; j++) {
+                    total = total + Double.parseDouble(cartItems[j].getPrice().replace("$", "").trim()) * quantity;
+                }
+            }
+            System.out.println("Total: " + total);
+            System.out.println(clientCookies[1].getValue());
 
             /*for (int i = 1; i < COOKIE_AMOUNT; i++) { //starting at one to bypass the session cookie
                 // while (i < COOKIE_AMOUNT) {
@@ -177,7 +189,7 @@ public class CheckoutServlet extends HttpServlet {
                 request.setAttribute("items", cartItems);
                 System.out.println("Testing the session addition: pass");
 
-                //total = total + Double.parseDouble(cartItems[i].getPrice().replace("$", "").trim()) * quantity;
+                total = total + Double.parseDouble(cartItems[i].getPrice().replace("$", "").trim()) * quantity;
                 // System.out.println("Testing the 1st element in cartItems array (inside): " + cartItems[1].getName());
                 //i++;
                 // System.out.println("Testing the total: " + total);
