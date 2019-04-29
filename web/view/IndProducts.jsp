@@ -27,7 +27,7 @@
                         <span>${product.price}</span><br><br>
                         <input type="hidden" name="price" value="${product.price}">
                         </div>
-                        <div class="image"><br><br>
+                        <div class="image">
                             <label class="pad_top"><strong>Description:</strong></label><br>
                             <span>${product.description}</span><br><br><br>
                             <label class="pad_top">Enter Quantity: </label>
