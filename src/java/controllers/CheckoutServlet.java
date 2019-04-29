@@ -37,7 +37,7 @@ public class CheckoutServlet extends HttpServlet {
     private HttpSession session;
     private String myTotal;
     private ProductsBean[] cartItems;
-
+    private Cookie[] cookies;
     /**
      * Handles the HTTP <code>GET</code> method.
      *
@@ -144,18 +144,7 @@ public class CheckoutServlet extends HttpServlet {
                 System.out.println(ex.getMessage());
             }
 
-           /* for (int i = 1; i < COOKIE_AMOUNT; i++) {
-
-                int quantity = Integer.parseInt(clientCookies[i].getValue());
-               
-                for (int j = 0; j < cartItems.length; j++) {
-                    total = total + Double.parseDouble(cartItems[j].getPrice().replace("$", "").trim()) * quantity;
-                }
-            }
-            System.out.println("Total: " + total);
-            System.out.println(clientCookies[1].getValue()); */
-           
-           //^^ this is work in progress. The below is not.
+         
 
             /*for (int i = 1; i < COOKIE_AMOUNT; i++) { //starting at one to bypass the session cookie
                 // while (i < COOKIE_AMOUNT) {
@@ -217,6 +206,7 @@ public class CheckoutServlet extends HttpServlet {
             url = "/view/Category.jsp";
 
         } else if (action.equals("confirm")) {
+             cookies = request.getCookies();
             //System.out.println("help me"); //test
             ClientSocket cs = new ClientSocket("localhost", 11001);
 
@@ -230,6 +220,15 @@ public class CheckoutServlet extends HttpServlet {
 
             if (result.equals("true")) {
                 url = "/view/Confirmation.jsp";
+                
+                //delete cart cookies when confirmed:
+                
+                 for(int i=1; i < cookies.length; i++){
+                     cookies[i].setMaxAge(0);
+                     response.addCookie(cookies[i]);
+                  
+                 }
+                
                 System.out.println("pass");
             } else {
                 url = "/view/Checkout2.jsp";
