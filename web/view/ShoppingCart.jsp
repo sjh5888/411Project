@@ -66,7 +66,7 @@
                 out.write("\n");
 
             }
-                out.write("                 Total: ");
+                out.write("                 Total: $");
                 out.print(String.format("%.2f", combineAll));
                 out.write("                <form action=\"checkout\" method=\"post\">\n");
                 out.write("                <input type=\"hidden\" name=\"action\" value=\"checkout\">\n");

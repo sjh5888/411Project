@@ -20,10 +20,10 @@
             <label class="pad_top">Last Name: </label><br>
             <input type="text" name="lastName" value="${CheckoutServlet.lastName}"><br><br>
             <label class="pad_top">Address: </label><br>
-            <input type="text" name="lastName" value="${CheckoutServlet.address}"><br><br>  
+            <input type="text" name="address" value="${CheckoutServlet.address}"><br><br>  
             <label class="pad_top">Shipping Method: </label><br>
-            <input type="radio" name="shipping" value="Ground"> Free Ground Ship<br>
-            <input type="radio" name="shipping" value="">   Free Two-Day Air   <br>
+            <input type="radio" name="shipping" value="Free Ground Ship"> Free Ground Ship<br>
+            <input type="radio" name="shipping" value="Free Two-day Air">   Free Two-Day Air   <br>
             <input type= "submit" value="submit"/><br>   
         </form>
     </center>
