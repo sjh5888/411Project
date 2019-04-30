@@ -26,15 +26,14 @@
     <body>
     <center>
         <h1>Do you want to checkout or continue shopping</h1>
-     <form action="product" method="post">
+        <form action="product" method="post">
             <input type="hidden" name ="action" value ="continue"/>  
             <input type= "submit" class="cs" value="Continue Shopping"> 
-          </form>
-        
-    <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
-        <input type="hidden" name="action" value="viewCart" />
-        <input type="submit" class="cs" value="View Shopping Cart" />
-    </form>
+        </form>
+        <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
+            <input type="hidden" name="action" value="viewCart" />
+            <input type="submit" class="cs" value="View Shopping Cart" />
+        </form>
     </center>
-    </body>
+</body>
 </html>

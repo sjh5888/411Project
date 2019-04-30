@@ -1,9 +1,6 @@
 <%-- any content can be specified here e.g.: --%>
 <div id ="footer">
-    <!--<a href="./Category.jsp" class="btn">Categories</a>
-    <a href="./Products.jsp" class="btn">Products</a> -->
     <p id="footerText">IST 411 2019</p>
-  
 </div>
 </div>
 </body>

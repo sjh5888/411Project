@@ -36,10 +36,8 @@
                             <input type="hidden" name="action" value="checkout">
                             <input type="submit" value=" Checkout ">
                         </form>
-
                     </div>
                     <div class="headerWidget">
-
                     </div>
                     <h1>Penn State Candy Shop</h1>
                 </div>
