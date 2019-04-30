@@ -7,10 +7,11 @@
     <center>
         <h1>Confirmation</h1>
         <div class ="categoryImage">
-            <p>Thank you <%= request.getParameter("firstName")%> <%= request.getParameter("lastName")%> for your purchase! <br> 
-                Your package will be sent to: <br><br><b>
+            <p>Thank you <strong><%= request.getParameter("firstName")%> 
+                    <%= request.getParameter("lastName")%></strong> for your purchase!<br> 
+                    Your package will be sent to: <br><br><strong>
                     <%= request.getParameter("address")%><br>
-                    by <%= request.getParameter("shipping")%></b><br><br>
+                    by <%= request.getParameter("shipping")%></strong><br><br>
                 You will be receiving your candy shortly!</p>
             <form action="product" method="post">
                 <input type="hidden" name ="action" value ="continue"/>  
