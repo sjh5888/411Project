@@ -8,23 +8,31 @@ body {
 }
 #header {
     height: 100px;
-    background: #b3d9ff;
+    background-color: appworkspace;
     text-align: center;
 }
 #centerColumn {
-    height: 500px;
+    height: 400px;
     width: auto;
     background: #ffffff;
     align-content: center;
     padding-left: 30px;
 }
+
+#centerColumn2 {
+    height: 445px;
+    width: auto;
+    align-content: center;
+    padding-left: 30px;
+}
 #indivProd {
     padding-left: 325px;
+    align: center;
 }
 #footer {
     height: 30px;
     clear: left;
-    background: #b3d9ff;
+    background-color: appworkspace;
     text-align: center;
 }
 #logo {
@@ -45,7 +53,7 @@ body {
     height: 50px;
     width: 850px;
     float:right;
-    background: #b3d9ff
+
 }
 .headerWidget{
     width: 194px;
@@ -53,13 +61,14 @@ body {
     font-size: small;
     float: right;
     line-height: 25px;
-    background: #b3d9ff;
+    background-color: appworkspace;
 }
 .image {
     height: 200px;
     width: 275px;
     margin: 21px 14px 6px;
     float: left;
+    align-content:center;
 }
 
 .row::after {
@@ -96,5 +105,45 @@ span {
 
 .pad_top {
     padding-top: 0.25em;
+}
+
+.myButton{
+           background-color: Red;
+           color: white;
+           border-radius: 5px;
+           height: 30px;
+           width: 75px;
+           position: absolute; 
+           left: 25px;
+           top: 25px;
+           cursor:pointer;
+}
+
+input[class=viewCart] {
+
+    marigin-top: 25px;
+    background:#0BB708;
+    color:white;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+
+}
+
+input[class=bButton] {
+
+    marigin-top: 25px;
+    background:white; 
+    border-color: black;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+
+}
+
+input[class=bButton]:hover
+{
+    background:black;
+    color:white;
 }
 
