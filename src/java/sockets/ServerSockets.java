@@ -58,7 +58,7 @@ public class ServerSockets {
         } catch (IOException e) {
              e.printStackTrace();
         }
-    } // run() 
+    } // () start
 
     /**
      *  provideService() defines this server's service, which consists
@@ -110,7 +110,7 @@ public class ServerSockets {
     } // writeToSocket()
 
      /** 
-      *  main() creates a SocketServer at port 10001
+      *  main() creates a SocketServer at port 11001
       */
     public static void main(String args[]) {
         ServerSockets master = new ServerSockets(11001,5);
