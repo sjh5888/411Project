@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ServerSockets">
+  <ClassDiagramComponents>
+    <Class name="ServerSockets" package="sockets" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="port" type="ServerSocket" visibility="private"/>
+        <Field name="socket" type="Socket" visibility="private"/>
+        <Field name="iStream" type="InputStream" visibility="protected"/>
+        <Field name="oStream" type="OutputStream" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="portNum"/>
+          <Argument type="int" name="nBacklog"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="start" returnType="void" visibility="public"/>
+        <Method name="provideService" returnType="void" visibility="protected">
+          <Argument type="Socket" name="socket"/>
+        </Method>
+        <Method name="readFromSocket" returnType="String" visibility="protected">
+          <Argument type="Socket" name="sock"/>
+        </Method>
+        <Method name="writeToSocket" returnType="void" visibility="public">
+          <Argument type="Socket" name="sock"/>
+          <Argument type="String" name="str"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>
