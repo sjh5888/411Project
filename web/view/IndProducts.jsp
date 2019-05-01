@@ -3,6 +3,10 @@
     Author     : gkemp
 --%>
 
+<!-- IndProducts.jsp will show an individual product with its price and 
+     description.  A customer can choose the quantity of the product they
+     would like to purchase and uses checkoutServlet-->
+
 
 <div id ="centerColumn">
     <div class ="prodImage">

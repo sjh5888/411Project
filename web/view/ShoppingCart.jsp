@@ -3,6 +3,9 @@
     Author     : gkemp
 --%>
 
+<!-- ShoppingCart.jsp will show a user their items and will allow them to 
+      checkout or continue shopping and uses checkoutServlet-->
+
 <div id ="centerColumn">
     <div class ="row">
         <center>

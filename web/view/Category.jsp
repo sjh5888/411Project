@@ -6,6 +6,8 @@
     <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 
+<!-- Category.jsp This page lists the categories and uses the productServlet -->
+
 <%
 
     String[] descriptions = (String[]) request.getAttribute("descriptions");
