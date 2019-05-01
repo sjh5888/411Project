@@ -72,19 +72,16 @@ public class CheckoutServlet extends HttpServlet {
         if (action == null) {
             url = "/index.html";
 
-        } else if (action.equals("addToCart")) { //need to not redirect but instead add a message or something
+        } else if (action.equals("addToCart")) { 
 
             String itemID = request.getParameter("itemID");
             String quantity = request.getParameter("quantity");
-            //System.out.println("itemID for selected product: " + itemID);
 
             Cookie c = new Cookie(itemID, quantity);
             c.setMaxAge(-1);
             c.setPath("/");
 
             response.addCookie(c);
-
-            //url = "/view/IndProducts.jsp";
              
             url = "/view/ContinueShopping.jsp";
             
@@ -93,7 +90,6 @@ public class CheckoutServlet extends HttpServlet {
             url = "/view/ShoppingCart.jsp";
 
             Cookie clientCookies[] = request.getCookies();
-            //System.out.println("number of cookies stored on drive: " + clientCookies.length);
             final int COOKIE_AMOUNT = clientCookies.length;
             QueryLogic item = new QueryLogic();
 
@@ -110,13 +106,11 @@ public class CheckoutServlet extends HttpServlet {
             request.setAttribute("total", total);
 
             query = item.checkoutQuery(idArray);
-            //System.out.println("Query for cookie IDs: " + query);
 
             try {
 
                 cartItems = arrayProductQuery(query, true);
                 request.setAttribute("items", cartItems);
-                //  System.out.println("Testing the db result: " + cartItems[i].getName());
 
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
@@ -130,7 +124,6 @@ public class CheckoutServlet extends HttpServlet {
 
         } else if (action.equals("confirm")) {
             cookies = request.getCookies();
-            //System.out.println("help me"); //test
             ClientSocket cs = new ClientSocket("localhost", 11001);
 
             String cardNumber = request.getParameter("cardNumber"); // 1234567890123452 is a valid test number
