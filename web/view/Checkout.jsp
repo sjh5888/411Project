@@ -3,6 +3,9 @@
     Author     : gkemp
 --%>
 
+<!-- Checkout.jsp page is used so the customer can purchase their items 
+      with the correct credit card number and uses checkoutServlet-->
+
 <div id ="centerColumn">
     <center>
         <h1>Checkout</h1>

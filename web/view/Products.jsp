@@ -3,6 +3,8 @@
     Author     : gkemp
 --%>
 
+<!--Products.jsp will list all the products from a specific category and uses productServlet -->
+
 <%
 
     ProductsBean[] products = (ProductsBean[]) request.getAttribute("products");

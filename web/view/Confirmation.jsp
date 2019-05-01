@@ -3,6 +3,9 @@
     Author     : gkemp
 --%>
 
+<!-- Confirmation.jsp will show the user a thank you confirmation and will return
+     the user's name, address, and shipping option.-->
+
 <div id ="centerColumn">
     <center>
         <h1>Confirmation</h1>
