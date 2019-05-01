@@ -12,9 +12,10 @@ import java.util.*;
 import java.io.*;
 import java.sql.*;
 
-/* Class ExecuteEample is loged into a database
+/* Class DatabaseSetup is loged into a database
 * based on credentials stored in the file db.properties
-* and writes values into the table SALESHISTORY4
+* and creates 2 tables Products and Categories. It then 
+* writes values into the tables.
 */
 public class DatabaseSetup  
 {
@@ -107,7 +108,7 @@ public class DatabaseSetup
                          "VALUES (" + catid[i] + ", '" + description[i] + "')"); 
                 stmt.execute(tmpString);
             }
-            
+            System.out.println("Populated Categories table with data.");
             
             int[] prodid = {Math.abs("HERSHEYS Milk Chocolate Bar".hashCode()), Math.abs("SYMPHONY Milk Chocolate Giant Bar".hashCode()), Math.abs("HERSHEYS KISSES Milk Chocolates Party Bag".hashCode()), Math.abs("HERSHEYS Caramels in Dark Chocolate Stand Up Bag".hashCode()), Math.abs("HERSHEYS SPECIAL DARK Mildly Sweet Chocolate Bars".hashCode()), Math.abs("HERSHEYS SPECIAL DARK Mildly Sweet Dark Chocolate Baking Chips".hashCode()), Math.abs("HERSHEYS Cookies n Creme Bars".hashCode()), Math.abs("HERSHEYS Premier White Chips".hashCode()), Math.abs("JOLLY RANCHER and TWIZZLER Candy Assortment".hashCode()), Math.abs("HERSHEYS KISSES Cookies n Creme Candy".hashCode())};
             String[] name = {"HERSHEYS Milk Chocolate Bar", "SYMPHONY Milk Chocolate Giant Bar", "HERSHEYS KISSES Milk Chocolates Party Bag", "HERSHEYS Caramels in Dark Chocolate Stand Up Bag", "HERSHEYS SPECIAL DARK Mildly Sweet Chocolate Bars", "HERSHEYS SPECIAL DARK Mildly Sweet Dark Chocolate Baking Chips", "HERSHEYS Cookies n Creme Bars", "HERSHEYS Premier White Chips", "JOLLY RANCHER and TWIZZLER Candy Assortment", "HERSHEYS KISSES Cookies n Creme Candy"};
@@ -126,6 +127,8 @@ public class DatabaseSetup
                                 
                 stmt.execute(tmpString);
                         }; 
+            System.out.println("Populated Products table with data.");
+            
             stmt.close();
         
             con.close();
@@ -137,5 +140,5 @@ public class DatabaseSetup
             System.out.println(e);
         } // end catch 
     } // end main
-} // end ExecuteExample
+} // end DatabaseSetup
 
