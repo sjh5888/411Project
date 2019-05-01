@@ -1,14 +1,14 @@
 package sockets;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
- * @author Laptop
+ * IST 411 2nd Group Project
+ * ServerSockets.java
+ * Purpose: To take a string from ClientSocket class and send it
+ * to the processCC class for credit card processing. Then send
+ * the response back through the socket.
+ * 
+ * @version 1.1 4/15/2019
+ * @author Kevin Hansen
  */
 
 import data.ProcessCC;
