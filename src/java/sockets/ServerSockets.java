@@ -4,8 +4,8 @@ package sockets;
  * IST 411 2nd Group Project
  * ServerSockets.java
  * Purpose: To take a string from ClientSocket class and send it
- * to the processCC class for credit card processing. Then send
- * the response back through the socket.
+ * through a socket to the processCC class for credit card processing. 
+ * Then send the response back through the socket.
  * 
  * @version 1.1 4/15/2019
  * @author Kevin Hansen
