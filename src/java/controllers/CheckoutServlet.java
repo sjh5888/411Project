@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * IST 411 2nd Group Project
+ * CheckoutServlet.java
+ * Purpose: To redirect to the appropriate jsp pages and
+ * display the appropirate information as well as handle
+ * cookie creation, cookie deletion, and sessions.
+ * 
+ * @version 1.1 5/1/2019
+ * @authors Gerrald Kemper, Steve Hansen, Kevin Hansen
  */
+
 package controllers;
 
 import static data.AccessDb.arrayProductQuery;

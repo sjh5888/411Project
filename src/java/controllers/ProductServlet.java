@@ -1,8 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * IST 411 2nd Group Project
+ * CheckoutServlet.java
+ * Purpose: To redirect to the appropriate jsp pages based
+ * on if the page is to display categories, products, or an
+ * individual product. Also handles sending information based
+ * on user selections to send to QueryLogic in order to structure
+ * a query to send to the database so returned information can be
+ * displayed properly.
+ * 
+ * @version 1.1 5/1/2019
+ * @author Gerrald Kemper
  */
+
 package controllers;
 
 import static data.AccessDb.*;
