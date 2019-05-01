@@ -1,14 +1,14 @@
 package sockets;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
- * @author Laptop
+ * IST 411 2nd Group Project
+ * ServerSockets.java
+ * Purpose: To take a string from ClientSocket class and send it
+ * through a socket to the processCC class for credit card processing. 
+ * Then send the response back through the socket.
+ * 
+ * @version 1.1 4/15/2019
+ * @author Kevin Hansen
  */
 
 import data.ProcessCC;
@@ -37,7 +37,7 @@ public class ServerSockets {
     } 
  
     /**
-     *  run() defines the server thread's main behavior which is
+     *  start() defines the server thread's main behavior which is
      *   simply to provide service whenever it is requested by a client. 
      *   Since an I/O exception may result, it is handled here. The
      *   server repeatedly accepts a connection from a client and
@@ -58,7 +58,7 @@ public class ServerSockets {
         } catch (IOException e) {
              e.printStackTrace();
         }
-    } // run() 
+    } // () start
 
     /**
      *  provideService() defines this server's service, which consists
@@ -76,11 +76,11 @@ public class ServerSockets {
                 str = readFromSocket(socket);
                 ProcessCC pc = new ProcessCC();
                 pc.process(socket, str); // socket, ls
-                if (str.toLowerCase().equals("goodbye"))
-                    writeToSocket(socket, "Goodbye\n");
+                if (str.toLowerCase().equals("true") || str.toLowerCase().equals("false"))
+                    writeToSocket(socket, "true\n");
                 else
                     writeToSocket(socket, str);  //////////
-            }  while (!str.toLowerCase().equals("goodbye"));
+            }  while (!str.toLowerCase().equals("true") || !str.toLowerCase().equals("false"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -110,7 +110,7 @@ public class ServerSockets {
     } // writeToSocket()
 
      /** 
-      *  main() creates a SocketServer at port 10001
+      *  main() creates a SocketServer at port 11001
       */
     public static void main(String args[]) {
         ServerSockets master = new ServerSockets(11001,5);

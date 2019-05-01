@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="AccessDb">
+  <ClassDiagramComponents>
+    <Class name="AccessDb" package="data" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="className" type="String" visibility="package" isStatic="true"/>
+        <Field name="url" type="String" visibility="package" isStatic="true"/>
+        <Field name="user" type="String" visibility="package" isStatic="true"/>
+        <Field name="password" type="String" visibility="package" isStatic="true"/>
+        <Field name="description" type="String" visibility="package" isStatic="true"/>
+        <Field name="products" type="ProductsBean[]" visibility="package" isStatic="true"/>
+        <Field name="product" type="ProductsBean" visibility="package" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="runQuery" returnType="String[]" visibility="public" isStatic="true">
+          <Argument type="String" name="queryString"/>
+          <Argument type="boolean" name="type"/>
+        </Method>
+        <Method name="indProductQuery" returnType="ProductsBean" visibility="public" isStatic="true">
+          <Argument type="String" name="queryString"/>
+          <Argument type="boolean" name="type"/>
+        </Method>
+        <Method name="arrayProductQuery" returnType="ProductsBean[]" visibility="public" isStatic="true">
+          <Argument type="String" name="queryString"/>
+          <Argument type="boolean" name="type"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

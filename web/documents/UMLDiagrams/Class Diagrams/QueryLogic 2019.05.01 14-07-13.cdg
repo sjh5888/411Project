@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="QueryLogic">
+  <ClassDiagramComponents>
+    <Class name="QueryLogic" package="data" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="query" type="String" visibility="private"/>
+        <Field name="startQuery" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="query" returnType="String" visibility="public">
+          <Argument type="String" name="query"/>
+        </Method>
+        <Method name="checkoutQuery" returnType="String" visibility="public">
+          <Argument type="String[]" name="idList"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

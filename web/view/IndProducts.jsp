@@ -5,19 +5,15 @@
 
 
 <div id ="centerColumn">
-
     <div class ="prodImage">
         <center>
             <h1>Product</h1><br>
-
             <div id="indivProd">
                 <div class ="image">
                     <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
                         <label class="pad_top">Product#: </label>
                         <span>${product.productId}</span><br>
                         <input type="hidden" name="itemID" value="${product.productId}">
-                        <%--<label class="pad_top">Product#: </label>--%>
-
                         <span>${product.name}</span><br>
                         <input type="hidden" name ="name" value="${product.name}">
                         <label class="pad_top"></label>
@@ -34,7 +30,6 @@
                             <input type="text" name="quantity" value="${CheckoutServlet.quantity}"><br>
                             <input type="hidden" name="action" value="addToCart">
                             <input type="submit" value="Add to Cart">
-
                             </form> 
                             <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
                                 <input type ="submit" name="action" value="viewCart">

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ClientSocket">
+  <ClassDiagramComponents>
+    <Class name="ClientSocket" package="sockets" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="socket" type="Socket" visibility="protected" isStatic="true"/>
+        <Field name="iStream" type="InputStream" visibility="protected"/>
+        <Field name="oStream" type="OutputStream" visibility="protected"/>
+        <Field name="switcher" type="String" visibility="private"/>
+        <Field name="servStr" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="url"/>
+          <Argument type="int" name="port"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="start" returnType="void" visibility="public">
+          <Argument type="String" name="cc"/>
+        </Method>
+        <Method name="requestService" returnType="void" visibility="protected">
+          <Argument type="Socket" name="socket"/>
+          <Argument type="String" name="cc"/>
+        </Method>
+        <Method name="setReturn" returnType="void" visibility="public">
+          <Argument type="String" name="rs"/>
+        </Method>
+        <Method name="getReturn" returnType="String" visibility="public"/>
+        <Method name="readFromSocket" returnType="String" visibility="protected">
+          <Argument type="Socket" name="sock"/>
+        </Method>
+        <Method name="writeToSocket" returnType="void" visibility="protected">
+          <Argument type="Socket" name="sock"/>
+          <Argument type="String" name="str"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

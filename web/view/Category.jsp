@@ -19,7 +19,6 @@
             <h1>Feel free to browse our categories <br/><br/></h1>
             <div class ="image">
                 <img src="./images2/CookiesCremeCandy.png" /><br>
-
                 <form action="${pageContext.servletContext.contextPath}/product" method="post">
                     <label class="pad_top">Category: </label>
                     <span><%=descriptions[0]%></span><br>

@@ -1,7 +1,8 @@
 package sockets;
 
 /**
- * IST 411 2nd Group Project ClientSocket.java Purpose: To accept a credit card
+ * IST 411 2nd Group Project ClientSocket.java 
+ * Purpose: To accept a credit card
  * number in string format and establish a connection to the server
  * "ServerSockets" for which the string will be passed to via a socket. Upon
  * receiving a response back from ServerSockets, the results will be sent back
@@ -90,7 +91,6 @@ public class ClientSocket {
             } while (!switcher.equals("off"));
         }
 
-        //return servStr;
     } // requestService()
 
     public void setReturn(String rs) {

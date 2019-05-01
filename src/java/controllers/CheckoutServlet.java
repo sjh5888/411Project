@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * IST 411 2nd Group Project
+ * CheckoutServlet.java
+ * Purpose: To redirect to the appropriate jsp pages and
+ * display the appropirate information as well as handle
+ * cookie creation, cookie deletion, and sessions.
+ * 
+ * @version 1.1 5/1/2019
+ * @authors Gerrald Kemper, Steve Hansen, Kevin Hansen
  */
+
 package controllers;
 
 import static data.AccessDb.arrayProductQuery;
@@ -72,55 +78,30 @@ public class CheckoutServlet extends HttpServlet {
         if (action == null) {
             url = "/index.html";
 
-        } else if (action.equals("addToCart")) { //need to not redirect but instead add a message or something
+        } else if (action.equals("addToCart")) { 
 
             String itemID = request.getParameter("itemID");
-            //String image = request.getParameter("image");
-            // price = request.getParameter("price");
-            String quantity = request.getParameter("quantity");
-            //String total = String.valueOf(Double.parseDouble(price1) * Integer.parseInt(quantity));
-            System.out.println("itemID for selected product: " + itemID);
+               String quantity = request.getParameter("quantity");
 
-            // Cookie c = new Cookie("cart", cart);
             Cookie c = new Cookie(itemID, quantity);
-            //c.setMaxAge(60 * 60 * 24 * 365 * 3);
             c.setMaxAge(-1);
             c.setPath("/");
 
             response.addCookie(c);
-
-            url = "/view/IndProducts.jsp";
-            // action = "viewCart";
-
-            //url = "/view/IndProducts.jsp"; 
+             
             url = "/view/ContinueShopping.jsp";
-            // action = "viewCart";
-
-            //request.setAttribute("action", action);
+            
         } else if (action.equals("viewCart")) {
 
             url = "/view/ShoppingCart.jsp";
 
-            /* Cookie[] cookies = request.getCookies();
-            String cookieName = "productCookie";
-            String cookieValue = "";
-            for (Cookie cookie : cookies){
-                if (cookieName.equals(cookie.getName())){
-                    cookieValue = cookie.getValue();
-                    System.out.println("ID is equal to: " + cookieValue);
-                }
-            }
-            request.setAttribute("cookie",cookieValue); */
             Cookie clientCookies[] = request.getCookies();
-            System.out.println("number of cookies stored on drive: " + clientCookies.length);
             final int COOKIE_AMOUNT = clientCookies.length;
-            //int i = 1;
             QueryLogic item = new QueryLogic();
 
             String[] idArray = new String[COOKIE_AMOUNT];
             String[] total = new String[COOKIE_AMOUNT];
             String query = "";
-            //HttpSession session = request.getSession();
 
             for (int i = 1; i < COOKIE_AMOUNT; i++) { //starting at one to bypass the session cookie
                 String itemID = clientCookies[i].getName();
@@ -129,17 +110,13 @@ public class CheckoutServlet extends HttpServlet {
                 total[i] = totalValue;
             }
             request.setAttribute("total", total);
-            // System.out.println("Testing element 1 of idArray: " + idArray[1]);
-            // System.out.println("Testing element 2 of idArray: " + idArray[2]);
 
             query = item.checkoutQuery(idArray);
-            System.out.println("Query for cookie IDs: " + query);
 
             try {
 
                 cartItems = arrayProductQuery(query, true);
                 request.setAttribute("items", cartItems);
-                //  System.out.println("Testing the db result: " + cartItems[i].getName());
 
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
@@ -153,10 +130,8 @@ public class CheckoutServlet extends HttpServlet {
 
         } else if (action.equals("confirm")) {
             cookies = request.getCookies();
-            //System.out.println("help me"); //test
             ClientSocket cs = new ClientSocket("localhost", 11001);
 
-            //String cardNumber = (String) request.getAttribute("cardNumber");
             String cardNumber = request.getParameter("cardNumber"); // 1234567890123452 is a valid test number
             System.out.println("Card" + cardNumber);
             cs.start(cardNumber);
@@ -199,6 +174,6 @@ public class CheckoutServlet extends HttpServlet {
     @Override
     public String getServletInfo() {
         return "Short description";
-    }// </editor-fold>
+    }// getServletInfo()
 
 }
