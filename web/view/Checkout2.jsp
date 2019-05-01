@@ -13,14 +13,14 @@
             <label class="pad_top">Credit Card Number: </label><br> 
             <input type= "text" name="cardNumber"/><br><br>
             <label class="pad_top">First Name: </label><br>
-            <input type="text" name="firstName" value="${CheckoutServlet.firstName}"><br><br>
+            <input type="text" name="firstName" value="<%=request.getParameter("firstName")%>"><br><br>
             <label class="pad_top">Last Name: </label><br>
-            <input type="text" name="lastName" value="${CheckoutServlet.lastName}"><br><br>
+            <input type="text" name="lastName" value="<%=request.getParameter("lastName")%>"><br><br>
             <label class="pad_top">Address: </label><br>
-            <input type="text" name="lastName" value="${CheckoutServlet.address}"><br><br>  
+            <input type="text" name="address" value="<%=request.getParameter("address")%>"><br><br>  
             <label class="pad_top">Shipping Method: </label><br>
-            <input type="radio" name="shipping" value="Ground"> Free Ground Ship<br>
-            <input type="radio" name="shipping" value="">   Free Two-Day Air   <br>
+            <input type="radio" name="shipping" value="Free Ground Ship"> Free Ground Ship<br>
+            <input type="radio" name="shipping" value="Free Two-Day Air">   Free Two-Day Air   <br>
             <input type= "submit" value="submit"/><br>   
         </form>
     </center>

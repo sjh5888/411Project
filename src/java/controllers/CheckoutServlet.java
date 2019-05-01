@@ -75,7 +75,7 @@ public class CheckoutServlet extends HttpServlet {
         } else if (action.equals("addToCart")) { 
 
             String itemID = request.getParameter("itemID");
-            String quantity = request.getParameter("quantity");
+               String quantity = request.getParameter("quantity");
 
             Cookie c = new Cookie(itemID, quantity);
             c.setMaxAge(-1);
