@@ -8,8 +8,8 @@
         <h1>Confirmation</h1>
         <div class ="categoryImage">
             <p>Thank you <strong><%= request.getParameter("firstName")%> 
-                    <%= request.getParameter("lastName")%></strong> for your purchase!<br> 
-                    Your package will be sent to: <br><br><strong>
+                    <%= request.getParameter("lastName")%></strong> for your purchase!</p><br> 
+                    <p>Your package will be sent to: <br><br><strong>
                     <%= request.getParameter("address")%><br>
                     by <%= request.getParameter("shipping")%></strong><br><br>
                 You will be receiving your candy shortly!</p>
