@@ -37,7 +37,7 @@ public class ServerSockets {
     } 
  
     /**
-     *  run() defines the server thread's main behavior which is
+     *  start() defines the server thread's main behavior which is
      *   simply to provide service whenever it is requested by a client. 
      *   Since an I/O exception may result, it is handled here. The
      *   server repeatedly accepts a connection from a client and
