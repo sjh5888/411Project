@@ -37,12 +37,11 @@
                 //out.write("/checkout\" method=\"post\">\n");
                 //out.write("                \n");
                 out.write("                \n");
-                out.write("                <label class=\"pad_top\">Product Name: </label>\n");
+                out.write("                <label class=\"pad_top\"></label>\n");
                 out.write("                ");
                 out.write("\n");
                 out.write("                <span>");
                 out.print(items[i].getName());
-                System.out.println("Testing to see if i is initialized: " + items[i].getName());
                 out.write("</span><br>\n");
                 out.write("                <label class=\"pad_top\"></label>\n");
                 out.write("                <span><img src=\"");
@@ -69,18 +68,19 @@
                 out.write("\n");
 
             }
-            out.write("                 Total: $");
+            out.write("               <table class=\"box\"><tr><td>  Total: $");
             out.print(String.format("%.2f", combineAll));
-            out.write("                <form action=\"checkout\" method=\"post\">\n");
+            out.write("                </td></tr><tr><td><form action=\"checkout\" method=\"post\">\n");
             out.write("                <input type=\"hidden\" name=\"action\" value=\"checkout\">\n");
             out.write("                <input type=\"submit\" value=\"Checkout\">\n<br>");
             out.write("                </form>\n");
             out.write("                       \n");
 
-            out.write("                <form action=\"product\" method=\"post\">\n");
+            out.write("                </td></tr><tr><td><form action=\"product\" method=\"post\">\n");
             out.write("                    <input type=\"hidden\" name=\"action\" value=\"continue\"/>\n");
             out.write("                    <input type=\"submit\" value=\"Continue Shopping\">\n");
             out.write("                </form>");
+            out.write("</td></tr></table>");
             out.write("    </center>\n");
             out.write("    </div> \n");
             out.write("</div> \n");

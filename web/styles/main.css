@@ -10,6 +10,7 @@ body {
     height: 100px;
     background-color: appworkspace;
     text-align: center;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 #centerColumn {
     height: 400px;
@@ -30,10 +31,15 @@ body {
     align: center;
 }
 #footer {
-    height: 30px;
+    position: absolute; 
+    bottom: 0px;
+    width: 100%;
+    height: 45px;
     clear: left;
     background-color: appworkspace;
     text-align: center;
+    color: rgba(0,0,0,0.6);
+    text-shadow: 2px 2px 3px rgba(255,255,255,0.1);
 }
 #logo {
     height: 150px;
@@ -69,8 +75,18 @@ body {
     margin: 21px 14px 6px;
     float: left;
     align-content:center;
-}
 
+}
+th, td {
+     padding: 5px;
+     }
+
+.box {
+    border-style: solid;
+    border-width: medium;
+    text-align: center;
+
+}
 .row::after {
   content: "";
   clear: both;

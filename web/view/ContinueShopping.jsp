@@ -10,12 +10,13 @@
     <head>
         <style>
             .cs{
-                background-color: blue;
+                background-color: appworkspace;
                 border: 2;
                 color: white;
                 padding: 15px 32px;
                 text-align: center;
                 text-decoration: none;
+                margin: 10px;
                 display: inline-block;
                 font-size: 16px;
             }
@@ -28,7 +29,7 @@
         <h1>Do you want to checkout or continue shopping</h1>
         <form action="product" method="post">
             <input type="hidden" name ="action" value ="continue"/>  
-            <input type= "submit" class="cs" value="Continue Shopping"> 
+            <input type= "submit" class="cs" value="Continue Shopping "> 
         </form>
         <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
             <input type="hidden" name="action" value="viewCart" />
