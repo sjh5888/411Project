@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ProductsBean">
+  <ClassDiagramComponents>
+    <Class name="ProductsBean" package="data" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="productId" type="long" visibility="private"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="categoryId" type="long" visibility="private"/>
+        <Field name="price" type="String" visibility="private"/>
+        <Field name="description" type="String" visibility="private"/>
+        <Field name="inventory" type="int" visibility="private"/>
+        <Field name="shippingLocation" type="String" visibility="private"/>
+        <Field name="weight" type="double" visibility="private"/>
+        <Field name="size" type="String" visibility="private"/>
+        <Field name="imageLocation" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="setProductId" returnType="void" visibility="public">
+          <Argument type="long" name="productId"/>
+        </Method>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="setCategoryId" returnType="void" visibility="public">
+          <Argument type="long" name="categoryId"/>
+        </Method>
+        <Method name="setPrice" returnType="void" visibility="public">
+          <Argument type="String" name="pric"/>
+        </Method>
+        <Method name="setDescription" returnType="void" visibility="public">
+          <Argument type="String" name="description"/>
+        </Method>
+        <Method name="setInventory" returnType="void" visibility="public">
+          <Argument type="int" name="inventory"/>
+        </Method>
+        <Method name="setShippingLocation" returnType="void" visibility="public">
+          <Argument type="String" name="shippingLocation"/>
+        </Method>
+        <Method name="setWeight" returnType="void" visibility="public">
+          <Argument type="double" name="weight"/>
+        </Method>
+        <Method name="setSize" returnType="void" visibility="public">
+          <Argument type="String" name="size"/>
+        </Method>
+        <Method name="setImageLocation" returnType="void" visibility="public">
+          <Argument type="String" name="imageLocation"/>
+        </Method>
+        <Method name="getProductId" returnType="long" visibility="public"/>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="getCategoryId" returnType="long" visibility="public"/>
+        <Method name="getPrice" returnType="String" visibility="public"/>
+        <Method name="getDescription" returnType="String" visibility="public"/>
+        <Method name="getInventory" returnType="int" visibility="public"/>
+        <Method name="getShippingLocation" returnType="String" visibility="public"/>
+        <Method name="getWeight" returnType="double" visibility="public"/>
+        <Method name="getSize" returnType="String" visibility="public"/>
+        <Method name="getImageLocation" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

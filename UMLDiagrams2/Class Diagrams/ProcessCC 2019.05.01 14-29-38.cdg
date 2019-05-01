@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="ProcessCC">
+  <ClassDiagramComponents>
+    <Class name="ProcessCC" package="data" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="convert" type="String" visibility="private"/>
+        <Field name="result" type="String" visibility="private"/>
+        <Field name="t" type="String" visibility="private"/>
+        <Field name="p" type="String" visibility="private"/>
+        <Field name="c" type="int" visibility="private"/>
+        <Field name="n" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="process" returnType="String" visibility="public">
+          <Argument type="Socket" name="socket"/>
+          <Argument type="String" name="id"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>
