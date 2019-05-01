@@ -90,7 +90,6 @@ public class ClientSocket {
             } while (!switcher.equals("off"));
         }
 
-        //return servStr;
     } // requestService()
 
     public void setReturn(String rs) {
