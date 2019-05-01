@@ -1,13 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor. 
+/**
+ * IST 411 2nd Group Project DatabaseSetup.java
+ * Purpose: To create a Categories table and a 
+ * products table and then populate both tables
+ * with appropriate data.
+ *
+ * @version 1.1 4/15/2019
+ * @author Kevin Hansen
  */
 
-/**
- *
- * @author Kevin
- */
 import java.util.*;
 import java.io.*;
 import java.sql.*;
