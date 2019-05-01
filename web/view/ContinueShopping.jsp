@@ -10,15 +10,19 @@
     <head>
         <style>
             .cs{
-                background-color: appworkspace;
-                border: 2;
+                background-color: blue;
                 color: white;
-                padding: 15px 32px;
                 text-align: center;
-                text-decoration: none;
-                margin: 10px;
-                display: inline-block;
                 font-size: 16px;
+                 -webkit-border-radius: 10px;
+               
+            }
+                
+                body {
+                background-image: url("./images2/background.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                
             }
         </style>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

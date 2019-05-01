@@ -2,10 +2,22 @@
     Document   : Checkout
     Author     : gkemp
 --%>
+<style>
+    
+    body {
+    background-image: url("./images2/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+
+}
+</style>
+
+<body>
 
 <div id ="centerColumn">
     <center>
-        <h1>That number is invalid. </h1>
+        <h1 style="font-style:oblique; font-size: 22px; color:red">That number is invalid. </h1>
         <span>${product.name}</span>
         <h2>Please Try again</h2>
         <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
@@ -25,3 +37,4 @@
         </form>
     </center>
 </div>
+</body>

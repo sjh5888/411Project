@@ -11,12 +11,23 @@
 
 
 %>
+<style>
+    
+    body {
+    background-image: url("./images2/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 
+
+
+</style>
+<body>
 <div id ="centerColumn">
     <div class="row">
         <center>
-            <h1>Feel free to browse our products <br/><br/></h1>
-
+<br>
+        <h1 style="font-style:oblique; font-size: 22px">Feel free to browse our products <br/><br/></h1>
+        <div class="style">
             <%          for (int i = 0; i < products.length; i++) {
                     out.write("        <div class =\"image\">\n");
                     out.write("            <form action=\"");
@@ -40,13 +51,15 @@
                     out.write("                <span>");
                     out.print(products[i].getPrice());
                     out.write("</span><br>            \n");
-                    out.write("                <input type=\"submit\" value=\"Choose\"/>\n");
+                    out.write("                <input class = \"bButton\"  type=\"submit\" value=\"Choose\"/>\n");
                     out.write("            </form>\n");
                     out.write("        </div> \n");
                 }
             %>
 
-            <br><br> 
+           </div> 
+      <br><br> 
         </center>
     </div>
 </div>
+</body>

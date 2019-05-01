@@ -5,7 +5,18 @@
 
 <!-- ShoppingCart.jsp will show a user their items and will allow them to 
       checkout or continue shopping and uses checkoutServlet-->
+<style>
+    
+    body {
+    background-image: url("./images2/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
 
+}
+</style>
+
+<body>
 <div id ="centerColumn">
     <div class ="row">
         <center>
@@ -72,13 +83,13 @@
             out.print(String.format("%.2f", combineAll));
             out.write("                </td></tr><tr><td><form action=\"checkout\" method=\"post\">\n");
             out.write("                <input type=\"hidden\" name=\"action\" value=\"checkout\">\n");
-            out.write("                <input type=\"submit\" value=\"Checkout\">\n<br>");
+            out.write("                <input type=\"submit\" class=\"bButton\" value=\"Checkout\">\n<br>");
             out.write("                </form>\n");
             out.write("                       \n");
 
             out.write("                </td></tr><tr><td><form action=\"product\" method=\"post\">\n");
             out.write("                    <input type=\"hidden\" name=\"action\" value=\"continue\"/>\n");
-            out.write("                    <input type=\"submit\" value=\"Continue Shopping\">\n");
+            out.write("                    <input type=\"submit\" class=\"bButton\" value=\"Continue Shopping\">\n");
             out.write("                </form>");
             out.write("</td></tr></table>");
             out.write("    </center>\n");
@@ -92,4 +103,4 @@
 
     </div>
 </div>
-
+</body>
