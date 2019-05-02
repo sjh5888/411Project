@@ -11,13 +11,18 @@
         <style>
             .cs{
                 background-color: blue;
-                border: 2;
                 color: white;
-                padding: 15px 32px;
                 text-align: center;
-                text-decoration: none;
-                display: inline-block;
                 font-size: 16px;
+                 -webkit-border-radius: 10px;
+               
+            }
+                
+                body {
+                background-image: url("./images2/background.jpg");
+                background-repeat: no-repeat;
+                background-size: cover;
+                
             }
         </style>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,7 +33,7 @@
         <h1>Do you want to checkout or continue shopping</h1>
         <form action="product" method="post">
             <input type="hidden" name ="action" value ="continue"/>  
-            <input type= "submit" class="cs" value="Continue Shopping"> 
+            <input type= "submit" class="cs" value="Continue Shopping "> 
         </form>
         <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
             <input type="hidden" name="action" value="viewCart" />

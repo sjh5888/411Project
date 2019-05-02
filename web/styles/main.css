@@ -3,29 +3,43 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 20 px auto;
     width: auto;
+    background-image: url("images2/background.jpg");
 }
 #main {
 }
 #header {
     height: 100px;
-    background: #b3d9ff;
+    background-image: url("411Project/images2/background.jpg");
     text-align: center;
+    text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 #centerColumn {
-    height: 500px;
+    height: 400px;
     width: auto;
     background: #ffffff;
     align-content: center;
     padding-left: 30px;
 }
+
+#centerColumn2 {
+    height: 445px;
+    width: auto;
+    align-content: center;
+    padding-left: 30px;
+}
 #indivProd {
     padding-left: 325px;
+    align: center;
 }
 #footer {
-    height: 30px;
+    position: absolute; 
+    bottom: 0px;
+    width: 100%;
+    height: 45px;
     clear: left;
-    background: #b3d9ff;
     text-align: center;
+    color: rgba(0,0,0,0.6);
+    text-shadow: 2px 2px 3px rgba(255,255,255,0.1);
 }
 #logo {
     height: 150px;
@@ -45,7 +59,7 @@ body {
     height: 50px;
     width: 850px;
     float:right;
-    background: #b3d9ff
+
 }
 .headerWidget{
     width: 194px;
@@ -53,15 +67,25 @@ body {
     font-size: small;
     float: right;
     line-height: 25px;
-    background: #b3d9ff;
 }
 .image {
     height: 200px;
     width: 275px;
     margin: 21px 14px 6px;
     float: left;
-}
+    align-content:center;
 
+}
+th, td {
+     padding: 5px;
+     }
+
+.box {
+    border-style: solid;
+    border-width: medium;
+    text-align: center;
+
+}
 .row::after {
   content: "";
   clear: both;
@@ -96,5 +120,45 @@ span {
 
 .pad_top {
     padding-top: 0.25em;
+}
+
+.myButton{
+           background-color: Red;
+           color: white;
+           border-radius: 5px;
+           height: 30px;
+           width: 75px;
+           position: absolute; 
+           left: 25px;
+           top: 25px;
+           cursor:pointer;
+}
+
+input[class=viewCart] {
+
+    marigin-top: 25px;
+    background:#0BB708;
+    color:white;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+
+}
+
+input[class=bButton] {
+
+    marigin-top: 25px;
+    background:white; 
+    border-color: black;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px; 
+
+}
+
+input[class=bButton]:hover
+{
+    background:black;
+    color:white;
 }
 

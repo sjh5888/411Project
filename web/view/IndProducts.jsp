@@ -3,11 +3,28 @@
     Author     : gkemp
 --%>
 
+<!-- IndProducts.jsp will show an individual product with its price and 
+     description.  A customer can choose the quantity of the product they
+     would like to purchase and uses checkoutServlet-->
+<style>
+    
+    body {
+    background-image: url("./images2/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+
+}
+</style>
+
+<body>
+
 
 <div id ="centerColumn">
     <div class ="prodImage">
         <center>
-            <h1>Product</h1><br>
+            <h1 style="font-style:oblique; font-size: 22px">Product</h1><br>
+
             <div id="indivProd">
                 <div class ="image">
                     <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
@@ -29,12 +46,12 @@
                             <label class="pad_top">Enter Quantity: </label>
                             <input type="text" name="quantity" value="${CheckoutServlet.quantity}"><br>
                             <input type="hidden" name="action" value="addToCart">
-                            <input type="submit" value="Add to Cart">
+                            <input class="bButton" type="submit" value="Add to Cart">
                             </form> 
                             <form action="${pageContext.servletContext.contextPath}/checkout" method="post">
-                                <input type ="submit" name="action" value="viewCart">
+                                <input class="bButton" type ="submit" name="action" value="viewCart">
                             </form>
                             </center>
                         </div>                     
                 </div> 
-
+        </body>

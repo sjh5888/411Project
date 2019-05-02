@@ -6,12 +6,31 @@
     <link rel="stylesheet" type="text/css" href="styles/main.css">
 </head>
 
+<!-- Category.jsp This page lists the categories and uses the productServlet -->
+
 <%
 
     String[] descriptions = (String[]) request.getAttribute("descriptions");
 
 %>
+<style>
+    
+    .h1 {
+         font-style: oblique;
+         font-size: 22px;
+         
+    }
+    
+    body {
+    background-image: url("./images2/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
 
+}
+
+</style>
+<body>
 <div id ="centerColumn">
 
     <div class="row">
@@ -24,7 +43,7 @@
                     <span><%=descriptions[0]%></span><br>
                     <input type="hidden" name="action" value="products"/>
                     <input type="hidden" name="description" value="<%=descriptions[0]%>"/>
-                    <input type="submit" value="Choose"/>
+                    <input class="bButton" type="submit" value="Choose"/>
                 </form>
             </div> 
             <div class ="image">
@@ -34,7 +53,7 @@
                     <span><%=descriptions[1]%></span><br>
                     <input type="hidden" name="action" value="products">
                     <input type="hidden" name="description" value="<%=descriptions[1]%>"/>
-                    <input type="submit" value="Choose">
+                    <input class="bButton" type="submit" value="Choose">
                 </form>
             </div>  
             <div class ="image">
@@ -44,7 +63,7 @@
                     <span><%=descriptions[2]%></span><br>
                     <input type="hidden" name="action" value="products">
                     <input type="hidden" name="description" value="<%=descriptions[2]%>"/>
-                    <input type="submit" value="Choose">
+                    <input class="bButton" type="submit" value="Choose">
                 </form>
             </div> 
             <div class ="image">
@@ -54,9 +73,10 @@
                     <span><%=descriptions[3]%></span><br>
                     <input type="hidden" name="action" value="products">
                     <input type="hidden" name="description" value="<%=descriptions[3]%>"/>
-                    <input type="submit" value="Choose">
+                    <input class="bButton" type="submit" value="Choose">
                 </form>
             </div> 
         </center>
     </div>
 </div>
+</body>
