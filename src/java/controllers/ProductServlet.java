@@ -7,11 +7,10 @@
  * on user selections to send to QueryLogic in order to structure
  * a query to send to the database so returned information can be
  * displayed properly.
- * 
+ *
  * @version 1.1 5/1/2019
  * @author Gerrald Kemper
  */
-
 package controllers;
 
 import static data.AccessDb.*;
@@ -19,8 +18,6 @@ import data.ProductsBean;
 import data.QueryLogic;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -44,7 +41,7 @@ public class ProductServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        doPost(request, response); 
+        doPost(request, response);
     }
 
     /**
@@ -61,55 +58,53 @@ public class ProductServlet extends HttpServlet {
 
         String action = request.getParameter("action");
 
-        // perform action and set URL to appropriate page
         String url = "/index.html";
         String[] description;
         String descriptionHash = "";
-        ProductsBean[] products; //array of java beans
+        ProductsBean[] products;
         ProductsBean product;
 
         if (action.equals("continue")) { //continue button on index page
             url = "/view/Category.jsp";
             QueryLogic cat = new QueryLogic();
             String query = cat.query("categories"); //categories table
-           
+
             try {
                 description = runQuery(query, true); //true for pull
-                
-                request.setAttribute("descriptions",description);
-               
+
+                request.setAttribute("descriptions", description);
+
             } catch (SQLException ex) {
                 ex.getMessage();
             } // end catch
-            
+
         } else if (action.equals("products")) { //selected product category
             url = "/view/Products.jsp";
             QueryLogic all = new QueryLogic();
-            String descr =  request.getParameter("description");
-                        
+            String descr = request.getParameter("description");
+
             descriptionHash = String.valueOf(Math.abs(descr.hashCode()));
-            descriptionHash = "c" + descriptionHash; //this is the description ID that will be stored in the Db.
-            //retrieve categories from Db - call access db and query logic
+            descriptionHash = "c" + descriptionHash; // this is the description ID that will be stored in the Db.
+
             String query = all.query(descriptionHash);
             try {
                 products = arrayProductQuery(query, true); // this will return an array of product beans
-                request.setAttribute("products", products); //products should be accessible to the view using the "products" attribute
+                request.setAttribute("products", products);
             } catch (SQLException ex) {
                 System.out.println(ex);
             } // end catch
-            
 
         } else if (action.equals("select")) { //selected product
-            url = "/view/IndProducts.jsp"; //create array of product beans 
-            String prodID = String.valueOf(request.getParameter("ProductId")); //will get the selected ID from the URL maybe lmao. 
-             System.out.println(prodID);
+            url = "/view/IndProducts.jsp";
+            String prodID = String.valueOf(request.getParameter("ProductId"));
+            //System.out.println(prodID);
             QueryLogic one = new QueryLogic();
-            
+
             String query = one.query("p" + prodID);
             System.out.println("test: " + query);
             try {
-                product = indProductQuery(query, true); //stored in a bean.
-                request.setAttribute("product", product); //java bean for individual product is stored in the request obj.
+                product = indProductQuery(query, true);
+                request.setAttribute("product", product);
 
             } catch (SQLException ex) {
                 ex.getMessage();
